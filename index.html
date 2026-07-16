@@ -1737,6 +1737,10 @@ function renderStats() {
     empty.textContent = "No quiz attempts recorded yet.";
     container.appendChild(empty);
   } else {
+    const allTimeAttempted = Object.values(progress.topicStats).reduce((sum, s) => sum + s.attempted, 0);
+    const allTimeCorrect = Object.values(progress.topicStats).reduce((sum, s) => sum + s.correct, 0);
+    container.appendChild(renderScoreDonut(allTimeCorrect, allTimeAttempted));
+
     topics.forEach(topic => {
       const s = progress.topicStats[topic];
       const card = document.createElement("div");
