@@ -1415,10 +1415,19 @@ function shuffle(array) {
   return a;
 }
 
+function shuffleQuestionOptions(question) {
+  const indices = shuffle(question.options.map((_, i) => i));
+  return {
+    ...question,
+    options: indices.map(i => question.options[i]),
+    correctIndex: indices.indexOf(question.correctIndex)
+  };
+}
+
 function startQuiz() {
   const topics = state.selectedTopics.length ? state.selectedTopics : getTopics();
   const pool = QUESTIONS.filter(q => topics.includes(q.topic));
-  state.sessionQuestions = shuffle(pool);
+  state.sessionQuestions = shuffle(pool.map(shuffleQuestionOptions));
   state.currentIndex = 0;
   state.answers = [];
   state.screen = "quiz";
@@ -1559,6 +1568,7 @@ function renderResults() {
         missed
           .map(a => state.sessionQuestions.find(q => q.id === a.questionId))
           .filter(Boolean)
+          .map(shuffleQuestionOptions)
       );
       state.currentIndex = 0;
       state.answers = [];
@@ -1610,7 +1620,7 @@ function renderStats() {
     retryBtn.textContent = "Quiz Missed Questions";
     retryBtn.addEventListener("click", () => {
       const missedQuestions = QUESTIONS.filter(q => progress.missedIds.includes(q.id));
-      state.sessionQuestions = shuffle(missedQuestions);
+      state.sessionQuestions = shuffle(missedQuestions.map(shuffleQuestionOptions));
       state.currentIndex = 0;
       state.answers = [];
       state.screen = "quiz";
