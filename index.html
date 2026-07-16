@@ -654,10 +654,67 @@ function recordAnswer(question, chosenIndex) {
     state.currentIndex++;
   }
 }
+function saveSessionToStorage() {
+  /* implemented in a later task */
+}
+
 function renderResults() {
-  const div = document.createElement("div");
-  div.textContent = "Results screen placeholder";
-  return div;
+  const container = document.createElement("div");
+  const total = state.answers.length;
+  const correctCount = state.answers.filter(a => a.correct).length;
+
+  saveSessionToStorage();
+
+  const summary = document.createElement("div");
+  summary.className = "card";
+  const scoreText = document.createElement("h2");
+  scoreText.textContent = `Score: ${correctCount} / ${total}`;
+  summary.appendChild(scoreText);
+  container.appendChild(summary);
+
+  const missed = state.answers.filter(a => !a.correct);
+  if (missed.length) {
+    const missedTitle = document.createElement("h3");
+    missedTitle.textContent = "Missed Questions";
+    container.appendChild(missedTitle);
+
+    missed.forEach(answer => {
+      const q = state.sessionQuestions.find(q => q.id === answer.questionId);
+      const card = document.createElement("div");
+      card.className = "card";
+      const qText = document.createElement("p");
+      qText.textContent = q.question;
+      card.appendChild(qText);
+      const correctText = document.createElement("p");
+      correctText.textContent = "Correct answer: " + q.options[q.correctIndex];
+      card.appendChild(correctText);
+      const explanation = document.createElement("p");
+      explanation.className = "explanation";
+      explanation.textContent = q.explanation;
+      card.appendChild(explanation);
+      container.appendChild(card);
+    });
+
+    const retryBtn = document.createElement("button");
+    retryBtn.textContent = "Retry Missed Only";
+    retryBtn.addEventListener("click", () => {
+      state.sessionQuestions = shuffle(missed.map(a => state.sessionQuestions.find(q => q.id === a.questionId)));
+      state.currentIndex = 0;
+      state.answers = [];
+      state.screen = "quiz";
+      render();
+    });
+    container.appendChild(retryBtn);
+  }
+
+  const homeBtn = document.createElement("button");
+  homeBtn.className = "secondary";
+  homeBtn.textContent = "Back to Home";
+  homeBtn.style.marginLeft = "0.5rem";
+  homeBtn.addEventListener("click", () => { state.screen = "home"; render(); });
+  container.appendChild(homeBtn);
+
+  return container;
 }
 function renderStats() {
   const div = document.createElement("div");
