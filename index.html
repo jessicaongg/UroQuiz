@@ -1386,6 +1386,19 @@ function renderHome() {
   title.textContent = "UroQuiz";
   container.appendChild(title);
 
+  const readinessProgress = loadProgress();
+  const readinessAttempted = Object.values(readinessProgress.topicStats).reduce((sum, s) => sum + s.attempted, 0);
+  const readinessCorrect = Object.values(readinessProgress.topicStats).reduce((sum, s) => sum + s.correct, 0);
+  const readinessCard = document.createElement("div");
+  readinessCard.className = "card";
+  if (readinessAttempted > 0) {
+    const pct = Math.round((readinessCorrect / readinessAttempted) * 100);
+    readinessCard.textContent = `Exam Readiness: ${pct}%`;
+  } else {
+    readinessCard.textContent = "Exam Readiness: Not enough data yet";
+  }
+  container.appendChild(readinessCard);
+
   const progress = loadProgress();
   if (progress.inProgressSession) {
     const resumeBtn = document.createElement("button");
