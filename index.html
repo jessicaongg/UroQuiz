@@ -1498,11 +1498,12 @@ function renderQuiz() {
 
 function recordAnswer(question, chosenIndex) {
   const correct = chosenIndex === question.correctIndex;
-  state.answers.push({ questionId: question.id, chosenIndex, correct });
-
-  // Exam mode has no review-then-advance step, so advance the index here immediately.
-  if (state.mode === "exam") {
-    state.currentIndex++;
+  const existing = state.answers.find(a => a.questionId === question.id);
+  if (existing) {
+    existing.chosenIndex = chosenIndex;
+    existing.correct = correct;
+  } else {
+    state.answers.push({ questionId: question.id, chosenIndex, correct });
   }
 }
 function saveSessionToStorage() {
