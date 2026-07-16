@@ -65,6 +65,20 @@
 <script>
 const STORAGE_KEY = "uroquiz-progress-v1";
 
+function loadProgress() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return { topicStats: {}, missedIds: [] };
+    return JSON.parse(raw);
+  } catch (e) {
+    return { topicStats: {}, missedIds: [] };
+  }
+}
+
+function saveProgress(progress) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+}
+
 const QUESTIONS = [
   // ---- ONCOLOGY: prostate ----
   {
@@ -655,7 +669,22 @@ function recordAnswer(question, chosenIndex) {
   }
 }
 function saveSessionToStorage() {
-  /* implemented in a later task */
+  const progress = loadProgress();
+
+  state.answers.forEach(answer => {
+    const q = state.sessionQuestions.find(q => q.id === answer.questionId);
+    const topic = q.topic;
+    if (!progress.topicStats[topic]) progress.topicStats[topic] = { attempted: 0, correct: 0 };
+    progress.topicStats[topic].attempted++;
+    if (answer.correct) progress.topicStats[topic].correct++;
+
+    const missedSet = new Set(progress.missedIds);
+    if (answer.correct) missedSet.delete(answer.questionId);
+    else missedSet.add(answer.questionId);
+    progress.missedIds = [...missedSet];
+  });
+
+  saveProgress(progress);
 }
 
 function renderResults() {
@@ -721,9 +750,55 @@ function renderResults() {
   return container;
 }
 function renderStats() {
-  const div = document.createElement("div");
-  div.textContent = "Stats screen placeholder";
-  return div;
+  const container = document.createElement("div");
+  const title = document.createElement("h1");
+  title.textContent = "Stats";
+  container.appendChild(title);
+
+  const progress = loadProgress();
+
+  const topics = Object.keys(progress.topicStats);
+  if (!topics.length) {
+    const empty = document.createElement("p");
+    empty.textContent = "No quiz attempts recorded yet.";
+    container.appendChild(empty);
+  } else {
+    topics.forEach(topic => {
+      const s = progress.topicStats[topic];
+      const card = document.createElement("div");
+      card.className = "card";
+      const pct = s.attempted ? Math.round((s.correct / s.attempted) * 100) : 0;
+      card.textContent = `${topic}: ${s.correct}/${s.attempted} correct (${pct}%)`;
+      container.appendChild(card);
+    });
+  }
+
+  if (progress.missedIds.length) {
+    const missedTitle = document.createElement("h3");
+    missedTitle.textContent = `Missed Question Log (${progress.missedIds.length})`;
+    container.appendChild(missedTitle);
+
+    const retryBtn = document.createElement("button");
+    retryBtn.textContent = "Quiz Missed Questions";
+    retryBtn.addEventListener("click", () => {
+      const missedQuestions = QUESTIONS.filter(q => progress.missedIds.includes(q.id));
+      state.sessionQuestions = shuffle(missedQuestions);
+      state.currentIndex = 0;
+      state.answers = [];
+      state.screen = "quiz";
+      render();
+    });
+    container.appendChild(retryBtn);
+  }
+
+  const homeBtn = document.createElement("button");
+  homeBtn.className = "secondary";
+  homeBtn.textContent = "Back to Home";
+  homeBtn.style.marginLeft = "0.5rem";
+  homeBtn.addEventListener("click", () => { state.screen = "home"; render(); });
+  container.appendChild(homeBtn);
+
+  return container;
 }
 
 render();
