@@ -65,6 +65,164 @@
 <script>
 const STORAGE_KEY = "uroquiz-progress-v1";
 
+const QUESTIONS = [
+  // ---- ONCOLOGY: prostate ----
+  {
+    id: "onco-prostate-001",
+    topic: "oncology", subtopic: "prostate",
+    question: "According to EAU risk stratification for localised prostate cancer, which combination defines 'low risk' disease?",
+    options: [
+      "PSA <10 ng/mL AND ISUP grade 1 AND cT1-T2a",
+      "PSA <20 ng/mL AND ISUP grade 2 AND cT2b",
+      "PSA <10 ng/mL AND ISUP grade 3 AND cT1c",
+      "PSA >20 ng/mL AND ISUP grade 1 AND cT2a"
+    ],
+    correctIndex: 0,
+    explanation: "EAU low-risk localised prostate cancer requires all three: PSA <10 ng/mL, ISUP grade 1 (Gleason ≤6), and clinical stage T1-T2a. Any higher value on one axis moves it to intermediate or high risk."
+  },
+  {
+    id: "onco-prostate-002",
+    topic: "oncology", subtopic: "prostate",
+    question: "Active surveillance is most appropriate for which prostate cancer risk group per EAU guidelines?",
+    options: ["High risk", "Low risk", "Metastatic", "Locally advanced (T3-T4)"],
+    correctIndex: 1,
+    explanation: "Active surveillance is the preferred management option for low-risk localised prostate cancer to avoid overtreatment of indolent disease."
+  },
+  {
+    id: "onco-prostate-003",
+    topic: "oncology", subtopic: "prostate",
+    question: "In multiparametric MRI reporting for prostate cancer, a PI-RADS score of 4 or 5 indicates:",
+    options: [
+      "No clinically significant cancer likely",
+      "Clinically significant cancer is highly likely, biopsy recommended",
+      "Indeterminate, repeat MRI in 6 months",
+      "Only relevant for post-treatment surveillance"
+    ],
+    correctIndex: 1,
+    explanation: "PI-RADS 4-5 indicates high probability of clinically significant prostate cancer and should prompt targeted biopsy."
+  },
+  // ---- ONCOLOGY: bladder ----
+  {
+    id: "onco-bladder-001",
+    topic: "oncology", subtopic: "bladder",
+    question: "For high-risk non-muscle-invasive bladder cancer (NMIBC), what is the recommended intravesical therapy per EAU guidelines?",
+    options: [
+      "Intravesical chemotherapy single instillation only",
+      "BCG induction plus maintenance for 1-3 years",
+      "Immediate radical cystectomy in all cases",
+      "Surveillance only, no adjuvant therapy"
+    ],
+    correctIndex: 1,
+    explanation: "High-risk NMIBC is treated with BCG induction (6 weekly instillations) followed by a maintenance schedule, typically for 1-3 years depending on risk substratification."
+  },
+  {
+    id: "onco-bladder-002",
+    topic: "oncology", subtopic: "bladder",
+    question: "Which T stage defines muscle-invasive bladder cancer (MIBC)?",
+    options: ["Ta", "T1", "T2 or higher", "Tis (carcinoma in situ)"],
+    correctIndex: 2,
+    explanation: "MIBC is defined as tumour invasion into or beyond the muscularis propria, i.e. ≥T2. Ta, T1, and Tis are all non-muscle-invasive."
+  },
+  {
+    id: "onco-bladder-003",
+    topic: "oncology", subtopic: "bladder",
+    question: "The standard treatment for MIBC in a fit patient without metastases is:",
+    options: [
+      "Radical cystectomy with pelvic lymph node dissection, ideally after neoadjuvant chemotherapy",
+      "BCG maintenance therapy",
+      "Transurethral resection alone",
+      "Active surveillance"
+    ],
+    correctIndex: 0,
+    explanation: "Radical cystectomy with lymphadenectomy (preceded by cisplatin-based neoadjuvant chemotherapy in eligible patients) is standard of care for localised MIBC."
+  },
+  // ---- ONCOLOGY: renal cell carcinoma ----
+  {
+    id: "onco-rcc-001",
+    topic: "oncology", subtopic: "rcc",
+    question: "For a small renal mass (<4 cm, T1a) in a patient with normal renal function, EAU guidelines favour:",
+    options: [
+      "Radical nephrectomy as first-line",
+      "Partial nephrectomy (nephron-sparing surgery) where technically feasible",
+      "Systemic therapy without surgery",
+      "Radiotherapy alone"
+    ],
+    correctIndex: 1,
+    explanation: "Partial nephrectomy is preferred for T1a renal masses to preserve renal function, with oncological outcomes equivalent to radical nephrectomy."
+  },
+  {
+    id: "onco-rcc-002",
+    topic: "oncology", subtopic: "rcc",
+    question: "Which is the most common histological subtype of renal cell carcinoma?",
+    options: ["Papillary RCC", "Chromophobe RCC", "Clear cell RCC", "Collecting duct RCC"],
+    correctIndex: 2,
+    explanation: "Clear cell RCC accounts for roughly 70-80% of RCC cases and is the most common subtype."
+  },
+  // ---- ONCOLOGY: upper tract urothelial cancer ----
+  {
+    id: "onco-utuc-001",
+    topic: "oncology", subtopic: "utuc",
+    question: "The standard surgical treatment for high-risk upper tract urothelial carcinoma (UTUC) is:",
+    options: [
+      "Radical nephroureterectomy with bladder cuff excision",
+      "Kidney-sparing endoscopic resection",
+      "Partial nephrectomy",
+      "Active surveillance"
+    ],
+    correctIndex: 0,
+    explanation: "Radical nephroureterectomy with excision of the bladder cuff is the standard of care for high-risk UTUC, given the risk of tumour seeding along the ureter."
+  },
+  {
+    id: "onco-utuc-002",
+    topic: "oncology", subtopic: "utuc",
+    question: "Kidney-sparing management of UTUC is generally considered for:",
+    options: [
+      "Any high-grade tumour regardless of size",
+      "Low-risk, low-grade tumours, especially in a solitary kidney or with imperative indications",
+      "Bilateral high-grade disease only",
+      "Never appropriate in UTUC"
+    ],
+    correctIndex: 1,
+    explanation: "Kidney-sparing approaches (endoscopic ablation/resection) are appropriate for low-risk disease, or when preserving renal function is imperative (e.g. solitary kidney, bilateral disease, poor renal function)."
+  },
+  // ---- ONCOLOGY: testicular ----
+  {
+    id: "onco-testis-001",
+    topic: "oncology", subtopic: "testis",
+    question: "The first step in management of a suspicious testicular mass is:",
+    options: [
+      "Percutaneous biopsy",
+      "Radical inguinal orchiectomy",
+      "Trans-scrotal biopsy",
+      "Empirical chemotherapy"
+    ],
+    correctIndex: 1,
+    explanation: "Radical inguinal orchiectomy is the standard first step for a suspicious testicular mass — trans-scrotal biopsy risks local seeding and disrupts lymphatic drainage planning."
+  },
+  {
+    id: "onco-testis-002",
+    topic: "oncology", subtopic: "testis",
+    question: "Which tumour marker is characteristically elevated in choriocarcinoma but NOT in pure seminoma?",
+    options: ["AFP", "Beta-hCG", "LDH", "PSA"],
+    correctIndex: 1,
+    explanation: "Beta-hCG can be mildly elevated in seminoma (from syncytiotrophoblastic cells) but marked elevation is characteristic of choriocarcinoma. AFP elevation excludes pure seminoma entirely."
+  },
+  // ---- ONCOLOGY: penile ----
+  {
+    id: "onco-penile-001",
+    topic: "oncology", subtopic: "penile",
+    question: "For a small, organ-confined penile carcinoma, EAU guidelines favour which approach when feasible?",
+    options: [
+      "Total penectomy as first-line for all lesions",
+      "Organ-sparing surgery (e.g. wide local excision, glansectomy) to preserve function",
+      "Radiotherapy is always contraindicated",
+      "Chemotherapy alone without surgery"
+    ],
+    correctIndex: 1,
+    explanation: "Organ-sparing surgical techniques are preferred when oncologically feasible to preserve sexual and urinary function, reserving penectomy for more extensive disease."
+  }
+];
+
 const state = {
   screen: "home", // home | quiz | results | stats
   selectedTopics: [],
