@@ -220,6 +220,253 @@ const QUESTIONS = [
     ],
     correctIndex: 1,
     explanation: "Organ-sparing surgical techniques are preferred when oncologically feasible to preserve sexual and urinary function, reserving penectomy for more extensive disease."
+  },
+
+  // ---- NON-ONCOLOGY: urolithiasis ----
+  {
+    id: "stones-001",
+    topic: "non-oncology", subtopic: "stones",
+    question: "For a 6mm proximal ureteric stone causing obstruction without sepsis, first-line management per EAU guidelines is typically:",
+    options: [
+      "Immediate open surgery",
+      "Trial of medical expulsive therapy (e.g. alpha-blocker) with observation, given reasonable spontaneous passage likelihood",
+      "Emergency nephrectomy",
+      "Long-term indwelling catheter"
+    ],
+    correctIndex: 1,
+    explanation: "Stones ≤10mm without signs of sepsis or significant obstruction-related risk can be managed with observation and medical expulsive therapy, as spontaneous passage rates are reasonable at this size."
+  },
+  {
+    id: "stones-002",
+    topic: "non-oncology", subtopic: "stones",
+    question: "An obstructing ureteric stone WITH signs of infection (fever, pyuria) requires:",
+    options: [
+      "Watchful waiting with oral antibiotics only",
+      "Urgent decompression (stent or nephrostomy) plus antibiotics — this is a urological emergency",
+      "Elective shockwave lithotripsy within 6 weeks",
+      "Immediate stone extraction without decompression first"
+    ],
+    correctIndex: 1,
+    explanation: "Obstruction with infection is an emergency requiring urgent drainage (ureteric stent or percutaneous nephrostomy) plus antibiotics; definitive stone treatment is deferred until sepsis is controlled."
+  },
+  {
+    id: "stones-003",
+    topic: "non-oncology", subtopic: "stones",
+    question: "Which imaging modality is recommended as first-line for suspected acute renal colic per EAU guidelines?",
+    options: ["Non-contrast CT (CT-KUB)", "Plain abdominal X-ray alone", "MRI", "Retrograde pyelogram"],
+    correctIndex: 0,
+    explanation: "Non-contrast CT (CT-KUB) is the recommended first-line imaging for suspected renal colic due to high sensitivity and specificity for stones."
+  },
+  // ---- NON-ONCOLOGY: BPH / male LUTS ----
+  {
+    id: "bph-001",
+    topic: "non-oncology", subtopic: "bph",
+    question: "First-line medical therapy for moderate-severe male LUTS due to benign prostatic obstruction is typically:",
+    options: ["Alpha-1 blockers", "5-alpha reductase inhibitors alone", "Anticholinergics alone", "Antibiotics"],
+    correctIndex: 0,
+    explanation: "Alpha-1 blockers provide rapid symptom relief in male LUTS/BPO and are typically first-line; 5-ARIs are added particularly in larger prostates for long-term risk reduction."
+  },
+  {
+    id: "bph-002",
+    topic: "non-oncology", subtopic: "bph",
+    question: "5-alpha reductase inhibitors are most beneficial in men with LUTS who also have:",
+    options: [
+      "A small prostate volume (<30mL)",
+      "An enlarged prostate volume (typically >40mL) due to reducing prostate size over time",
+      "Acute bacterial prostatitis",
+      "Normal PSA and small gland"
+    ],
+    correctIndex: 1,
+    explanation: "5-ARIs reduce prostate volume over months and are most beneficial in men with larger glands, reducing risk of progression, acute retention, and need for surgery."
+  },
+  // ---- NON-ONCOLOGY: incontinence ----
+  {
+    id: "incontinence-001",
+    topic: "non-oncology", subtopic: "incontinence",
+    question: "First-line management for uncomplicated stress urinary incontinence in women is:",
+    options: [
+      "Mid-urethral sling surgery immediately",
+      "Pelvic floor muscle training (conservative therapy)",
+      "Botulinum toxin injection",
+      "Long-term catheterisation"
+    ],
+    correctIndex: 1,
+    explanation: "Conservative management with supervised pelvic floor muscle training is first-line for stress urinary incontinence before considering surgical options."
+  },
+  {
+    id: "incontinence-002",
+    topic: "non-oncology", subtopic: "incontinence",
+    question: "Antimuscarinic drugs (e.g. solifenacin) are primarily used to treat which type of incontinence?",
+    options: ["Stress urinary incontinence", "Urgency urinary incontinence / overactive bladder", "Overflow incontinence", "Functional incontinence only"],
+    correctIndex: 1,
+    explanation: "Antimuscarinics reduce detrusor overactivity and are a mainstay of pharmacotherapy for urgency incontinence/overactive bladder, not stress incontinence."
+  },
+  // ---- NON-ONCOLOGY: neuro-urology ----
+  {
+    id: "neuro-001",
+    topic: "non-oncology", subtopic: "neuro-urology",
+    question: "In patients with neurogenic lower urinary tract dysfunction (e.g. spinal cord injury), the primary goal of management per EAU guidelines is:",
+    options: [
+      "Achieving complete continence at any cost",
+      "Protecting the upper urinary tract (preserving renal function) as the top priority",
+      "Immediate surgical diversion in all patients",
+      "Cosmetic outcome"
+    ],
+    correctIndex: 1,
+    explanation: "Upper tract protection (preventing high-pressure storage/voiding that damages the kidneys) is the primary goal in neurogenic bladder management, with continence and quality of life as secondary goals."
+  },
+  {
+    id: "neuro-002",
+    topic: "non-oncology", subtopic: "neuro-urology",
+    question: "Clean intermittent catheterisation (CIC) is recommended in neurogenic bladder patients primarily to manage:",
+    options: [
+      "Detrusor overactivity with normal emptying",
+      "Incomplete bladder emptying / urinary retention",
+      "Stress incontinence only",
+      "Erectile dysfunction"
+    ],
+    correctIndex: 1,
+    explanation: "CIC is used when there is incomplete bladder emptying to reduce residual urine, prevent overdistension injury, and lower infection/upper tract risk."
+  },
+  // ---- NON-ONCOLOGY: female / functional urology ----
+  {
+    id: "female-001",
+    topic: "non-oncology", subtopic: "female-functional",
+    question: "Pelvic organ prolapse quantification (POP-Q) stage 0 indicates:",
+    options: [
+      "No prolapse demonstrated",
+      "Prolapse extending well beyond the hymen",
+      "Complete uterine procidentia",
+      "Prolapse always requiring surgery"
+    ],
+    correctIndex: 0,
+    explanation: "POP-Q stage 0 means no prolapse is demonstrated on examination; staging increases with descent relative to the hymen."
+  },
+
+  // ---- INFECTIONS & OTHER: UTI / urosepsis / Fournier's ----
+  {
+    id: "infect-001",
+    topic: "infections-other", subtopic: "uti-urosepsis",
+    question: "In a patient with suspected urosepsis, EAU guidelines emphasise which as the most time-critical intervention?",
+    options: [
+      "Prompt source control (e.g. decompression of an obstructed infected system) plus early appropriate antibiotics",
+      "Waiting for urine culture results before any antibiotics",
+      "Oral antibiotics only, outpatient management",
+      "Immediate nephrectomy in all cases"
+    ],
+    correctIndex: 0,
+    explanation: "Urosepsis from an obstructed, infected urinary tract requires urgent source control (stent/nephrostomy) alongside early broad-spectrum antibiotics — delaying decompression worsens outcomes."
+  },
+  {
+    id: "infect-002",
+    topic: "infections-other", subtopic: "uti-urosepsis",
+    question: "Fournier's gangrene is best characterised as:",
+    options: [
+      "A mild, self-limiting cellulitis of the perineum",
+      "A necrotising fasciitis of the perineal/genital region requiring emergency surgical debridement",
+      "A viral infection treated with antivirals alone",
+      "A chronic condition managed with oral antibiotics as outpatient"
+    ],
+    correctIndex: 1,
+    explanation: "Fournier's gangrene is a life-threatening necrotising fasciitis of the perineum/genitalia requiring emergency, often repeated, surgical debridement plus broad-spectrum antibiotics."
+  },
+  {
+    id: "infect-003",
+    topic: "infections-other", subtopic: "uti-urosepsis",
+    question: "Recurrent uncomplicated UTIs in women may be offered which non-antibiotic preventive strategy per EAU guidelines?",
+    options: [
+      "Cranberry products / vaginal oestrogen in postmenopausal women as adjuncts",
+      "Prophylactic nephrectomy",
+      "Permanent catheterisation",
+      "Routine prophylactic chemotherapy"
+    ],
+    correctIndex: 0,
+    explanation: "Non-antibiotic measures such as vaginal oestrogen in postmenopausal women, and cranberry products, are reasonable adjuncts/options for recurrent UTI prevention alongside behavioural measures."
+  },
+  // ---- INFECTIONS & OTHER: trauma / reconstruction ----
+  {
+    id: "trauma-001",
+    topic: "infections-other", subtopic: "trauma-reconstruction",
+    question: "Blood at the urethral meatus after pelvic trauma should raise suspicion for:",
+    options: [
+      "Bladder cancer",
+      "Urethral injury — retrograde urethrogram should be considered before urethral catheterisation",
+      "Normal finding, catheterise immediately without further workup",
+      "Isolated renal contusion only"
+    ],
+    correctIndex: 1,
+    explanation: "Blood at the meatus after trauma is a classic sign of urethral injury; blind catheterisation risks converting a partial tear into a complete disruption, so imaging (retrograde urethrogram) is considered first."
+  },
+  {
+    id: "trauma-002",
+    topic: "infections-other", subtopic: "trauma-reconstruction",
+    question: "Most high-grade blunt renal traumas in haemodynamically stable patients are managed with:",
+    options: [
+      "Immediate nephrectomy",
+      "Conservative (non-operative) management with monitoring",
+      "Routine ureteric stenting for all grades",
+      "Bilateral nephrectomy"
+    ],
+    correctIndex: 1,
+    explanation: "Non-operative management is preferred for blunt renal trauma in stable patients, even for higher grades, reserving intervention for ongoing haemorrhage or specific complications."
+  },
+  // ---- INFECTIONS & OTHER: andrology / male infertility ----
+  {
+    id: "andro-001",
+    topic: "infections-other", subtopic: "andrology",
+    question: "The most common surgically correctable cause of male infertility is:",
+    options: ["Varicocele", "Hypospadias", "Testicular torsion", "Peyronie's disease"],
+    correctIndex: 0,
+    explanation: "Varicocele is the most common identifiable and surgically correctable cause of male infertility, though not all varicoceles require treatment."
+  },
+  {
+    id: "andro-002",
+    topic: "infections-other", subtopic: "andrology",
+    question: "First-line treatment for erectile dysfunction in most patients, per EAU guidelines, is:",
+    options: [
+      "Penile prosthesis implantation",
+      "Oral PDE5 inhibitors",
+      "Intracavernosal injections as first choice always",
+      "Testosterone replacement regardless of levels"
+    ],
+    correctIndex: 1,
+    explanation: "Oral PDE5 inhibitors are first-line therapy for erectile dysfunction in most patients due to efficacy, ease of use, and safety profile; other options are considered when PDE5i fails or is contraindicated."
+  },
+  // ---- INFECTIONS & OTHER: paediatric urology ----
+  {
+    id: "paeds-001",
+    topic: "infections-other", subtopic: "paediatric",
+    question: "Antenatally detected hydronephrosis in a newborn most commonly requires which initial step after birth?",
+    options: [
+      "Immediate surgery within 24 hours in all cases",
+      "Postnatal ultrasound to reassess, with further workup guided by severity (e.g. VCUG, MAG3 if indicated)",
+      "No follow-up needed regardless of severity",
+      "Empirical antibiotics for life"
+    ],
+    correctIndex: 1,
+    explanation: "Most antenatal hydronephrosis is followed with postnatal ultrasound and risk-stratified further investigation; only a minority need early surgical intervention, and unnecessary invasive workup is avoided in low-risk cases."
+  },
+  {
+    id: "paeds-002",
+    topic: "infections-other", subtopic: "paediatric",
+    question: "Cryptorchidism (undescended testis) that has not resolved spontaneously should typically be surgically corrected (orchidopexy) by what age to optimise fertility/malignancy risk outcomes?",
+    options: ["By 5 years of age", "By around 12-18 months of age", "Only after puberty", "Surgery is never indicated"],
+    correctIndex: 1,
+    explanation: "EAU/paediatric urology guidance recommends orchidopexy around 12-18 months of age if descent hasn't occurred spontaneously, to optimise fertility potential and allow surveillance for malignancy risk."
+  },
+  // ---- INFECTIONS & OTHER: transplantation ----
+  {
+    id: "transplant-001",
+    topic: "infections-other", subtopic: "transplantation",
+    question: "In renal transplantation, the donor kidney is typically placed:",
+    options: [
+      "In the native renal fossa after removing the native kidney",
+      "Heterotopically in the iliac fossa, with vascular anastomosis to the iliac vessels",
+      "In the thoracic cavity",
+      "Always with removal of both native kidneys first"
+    ],
+    correctIndex: 1,
+    explanation: "The transplant kidney is placed heterotopically in the iliac fossa with anastomosis to the iliac vessels and the ureter implanted into the bladder; native kidneys are usually left in situ."
   }
 ];
 
