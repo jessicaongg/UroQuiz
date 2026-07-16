@@ -1568,6 +1568,7 @@ function renderResults() {
   const correctCount = state.answers.filter(a => a.correct).length;
 
   saveSessionToStorage();
+  clearInProgressSession();
 
   const summary = document.createElement("div");
   summary.className = "card";
