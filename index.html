@@ -1341,11 +1341,55 @@ function renderHome() {
   title.textContent = "UroQuiz";
   container.appendChild(title);
 
+  const progress = loadProgress();
+  if (progress.inProgressSession) {
+    const resumeBtn = document.createElement("button");
+    resumeBtn.textContent = "Resume Quiz";
+    resumeBtn.addEventListener("click", () => {
+      const session = progress.inProgressSession;
+      state.mode = session.mode;
+      state.sessionQuestions = session.sessionQuestions;
+      state.currentIndex = session.currentIndex;
+      state.answers = session.answers;
+      state.screen = "quiz";
+      render();
+    });
+    container.appendChild(resumeBtn);
+
+    const restartBtn = document.createElement("button");
+    restartBtn.className = "secondary";
+    restartBtn.textContent = "Restart";
+    restartBtn.style.marginLeft = "0.5rem";
+    restartBtn.addEventListener("click", () => {
+      clearInProgressSession();
+      render();
+    });
+    container.appendChild(restartBtn);
+  }
+
   const topicCard = document.createElement("div");
   topicCard.className = "card";
   const topicTitle = document.createElement("h3");
   topicTitle.textContent = "Topics";
   topicCard.appendChild(topicTitle);
+
+  const allTopicsRow = document.createElement("div");
+  allTopicsRow.className = "topic-row";
+  const allCheckbox = document.createElement("input");
+  allCheckbox.type = "checkbox";
+  allCheckbox.id = "topic-all";
+  allCheckbox.addEventListener("change", () => {
+    if (allCheckbox.checked) {
+      state.selectedTopics = getTopics();
+      render();
+    }
+  });
+  const allLabel = document.createElement("label");
+  allLabel.htmlFor = allCheckbox.id;
+  allLabel.textContent = "All Topics";
+  allTopicsRow.appendChild(allCheckbox);
+  allTopicsRow.appendChild(allLabel);
+  topicCard.appendChild(allTopicsRow);
 
   getTopics().forEach(topic => {
     const row = document.createElement("div");
