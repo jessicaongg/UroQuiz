@@ -698,7 +698,11 @@ function renderResults() {
     const retryBtn = document.createElement("button");
     retryBtn.textContent = "Retry Missed Only";
     retryBtn.addEventListener("click", () => {
-      state.sessionQuestions = shuffle(missed.map(a => state.sessionQuestions.find(q => q.id === a.questionId)));
+      state.sessionQuestions = shuffle(
+        missed
+          .map(a => state.sessionQuestions.find(q => q.id === a.questionId))
+          .filter(Boolean)
+      );
       state.currentIndex = 0;
       state.answers = [];
       state.screen = "quiz";
