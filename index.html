@@ -583,9 +583,75 @@ function startQuiz() {
   render();
 }
 function renderQuiz() {
-  const div = document.createElement("div");
-  div.textContent = "Quiz screen placeholder";
-  return div;
+  const container = document.createElement("div");
+  const q = state.sessionQuestions[state.currentIndex];
+
+  if (!q) {
+    state.screen = "results";
+    render();
+    return container;
+  }
+
+  const progress = document.createElement("div");
+  progress.className = "progress";
+  progress.textContent = `Question ${state.currentIndex + 1} of ${state.sessionQuestions.length} — ${q.subtopic}`;
+  container.appendChild(progress);
+
+  const card = document.createElement("div");
+  card.className = "card";
+  const questionText = document.createElement("p");
+  questionText.textContent = q.question;
+  card.appendChild(questionText);
+
+  const existingAnswer = state.answers.find(a => a.questionId === q.id);
+  const alreadyAnswered = !!existingAnswer;
+
+  q.options.forEach((optionText, idx) => {
+    const label = document.createElement("label");
+    label.className = "option";
+    label.textContent = optionText;
+
+    if (state.mode === "study" && alreadyAnswered) {
+      if (idx === q.correctIndex) label.classList.add("correct");
+      else if (idx === existingAnswer.chosenIndex) label.classList.add("incorrect");
+    }
+
+    label.addEventListener("click", () => {
+      if (state.mode === "study" && alreadyAnswered) return;
+      recordAnswer(q, idx);
+      render();
+    });
+    card.appendChild(label);
+  });
+
+  if (state.mode === "study" && alreadyAnswered) {
+    const explanation = document.createElement("p");
+    explanation.className = "explanation";
+    explanation.textContent = existingAnswer.correct
+      ? "Correct. " + q.explanation
+      : "Incorrect. " + q.explanation;
+    card.appendChild(explanation);
+
+    const nextBtn = document.createElement("button");
+    nextBtn.textContent = state.currentIndex + 1 < state.sessionQuestions.length ? "Next Question" : "See Results";
+    nextBtn.addEventListener("click", () => {
+      state.currentIndex++;
+      render();
+    });
+    card.appendChild(nextBtn);
+  }
+
+  container.appendChild(card);
+  return container;
+}
+
+function recordAnswer(question, chosenIndex) {
+  const correct = chosenIndex === question.correctIndex;
+  state.answers.push({ questionId: question.id, chosenIndex, correct });
+
+  if (state.mode === "exam") {
+    state.currentIndex++;
+  }
 }
 function renderResults() {
   const div = document.createElement("div");
