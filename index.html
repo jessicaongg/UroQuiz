@@ -1456,6 +1456,7 @@ function renderQuiz() {
 
   const existingAnswer = state.answers.find(a => a.questionId === q.id);
   const alreadyAnswered = !!existingAnswer;
+  const isLastQuestion = state.currentIndex + 1 >= state.sessionQuestions.length;
 
   q.options.forEach((optionText, idx) => {
     const label = document.createElement("label");
@@ -1482,17 +1483,53 @@ function renderQuiz() {
       ? "Correct. " + q.explanation
       : "Incorrect. " + q.explanation;
     card.appendChild(explanation);
-
-    const nextBtn = document.createElement("button");
-    nextBtn.textContent = state.currentIndex + 1 < state.sessionQuestions.length ? "Next Question" : "See Results";
-    nextBtn.addEventListener("click", () => {
-      state.currentIndex++;
-      render();
-    });
-    card.appendChild(nextBtn);
   }
 
   container.appendChild(card);
+
+  const navRow = document.createElement("div");
+
+  if (state.currentIndex > 0) {
+    const prevBtn = document.createElement("button");
+    prevBtn.className = "secondary";
+    prevBtn.textContent = "Previous";
+    prevBtn.addEventListener("click", () => {
+      state.currentIndex--;
+      render();
+    });
+    navRow.appendChild(prevBtn);
+  }
+
+  // Study mode requires answering before advancing (pedagogical gate, unchanged
+  // from the original design); Exam mode allows free navigation at any time.
+  const canAdvance = state.mode === "exam" || alreadyAnswered;
+  if (canAdvance) {
+    const nextBtn = document.createElement("button");
+    nextBtn.style.marginLeft = "0.5rem";
+    nextBtn.textContent = isLastQuestion ? "Finish" : "Next Question";
+    nextBtn.addEventListener("click", () => {
+      if (isLastQuestion) {
+        state.screen = "results";
+      } else {
+        state.currentIndex++;
+      }
+      render();
+    });
+    navRow.appendChild(nextBtn);
+  }
+
+  const homeBtn = document.createElement("button");
+  homeBtn.className = "secondary";
+  homeBtn.textContent = "Home";
+  homeBtn.style.marginLeft = "0.5rem";
+  homeBtn.addEventListener("click", () => {
+    saveInProgressSession();
+    state.screen = "home";
+    render();
+  });
+  navRow.appendChild(homeBtn);
+
+  container.appendChild(navRow);
   return container;
 }
 
