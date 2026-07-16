@@ -1608,7 +1608,14 @@ function saveSessionToStorage() {
 
 function renderResults() {
   const container = document.createElement("div");
-  const total = state.answers.length;
+
+  state.sessionQuestions.forEach(q => {
+    if (!state.answers.some(a => a.questionId === q.id)) {
+      state.answers.push({ questionId: q.id, chosenIndex: -1, correct: false });
+    }
+  });
+
+  const total = state.sessionQuestions.length;
   const correctCount = state.answers.filter(a => a.correct).length;
 
   saveSessionToStorage();
