@@ -58,6 +58,7 @@
   .progress { font-size: 0.85rem; opacity: 0.7; margin-bottom: 0.5rem; }
   .explanation { margin-top: 0.6rem; font-size: 0.9rem; opacity: 0.85; }
   .topic-row { display: flex; align-items: center; gap: 0.5rem; padding: 0.3rem 0; }
+  .donut-wrapper { display: flex; justify-content: center; margin: 0.5rem 0; }
 </style>
 </head>
 <body>
@@ -1332,6 +1333,50 @@ function render() {
 
 function getTopics() {
   return [...new Set(QUESTIONS.map(q => q.topic))];
+}
+
+function renderScoreDonut(correct, total) {
+  const wrapper = document.createElement("div");
+  wrapper.className = "donut-wrapper";
+  if (total === 0) return wrapper;
+
+  const pct = Math.round((correct / total) * 100);
+  const radius = 40;
+  const circumference = 2 * Math.PI * radius;
+  const correctLength = (correct / total) * circumference;
+
+  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  svg.setAttribute("viewBox", "0 0 100 100");
+  svg.setAttribute("width", "120");
+  svg.setAttribute("height", "120");
+
+  const bg = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+  bg.setAttribute("cx", "50"); bg.setAttribute("cy", "50"); bg.setAttribute("r", String(radius));
+  bg.setAttribute("fill", "none");
+  bg.setAttribute("stroke", "var(--incorrect)");
+  bg.setAttribute("stroke-width", "16");
+
+  const fg = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+  fg.setAttribute("cx", "50"); fg.setAttribute("cy", "50"); fg.setAttribute("r", String(radius));
+  fg.setAttribute("fill", "none");
+  fg.setAttribute("stroke", "var(--correct)");
+  fg.setAttribute("stroke-width", "16");
+  fg.setAttribute("stroke-dasharray", `${correctLength} ${circumference - correctLength}`);
+  fg.setAttribute("stroke-dashoffset", String(circumference / 4));
+  fg.setAttribute("transform", "rotate(-90 50 50)");
+
+  const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
+  label.setAttribute("x", "50"); label.setAttribute("y", "55");
+  label.setAttribute("text-anchor", "middle");
+  label.setAttribute("font-size", "20");
+  label.setAttribute("fill", "var(--fg)");
+  label.textContent = `${pct}%`;
+
+  svg.appendChild(bg);
+  svg.appendChild(fg);
+  svg.appendChild(label);
+  wrapper.appendChild(svg);
+  return wrapper;
 }
 
 function renderHome() {
