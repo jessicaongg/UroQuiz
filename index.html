@@ -1671,6 +1671,7 @@ function renderResults() {
   const scoreText = document.createElement("h2");
   scoreText.textContent = `Score: ${correctCount} / ${total}`;
   summary.appendChild(scoreText);
+  summary.appendChild(renderScoreDonut(correctCount, total));
   container.appendChild(summary);
 
   const missed = state.answers.filter(a => !a.correct);
