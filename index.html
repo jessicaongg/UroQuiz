@@ -488,10 +488,99 @@ function render() {
   else if (state.screen === "stats") app.appendChild(renderStats());
 }
 
+function getTopics() {
+  return [...new Set(QUESTIONS.map(q => q.topic))];
+}
+
 function renderHome() {
-  const div = document.createElement("div");
-  div.textContent = "Home screen placeholder";
-  return div;
+  const container = document.createElement("div");
+
+  const title = document.createElement("h1");
+  title.textContent = "UroQuiz";
+  container.appendChild(title);
+
+  const topicCard = document.createElement("div");
+  topicCard.className = "card";
+  const topicTitle = document.createElement("h3");
+  topicTitle.textContent = "Topics";
+  topicCard.appendChild(topicTitle);
+
+  getTopics().forEach(topic => {
+    const row = document.createElement("div");
+    row.className = "topic-row";
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.id = "topic-" + topic;
+    checkbox.checked = state.selectedTopics.includes(topic);
+    checkbox.addEventListener("change", () => {
+      if (checkbox.checked) state.selectedTopics.push(topic);
+      else state.selectedTopics = state.selectedTopics.filter(t => t !== topic);
+    });
+    const label = document.createElement("label");
+    label.htmlFor = checkbox.id;
+    label.textContent = topic;
+    row.appendChild(checkbox);
+    row.appendChild(label);
+    topicCard.appendChild(row);
+  });
+  container.appendChild(topicCard);
+
+  const modeCard = document.createElement("div");
+  modeCard.className = "card";
+  const modeTitle = document.createElement("h3");
+  modeTitle.textContent = "Mode";
+  modeCard.appendChild(modeTitle);
+
+  ["study", "exam"].forEach(mode => {
+    const row = document.createElement("div");
+    row.className = "topic-row";
+    const radio = document.createElement("input");
+    radio.type = "radio";
+    radio.name = "mode";
+    radio.id = "mode-" + mode;
+    radio.checked = state.mode === mode;
+    radio.addEventListener("change", () => { state.mode = mode; });
+    const label = document.createElement("label");
+    label.htmlFor = radio.id;
+    label.textContent = mode === "study" ? "Study Mode (immediate feedback)" : "Exam Mode (review at end)";
+    row.appendChild(radio);
+    row.appendChild(label);
+    modeCard.appendChild(row);
+  });
+  container.appendChild(modeCard);
+
+  const startBtn = document.createElement("button");
+  startBtn.textContent = "Start Quiz";
+  startBtn.addEventListener("click", startQuiz);
+  container.appendChild(startBtn);
+
+  const statsBtn = document.createElement("button");
+  statsBtn.className = "secondary";
+  statsBtn.textContent = "View Stats";
+  statsBtn.style.marginLeft = "0.5rem";
+  statsBtn.addEventListener("click", () => { state.screen = "stats"; render(); });
+  container.appendChild(statsBtn);
+
+  return container;
+}
+
+function shuffle(array) {
+  const a = array.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function startQuiz() {
+  const topics = state.selectedTopics.length ? state.selectedTopics : getTopics();
+  const pool = QUESTIONS.filter(q => topics.includes(q.topic));
+  state.sessionQuestions = shuffle(pool);
+  state.currentIndex = 0;
+  state.answers = [];
+  state.screen = "quiz";
+  render();
 }
 function renderQuiz() {
   const div = document.createElement("div");
