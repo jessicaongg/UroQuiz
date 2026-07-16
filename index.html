@@ -484,6 +484,813 @@ const QUESTIONS = [
     ],
     correctIndex: 1,
     explanation: "The transplant kidney is placed heterotopically in the iliac fossa with anastomosis to the iliac vessels and the ureter implanted into the bladder; native kidneys are usually left in situ."
+  },
+  // ---- ONCOLOGY: prostate (expansion) ----
+  {
+    id: "onco-prostate-004",
+    topic: "oncology", subtopic: "prostate",
+    question: "In EAU prostate cancer risk stratification, intermediate-risk disease is further split into 'favourable' and 'unfavourable' subgroups. Which factor most influences this split?",
+    options: [
+      "Patient age alone",
+      "Percentage of positive biopsy cores and presence of a single vs multiple intermediate-risk factors",
+      "Family history alone",
+      "PSA density is irrelevant to this split"
+    ],
+    correctIndex: 1,
+    explanation: "Unfavourable intermediate risk is defined by having more than one intermediate-risk factor, ISUP grade 3, or ≥50% positive biopsy cores — this substratification guides treatment intensity."
+  },
+  {
+    id: "onco-prostate-005",
+    topic: "oncology", subtopic: "prostate",
+    question: "For high-risk localised prostate cancer treated with radiotherapy, EAU guidelines recommend combining radiotherapy with:",
+    options: [
+      "No systemic therapy needed",
+      "Long-term androgen deprivation therapy (ADT)",
+      "Short-course antibiotics",
+      "Chemotherapy alone without ADT"
+    ],
+    correctIndex: 1,
+    explanation: "High-risk disease treated with radiotherapy is combined with long-term ADT (typically 2-3 years) to improve oncological outcomes."
+  },
+  {
+    id: "onco-prostate-006",
+    topic: "oncology", subtopic: "prostate",
+    question: "Biochemical recurrence after radical prostatectomy is generally defined as a PSA level of:",
+    options: [
+      "Any detectable PSA above 0 ng/mL immediately after surgery",
+      "PSA ≥0.2 ng/mL confirmed by a second measurement",
+      "PSA >10 ng/mL only",
+      "PSA rise is not used to define recurrence post-prostatectomy"
+    ],
+    correctIndex: 1,
+    explanation: "Biochemical recurrence after radical prostatectomy is defined as PSA ≥0.2 ng/mL on two consecutive measurements, reflecting residual or recurrent disease."
+  },
+  {
+    id: "onco-prostate-007",
+    topic: "oncology", subtopic: "prostate",
+    question: "In metastatic hormone-sensitive prostate cancer (mHSPC), current EAU guidance favours ADT combined with:",
+    options: [
+      "ADT alone is always sufficient, no combination needed",
+      "Doublet or triplet therapy (e.g. ADT plus an androgen receptor pathway inhibitor, with or without chemotherapy) based on disease volume/risk",
+      "Radiotherapy to the prostate is never indicated in mHSPC",
+      "Antibiotics as first-line systemic therapy"
+    ],
+    correctIndex: 1,
+    explanation: "mHSPC is treated with ADT combined with an androgen receptor pathway inhibitor and/or docetaxel chemotherapy (combination/triplet approaches), improving survival over ADT alone."
+  },
+
+  // ---- ONCOLOGY: bladder (expansion) ----
+  {
+    id: "onco-bladder-004",
+    topic: "oncology", subtopic: "bladder",
+    question: "Which factor is NOT part of the EORTC risk tables used to stratify recurrence/progression risk in NMIBC?",
+    options: [
+      "Number of tumours",
+      "Tumour size",
+      "Prior recurrence rate",
+      "Patient's blood type"
+    ],
+    correctIndex: 3,
+    explanation: "EORTC risk tables incorporate number of tumours, size, prior recurrence rate, T category, presence of CIS, and grade — blood type is not a risk factor used in bladder cancer stratification."
+  },
+  {
+    id: "onco-bladder-005",
+    topic: "oncology", subtopic: "bladder",
+    question: "A single immediate postoperative intravesical chemotherapy instillation after TURBT is recommended for:",
+    options: [
+      "All patients regardless of suspected perforation",
+      "Patients with a low suspicion of bladder perforation, given within 24 hours of resection",
+      "Only patients with muscle-invasive disease",
+      "Patients already on BCG maintenance"
+    ],
+    correctIndex: 1,
+    explanation: "A single immediate post-TURBT intravesical chemotherapy instillation (e.g. mitomycin C) reduces recurrence risk and is recommended when perforation is not suspected, given promptly after resection."
+  },
+  {
+    id: "onco-bladder-006",
+    topic: "oncology", subtopic: "bladder",
+    question: "In a patient with BCG-unresponsive high-risk NMIBC who is unfit for or declines radical cystectomy, EAU guidelines note which option may be considered?",
+    options: [
+      "Repeat the same failed BCG regimen indefinitely with no changes",
+      "Bladder-sparing alternatives such as intravesical chemotherapy combinations or novel agents where available, with close surveillance",
+      "No further treatment is possible",
+      "Immediate systemic chemotherapy without local treatment"
+    ],
+    correctIndex: 1,
+    explanation: "BCG-unresponsive disease should ideally proceed to radical cystectomy, but bladder-sparing options (alternative intravesical agents, clinical trials) can be considered when surgery is not feasible or declined, with close monitoring."
+  },
+  {
+    id: "onco-bladder-007",
+    topic: "oncology", subtopic: "bladder",
+    question: "For metastatic urothelial carcinoma, first-line systemic therapy per current guidance often includes:",
+    options: [
+      "Platinum-based chemotherapy and/or immune checkpoint inhibitors, depending on eligibility and biomarkers",
+      "Antibiotics as definitive treatment",
+      "Active surveillance only",
+      "BCG intravesical therapy"
+    ],
+    correctIndex: 0,
+    explanation: "Metastatic urothelial carcinoma is treated with systemic therapy — platinum-based chemotherapy and/or immune checkpoint inhibitors/antibody-drug conjugates depending on cisplatin eligibility and biomarker status — not local intravesical therapy."
+  },
+
+  // ---- ONCOLOGY: renal cell carcinoma (expansion) ----
+  {
+    id: "onco-rcc-003",
+    topic: "oncology", subtopic: "rcc",
+    question: "Active surveillance is a reasonable option in renal cell carcinoma primarily for:",
+    options: [
+      "Large tumours >10cm in young fit patients",
+      "Small renal masses in elderly or comorbid patients with limited life expectancy or high surgical risk",
+      "All metastatic RCC patients",
+      "Bilateral large tumours in a young healthy patient"
+    ],
+    correctIndex: 1,
+    explanation: "Active surveillance with imaging follow-up is reasonable for small renal masses in patients where competing comorbidities or advanced age make the risk of intervention outweigh the risk of tumour progression."
+  },
+  {
+    id: "onco-rcc-004",
+    topic: "oncology", subtopic: "rcc",
+    question: "For metastatic clear cell RCC in a patient with favourable/intermediate risk, first-line systemic therapy typically involves:",
+    options: [
+      "Combination immune checkpoint inhibitor and/or tyrosine kinase inhibitor regimens",
+      "Intravesical BCG",
+      "Radical cystectomy",
+      "Antibiotics"
+    ],
+    correctIndex: 0,
+    explanation: "First-line metastatic clear cell RCC treatment uses combination regimens (immunotherapy-immunotherapy or immunotherapy-TKI combinations) based on IMDC risk stratification."
+  },
+  {
+    id: "onco-rcc-005",
+    topic: "oncology", subtopic: "rcc",
+    question: "Cytoreductive nephrectomy in metastatic RCC is generally considered for:",
+    options: [
+      "All metastatic RCC patients regardless of burden or fitness",
+      "Selected patients with good performance status and limited metastatic burden, often alongside systemic therapy",
+      "Never indicated once metastatic",
+      "Only patients unfit for any systemic therapy"
+    ],
+    correctIndex: 1,
+    explanation: "Cytoreductive nephrectomy may benefit selected fit patients with lower metastatic burden as part of a multimodal approach, but is not appropriate for all metastatic patients — decisions are individualised."
+  },
+
+  // ---- ONCOLOGY: upper tract urothelial cancer (expansion) ----
+  {
+    id: "onco-utuc-003",
+    topic: "oncology", subtopic: "utuc",
+    question: "Diagnostic ureteroscopy with biopsy for suspected UTUC carries a risk of:",
+    options: [
+      "No risks at all",
+      "Potential intravesical tumour seeding/recurrence, which is a recognised consideration when planning management",
+      "Guaranteed cure",
+      "Immediate need for dialysis"
+    ],
+    correctIndex: 1,
+    explanation: "Ureteroscopic manipulation of UTUC carries a theoretical/recognised risk of intravesical seeding, which is factored into decisions about diagnostic workup versus proceeding to nephroureterectomy in high-risk disease."
+  },
+  {
+    id: "onco-utuc-004",
+    topic: "oncology", subtopic: "utuc",
+    question: "Adjuvant intravesical chemotherapy after nephroureterectomy for UTUC is used to reduce the risk of:",
+    options: [
+      "Contralateral kidney recurrence",
+      "Subsequent bladder tumour recurrence",
+      "Lung metastases",
+      "Bone metastases"
+    ],
+    correctIndex: 1,
+    explanation: "A single postoperative intravesical chemotherapy instillation after nephroureterectomy reduces the risk of subsequent bladder recurrence, which is common after UTUC treatment."
+  },
+
+  // ---- ONCOLOGY: testicular (expansion) ----
+  {
+    id: "onco-testis-003",
+    topic: "oncology", subtopic: "testis",
+    question: "For clinical stage I seminoma after orchiectomy, management options include all of the following EXCEPT:",
+    options: [
+      "Active surveillance",
+      "Adjuvant single-agent carboplatin",
+      "Adjuvant radiotherapy (less favoured now due to long-term toxicity concerns)",
+      "Immediate bilateral orchiectomy"
+    ],
+    correctIndex: 3,
+    explanation: "Stage I seminoma management includes surveillance, adjuvant carboplatin, or radiotherapy — bilateral orchiectomy is not indicated since the contralateral testis is not involved."
+  },
+  {
+    id: "onco-testis-004",
+    topic: "oncology", subtopic: "testis",
+    question: "Retroperitoneal lymph node dissection (RPLND) or chemotherapy is considered standard management for which testicular cancer scenario?",
+    options: [
+      "Stage I seminoma only",
+      "Non-seminomatous germ cell tumour with retroperitoneal nodal metastases",
+      "Benign testicular cysts",
+      "Isolated epididymal cysts"
+    ],
+    correctIndex: 1,
+    explanation: "RPLND or chemotherapy are standard options for non-seminomatous germ cell tumours with nodal spread, reflecting the different management pathways for seminoma vs non-seminoma."
+  },
+
+  // ---- ONCOLOGY: penile (expansion) ----
+  {
+    id: "onco-penile-002",
+    topic: "oncology", subtopic: "penile",
+    question: "Management of regional lymph nodes in penile cancer is guided primarily by:",
+    options: [
+      "PSA level",
+      "Primary tumour stage/grade and palpable node status, often using dynamic sentinel node biopsy in impalpable nodes",
+      "Patient age only",
+      "Lymph nodes are never assessed in penile cancer"
+    ],
+    correctIndex: 1,
+    explanation: "Inguinal lymph node management is risk-stratified by primary tumour characteristics; dynamic sentinel node biopsy is used in clinically node-negative patients at risk of occult metastases."
+  },
+  {
+    id: "onco-penile-003",
+    topic: "oncology", subtopic: "penile",
+    question: "Human papillomavirus (HPV) infection is an established risk factor for which urological malignancy?",
+    options: ["Renal cell carcinoma", "Penile squamous cell carcinoma", "Prostate cancer", "Testicular seminoma"],
+    correctIndex: 1,
+    explanation: "HPV, particularly high-risk subtypes, is an established risk factor in a substantial proportion of penile squamous cell carcinomas."
+  },
+  // ---- NON-ONCOLOGY: urolithiasis (expansion) ----
+  {
+    id: "stones-004",
+    topic: "non-oncology", subtopic: "stones",
+    question: "Extracorporeal shock wave lithotripsy (SWL) is generally most effective for stones that are:",
+    options: [
+      "Large (>2cm), very hard composition, in the lower pole",
+      "Smaller, softer-composition stones in a favourable location (e.g. renal pelvis)",
+      "Located in the distal ureter with a stricture distally",
+      "SWL effectiveness does not depend on stone size or location"
+    ],
+    correctIndex: 1,
+    explanation: "SWL success is influenced by stone size, composition/hardness, and location — favourable outcomes are seen with smaller, softer stones in accessible locations; large or lower-pole stones have lower clearance rates."
+  },
+  {
+    id: "stones-005",
+    topic: "non-oncology", subtopic: "stones",
+    question: "Percutaneous nephrolithotomy (PCNL) is generally the preferred first-line treatment for:",
+    options: [
+      "Large (>2cm) renal stones or complex staghorn calculi",
+      "Small 4mm distal ureteric stones",
+      "Asymptomatic tiny non-obstructing calyceal stones",
+      "Bladder stones only"
+    ],
+    correctIndex: 0,
+    explanation: "PCNL is the preferred approach for large renal stone burden (>2cm) or staghorn calculi, offering higher stone-free rates than SWL or ureteroscopy alone for this stone volume."
+  },
+  {
+    id: "stones-006",
+    topic: "non-oncology", subtopic: "stones",
+    question: "Metabolic evaluation (e.g. 24-hour urine studies) after a stone episode is particularly recommended for:",
+    options: [
+      "All patients regardless of risk, and never for high-risk formers",
+      "High-risk stone formers (e.g. recurrent stones, family history, single-kidney, specific stone types)",
+      "Never indicated in urolithiasis",
+      "Only patients over 80 years old"
+    ],
+    correctIndex: 1,
+    explanation: "EAU guidelines recommend metabolic workup particularly in high-risk stone formers to identify correctable causes and guide preventive strategies (dietary, medical)."
+  },
+  {
+    id: "stones-007",
+    topic: "non-oncology", subtopic: "stones",
+    question: "Increased fluid intake to achieve a urine output of approximately how much per day is a cornerstone of stone prevention?",
+    options: ["500 mL/day", "About 2-2.5 L/day (urine output)", "5 L/day", "Fluid intake has no effect on recurrence"],
+    correctIndex: 1,
+    explanation: "General stone prevention advice includes increasing fluid intake to produce roughly 2-2.5 L of urine per day, reducing supersaturation of stone-forming salts."
+  },
+  {
+    id: "stones-008",
+    topic: "non-oncology", subtopic: "stones",
+    question: "Uric acid stones are notable among stone types because they:",
+    options: [
+      "Are radio-opaque on plain X-ray and cannot be dissolved medically",
+      "Are typically radiolucent on plain X-ray and may be amenable to medical dissolution by urinary alkalinisation",
+      "Only occur in children",
+      "Always require immediate surgery"
+    ],
+    correctIndex: 1,
+    explanation: "Uric acid stones are radiolucent on plain film (visible on CT) and can potentially be dissolved with urinary alkalinisation (e.g. potassium citrate), unlike calcium-based stones."
+  },
+
+  // ---- NON-ONCOLOGY: BPH / male LUTS (expansion) ----
+  {
+    id: "bph-003",
+    topic: "non-oncology", subtopic: "bph",
+    question: "Surgical treatment (e.g. TURP) for BPH/male LUTS is generally indicated when:",
+    options: [
+      "Symptoms are mild and well controlled with lifestyle changes",
+      "There is refractory urinary retention, recurrent UTIs, bladder stones, or renal insufficiency due to BPO, or medical therapy fails/is not tolerated",
+      "PSA is normal, regardless of symptoms",
+      "Surgery is always first-line before any medical therapy"
+    ],
+    correctIndex: 1,
+    explanation: "Absolute indications for surgery include refractory retention, recurrent UTI, bladder stones/diverticula, or renal impairment due to obstruction; it is also considered when medical therapy fails or is poorly tolerated."
+  },
+  {
+    id: "bph-004",
+    topic: "non-oncology", subtopic: "bph",
+    question: "Combination therapy with an alpha-blocker plus a 5-alpha reductase inhibitor is most beneficial for men with:",
+    options: [
+      "Small prostates and mild symptoms",
+      "Larger prostates and higher risk of disease progression, for long-term symptom control and reduced risk of retention/surgery",
+      "Acute urinary retention only, as sole treatment",
+      "Normal PSA and no LUTS"
+    ],
+    correctIndex: 1,
+    explanation: "Combination therapy is most beneficial in men with larger prostates and elevated risk of progression, providing both rapid symptomatic relief and long-term reduction in disease progression."
+  },
+  {
+    id: "bph-005",
+    topic: "non-oncology", subtopic: "bph",
+    question: "Which validated symptom score is commonly used to assess severity of male LUTS?",
+    options: ["Gleason score", "International Prostate Symptom Score (IPSS)", "POP-Q", "PI-RADS"],
+    correctIndex: 1,
+    explanation: "IPSS is the validated, widely used questionnaire for quantifying severity of lower urinary tract symptoms and monitoring response to treatment."
+  },
+  {
+    id: "bph-006",
+    topic: "non-oncology", subtopic: "bph",
+    question: "PDE5 inhibitors (e.g. tadalafil) have an established role in male LUTS management particularly when a patient also has:",
+    options: [
+      "Erectile dysfunction alongside LUTS",
+      "Acute bacterial prostatitis",
+      "Bladder cancer",
+      "Renal colic"
+    ],
+    correctIndex: 0,
+    explanation: "Tadalafil is approved for LUTS and is particularly useful in men who also have coexisting erectile dysfunction, treating both conditions with one agent."
+  },
+  {
+    id: "bph-007",
+    topic: "non-oncology", subtopic: "bph",
+    question: "Acute urinary retention precipitated by BPH is initially managed by:",
+    options: [
+      "Immediate TURP within the hour",
+      "Prompt bladder catheterisation for decompression, followed by evaluation for trial without catheter or definitive treatment",
+      "Oral antibiotics only",
+      "Observation without intervention"
+    ],
+    correctIndex: 1,
+    explanation: "Acute retention is managed with prompt catheter decompression; a trial without catheter (often with alpha-blocker cover) or definitive surgical treatment is planned based on outcome and recurrence risk."
+  },
+
+  // ---- NON-ONCOLOGY: incontinence (expansion) ----
+  {
+    id: "incontinence-003",
+    topic: "non-oncology", subtopic: "incontinence",
+    question: "Mid-urethral sling surgery for stress urinary incontinence is generally considered after:",
+    options: [
+      "First-line conservative measures (pelvic floor training, lifestyle changes) have failed or been declined",
+      "As the mandatory first treatment before any conservative therapy",
+      "Only in men",
+      "Only when the patient also has bladder cancer"
+    ],
+    correctIndex: 0,
+    explanation: "Surgical options such as mid-urethral slings are considered after conservative management has been tried and failed or is not desired by the patient, consistent with a stepwise treatment approach."
+  },
+  {
+    id: "incontinence-004",
+    topic: "non-oncology", subtopic: "incontinence",
+    question: "Mixed urinary incontinence refers to:",
+    options: [
+      "A combination of stress and urgency incontinence symptoms in the same patient",
+      "Incontinence occurring only at night",
+      "Incontinence due to a fistula",
+      "A type of overflow incontinence exclusively"
+    ],
+    correctIndex: 0,
+    explanation: "Mixed urinary incontinence describes the coexistence of stress and urgency incontinence symptoms, requiring assessment of which component is more bothersome to guide treatment sequencing."
+  },
+  {
+    id: "incontinence-005",
+    topic: "non-oncology", subtopic: "incontinence",
+    question: "Botulinum toxin bladder injections are used in refractory overactive bladder primarily to:",
+    options: [
+      "Strengthen the external urethral sphincter",
+      "Reduce detrusor overactivity by chemically denervating the bladder muscle, reducing urgency/incontinence episodes",
+      "Cure stress incontinence",
+      "Treat bladder cancer"
+    ],
+    correctIndex: 1,
+    explanation: "Botulinum toxin injected into the detrusor reduces involuntary contractions in overactive bladder refractory to antimuscarinics/beta-3 agonists, though it carries a risk of needing self-catheterisation post-injection."
+  },
+  {
+    id: "incontinence-006",
+    topic: "non-oncology", subtopic: "incontinence",
+    question: "Beta-3 adrenergic agonists (e.g. mirabegron) are used in overactive bladder as an alternative to antimuscarinics primarily because they:",
+    options: [
+      "Work identically with the same side-effect profile",
+      "Avoid antimuscarinic side effects such as dry mouth and constipation, working via a different mechanism (detrusor relaxation)",
+      "Are only used for stress incontinence",
+      "Cure the underlying detrusor overactivity permanently after one dose"
+    ],
+    correctIndex: 1,
+    explanation: "Beta-3 agonists relax the detrusor via a different receptor pathway than antimuscarinics, offering an alternative with a different side-effect profile (avoiding anticholinergic effects), useful when antimuscarinics are poorly tolerated."
+  },
+
+  // ---- NON-ONCOLOGY: neuro-urology (expansion) ----
+  {
+    id: "neuro-003",
+    topic: "non-oncology", subtopic: "neuro-urology",
+    question: "Urodynamic studies in neurogenic bladder patients are primarily used to assess:",
+    options: [
+      "Only bladder capacity, nothing else",
+      "Detrusor pressure during filling/voiding to identify high-pressure patterns risking upper tract damage",
+      "Prostate size only",
+      "Kidney stone composition"
+    ],
+    correctIndex: 1,
+    explanation: "Urodynamics identifies dangerous patterns such as detrusor overactivity with high storage pressures or detrusor-sphincter dyssynergia, guiding management to protect renal function."
+  },
+  {
+    id: "neuro-004",
+    topic: "non-oncology", subtopic: "neuro-urology",
+    question: "Detrusor-sphincter dyssynergia refers to:",
+    options: [
+      "Normal coordinated relaxation of the sphincter during voiding",
+      "Simultaneous contraction of the detrusor and the external urethral sphincter during voiding, causing functional obstruction",
+      "A type of bladder cancer",
+      "A congenital kidney anomaly"
+    ],
+    correctIndex: 1,
+    explanation: "Detrusor-sphincter dyssynergia is an uncoordinated contraction of the sphincter during detrusor contraction, common in suprasacral spinal cord lesions, leading to high storage/voiding pressures."
+  },
+  {
+    id: "neuro-005",
+    topic: "non-oncology", subtopic: "neuro-urology",
+    question: "In neurogenic bladder, antimuscarinic medications are used primarily to:",
+    options: [
+      "Increase detrusor contraction strength",
+      "Reduce detrusor overactivity and increase bladder capacity/lower storage pressures",
+      "Treat urinary tract stones",
+      "Replace the need for catheterisation entirely in all patients"
+    ],
+    correctIndex: 1,
+    explanation: "Antimuscarinics reduce detrusor overactivity, helping achieve safer, lower-pressure bladder storage — often combined with clean intermittent catheterisation for emptying."
+  },
+
+  // ---- NON-ONCOLOGY: female / functional urology (expansion) ----
+  {
+    id: "female-002",
+    topic: "non-oncology", subtopic: "female-functional",
+    question: "Vaginal oestrogen therapy in postmenopausal women with recurrent UTIs and urogenital atrophy is used to:",
+    options: [
+      "Treat active infection directly as an antibiotic substitute",
+      "Restore vaginal/urethral mucosal health, which may reduce recurrent UTI risk",
+      "Treat bladder cancer",
+      "Replace the need for any further evaluation"
+    ],
+    correctIndex: 1,
+    explanation: "Vaginal oestrogen improves urogenital tissue health in postmenopausal atrophy and is a recognised adjunct to reduce recurrent UTI risk in this population, not a treatment for active infection."
+  },
+  {
+    id: "female-003",
+    topic: "non-oncology", subtopic: "female-functional",
+    question: "A vesicovaginal fistula most commonly presents with:",
+    options: [
+      "Continuous, painless urinary leakage per vaginam",
+      "Only stress incontinence with coughing",
+      "Isolated haematuria with no leakage",
+      "Urinary retention"
+    ],
+    correctIndex: 0,
+    explanation: "Vesicovaginal fistula classically causes continuous, painless leakage of urine through the vagina, distinct from stress or urgency incontinence patterns."
+  },
+  {
+    id: "female-004",
+    topic: "non-oncology", subtopic: "female-functional",
+    question: "Pessaries are a recognised management option for pelvic organ prolapse primarily as:",
+    options: [
+      "A permanent surgical cure",
+      "A non-surgical conservative option, useful for women who wish to avoid or delay surgery or are unfit for it",
+      "A treatment for stress incontinence only, unrelated to prolapse",
+      "A diagnostic tool only, not a treatment"
+    ],
+    correctIndex: 1,
+    explanation: "Vaginal pessaries provide symptomatic support for pelvic organ prolapse without surgery and are a reasonable option for women who prefer conservative management or are poor surgical candidates."
+  },
+  // ---- INFECTIONS & OTHER: UTI / urosepsis / Fournier's (expansion) ----
+  {
+    id: "infect-004",
+    topic: "infections-other", subtopic: "uti-urosepsis",
+    question: "Asymptomatic bacteriuria in a healthy, non-pregnant woman generally should be:",
+    options: [
+      "Treated with a full antibiotic course regardless of symptoms",
+      "Not treated, since treatment does not benefit asymptomatic non-pregnant, non-immunocompromised patients",
+      "Treated only with IV antibiotics",
+      "An indication for immediate cystoscopy"
+    ],
+    correctIndex: 1,
+    explanation: "EAU guidelines recommend against treating asymptomatic bacteriuria in most non-pregnant, immunocompetent patients, as antibiotic treatment does not improve outcomes and promotes resistance; pregnancy and certain procedures are exceptions."
+  },
+  {
+    id: "infect-005",
+    topic: "infections-other", subtopic: "uti-urosepsis",
+    question: "Complicated UTI is distinguished from uncomplicated UTI mainly by the presence of:",
+    options: [
+      "Any fever, regardless of other factors",
+      "A functional or anatomical abnormality of the urinary tract, or a relevant host factor (e.g. catheter, stones, immunosuppression, male sex, pregnancy)",
+      "Patient age under 30",
+      "Female sex alone"
+    ],
+    correctIndex: 1,
+    explanation: "Complicated UTI implies an increased risk of treatment failure due to structural/functional urinary tract abnormalities or host factors — this distinction guides antibiotic choice and duration, and need for further workup."
+  },
+  {
+    id: "infect-006",
+    topic: "infections-other", subtopic: "uti-urosepsis",
+    question: "Acute bacterial prostatitis is typically treated with:",
+    options: [
+      "No antibiotics needed, self-limiting",
+      "Prolonged antibiotic therapy with an agent that penetrates prostatic tissue well",
+      "A single antibiotic dose only",
+      "Surgery as first-line treatment"
+    ],
+    correctIndex: 1,
+    explanation: "Acute bacterial prostatitis requires a prolonged course (often several weeks) of antibiotics with good prostatic tissue penetration (e.g. fluoroquinolones where appropriate) due to risk of chronic prostatitis/abscess if undertreated."
+  },
+  {
+    id: "infect-007",
+    topic: "infections-other", subtopic: "uti-urosepsis",
+    question: "An emphysematous pyelonephritis (gas-forming renal infection) is best characterised as:",
+    options: [
+      "A mild self-limiting condition needing oral antibiotics only",
+      "A severe, potentially life-threatening necrotising renal infection often requiring drainage/nephrectomy plus antibiotics",
+      "Always requires no imaging to diagnose",
+      "A form of bladder cancer"
+    ],
+    correctIndex: 1,
+    explanation: "Emphysematous pyelonephritis is a severe, gas-forming necrotising infection (often in diabetics) with high mortality, typically requiring urgent drainage/nephrectomy in addition to aggressive antibiotic therapy."
+  },
+
+  // ---- INFECTIONS & OTHER: trauma / reconstruction (expansion) ----
+  {
+    id: "trauma-003",
+    topic: "infections-other", subtopic: "trauma-reconstruction",
+    question: "Gross haematuria after blunt abdominal trauma should prompt which initial investigation in a stable patient?",
+    options: [
+      "No imaging needed if patient appears well",
+      "CT urography/CT with contrast to assess for renal or urinary tract injury",
+      "Immediate exploratory laparotomy in all cases",
+      "Cystoscopy as the first test"
+    ],
+    correctIndex: 1,
+    explanation: "CT imaging with contrast (CT urography) is the investigation of choice in haemodynamically stable trauma patients with haematuria, to characterise renal/urinary tract injury and guide management."
+  },
+  {
+    id: "trauma-004",
+    topic: "infections-other", subtopic: "trauma-reconstruction",
+    question: "Urethral strictures following pelvic fracture urethral injury are commonly managed definitively with:",
+    options: [
+      "Permanent indwelling catheter as first-line definitive treatment",
+      "Delayed urethroplasty (surgical reconstruction) after a period of suprapubic drainage",
+      "Immediate primary urethral realignment is always mandatory in every case",
+      "No treatment necessary"
+    ],
+    correctIndex: 1,
+    explanation: "Pelvic fracture urethral injuries are often managed initially with suprapubic diversion followed by delayed urethroplasty for definitive reconstruction, which has better long-term outcomes than repeated dilation in many cases."
+  },
+  {
+    id: "trauma-005",
+    topic: "infections-other", subtopic: "trauma-reconstruction",
+    question: "Traumatic bladder rupture is classified as intraperitoneal or extraperitoneal; intraperitoneal rupture typically requires:",
+    options: [
+      "Conservative catheter drainage alone in nearly all cases",
+      "Surgical repair, since intraperitoneal rupture does not reliably heal with catheter drainage alone",
+      "No treatment, as it always heals spontaneously",
+      "Radiotherapy"
+    ],
+    correctIndex: 1,
+    explanation: "Intraperitoneal bladder rupture generally requires surgical repair, whereas most extraperitoneal ruptures can be managed conservatively with catheter drainage alone."
+  },
+
+  // ---- INFECTIONS & OTHER: andrology / male infertility (expansion) ----
+  {
+    id: "andro-003",
+    topic: "infections-other", subtopic: "andrology",
+    question: "Testicular torsion is a surgical emergency because:",
+    options: [
+      "It always resolves spontaneously without harm",
+      "Delayed detorsion beyond several hours significantly increases risk of testicular loss due to ischaemia",
+      "It only affects fertility, never viability of the testis",
+      "Antibiotics alone are curative"
+    ],
+    correctIndex: 1,
+    explanation: "Testicular torsion causes ischaemia from cord twisting; salvage rates fall sharply after roughly 6 hours, making prompt surgical exploration and detorsion time-critical."
+  },
+  {
+    id: "andro-004",
+    topic: "infections-other", subtopic: "andrology",
+    question: "Peyronie's disease is characterised by:",
+    options: [
+      "Fibrous plaque formation in the tunica albuginea causing penile curvature/deformity",
+      "A urinary tract infection of the penis",
+      "A form of testicular cancer",
+      "A congenital absence of the urethra"
+    ],
+    correctIndex: 0,
+    explanation: "Peyronie's disease involves fibrotic plaque within the tunica albuginea, leading to curvature, deformity, and sometimes pain or erectile difficulty."
+  },
+  {
+    id: "andro-005",
+    topic: "infections-other", subtopic: "andrology",
+    question: "In male infertility workup, semen analysis parameters are typically compared against reference values from:",
+    options: [
+      "WHO reference criteria",
+      "EAU prostate cancer risk tables",
+      "PI-RADS scoring",
+      "TNM staging"
+    ],
+    correctIndex: 0,
+    explanation: "WHO reference values for semen parameters (concentration, motility, morphology) are the standard used to interpret semen analysis in male infertility evaluation."
+  },
+
+  // ---- INFECTIONS & OTHER: paediatric urology (expansion) ----
+  {
+    id: "paeds-003",
+    topic: "infections-other", subtopic: "paediatric",
+    question: "Vesicoureteral reflux (VUR) in children is primarily a concern because it increases the risk of:",
+    options: [
+      "Bladder cancer in childhood",
+      "Febrile UTIs and subsequent renal scarring",
+      "Erectile dysfunction in adulthood",
+      "Testicular torsion"
+    ],
+    correctIndex: 1,
+    explanation: "VUR predisposes to ascending infection and febrile UTIs, which can lead to renal scarring (reflux nephropathy) if recurrent, particularly in younger children."
+  },
+  {
+    id: "paeds-004",
+    topic: "infections-other", subtopic: "paediatric",
+    question: "Hypospadias is best described as:",
+    options: [
+      "A urethral meatus located proximal to its normal glanular position, often with ventral curvature",
+      "An absent bladder at birth",
+      "A malignant tumour of the penis",
+      "A form of testicular torsion"
+    ],
+    correctIndex: 0,
+    explanation: "Hypospadias is a congenital condition where the urethral opening is ectopically positioned along the ventral penile shaft rather than at the tip of the glans, often accompanied by chordee (curvature)."
+  },
+  {
+    id: "paeds-005",
+    topic: "infections-other", subtopic: "paediatric",
+    question: "First febrile UTI in an infant typically prompts consideration of which imaging to assess for structural abnormality?",
+    options: [
+      "Renal and bladder ultrasound as an initial, non-invasive first step",
+      "Immediate invasive cystoscopy in every infant",
+      "No imaging is ever indicated in infants",
+      "PET-CT scan"
+    ],
+    correctIndex: 0,
+    explanation: "Renal and bladder ultrasound is the typical first-line, non-invasive imaging after a febrile UTI in infants to screen for structural abnormalities such as hydronephrosis, with further imaging (e.g. VCUG) guided by findings/risk factors."
+  },
+
+  // ---- INFECTIONS & OTHER: transplantation (expansion) ----
+  {
+    id: "transplant-002",
+    topic: "infections-other", subtopic: "transplantation",
+    question: "Post-transplant, the most common cause of early graft dysfunction related to a surgical/urological complication is:",
+    options: [
+      "Ureteric complications (e.g. obstruction, leak) at the ureterovesical anastomosis",
+      "Testicular torsion",
+      "Bladder cancer",
+      "Penile curvature"
+    ],
+    correctIndex: 0,
+    explanation: "Ureteric complications such as obstruction or urine leak at the anastomosis to the bladder are among the more common urological surgical complications following renal transplantation, requiring prompt recognition and management."
+  },
+  {
+    id: "transplant-003",
+    topic: "infections-other", subtopic: "transplantation",
+    question: "Immunosuppression after renal transplantation increases the recipient's long-term risk of which urological condition?",
+    options: [
+      "Reduced risk of all cancers compared to the general population",
+      "Increased risk of certain malignancies (e.g. skin cancers, and some urological cancers) due to chronic immunosuppression",
+      "No increased infection risk at all",
+      "Immediate rejection is guaranteed regardless of therapy"
+    ],
+    correctIndex: 1,
+    explanation: "Chronic immunosuppression after transplantation increases long-term risk of malignancy (including some urological cancers) and opportunistic infections, requiring ongoing surveillance."
+  },
+  // ---- ONCOLOGY: supplement ----
+  {
+    id: "onco-prostate-008",
+    topic: "oncology", subtopic: "prostate",
+    question: "Which imaging is recommended for initial staging of newly diagnosed high-risk prostate cancer to assess for nodal/bone metastases?",
+    options: [
+      "Cross-sectional imaging (CT/MRI) of the pelvis/abdomen and a bone scan (or PSMA-PET where available)",
+      "Plain X-ray of the pelvis only",
+      "No imaging is needed for high-risk disease",
+      "Renal ultrasound only"
+    ],
+    correctIndex: 0,
+    explanation: "High-risk localised prostate cancer warrants staging imaging (cross-sectional imaging plus bone scan, or PSMA-PET/CT where available) to exclude nodal or bone metastases before definitive treatment planning."
+  },
+  {
+    id: "onco-rcc-006",
+    topic: "oncology", subtopic: "rcc",
+    question: "A Bosniak classification is used specifically to characterise:",
+    options: [
+      "Complex renal cystic lesions and their malignant potential",
+      "Bladder tumour depth of invasion",
+      "Prostate biopsy grading",
+      "Testicular tumour markers"
+    ],
+    correctIndex: 0,
+    explanation: "The Bosniak classification stratifies renal cystic lesions (I-IV) by imaging features to estimate malignancy risk and guide management (surveillance vs intervention)."
+  },
+  {
+    id: "onco-utuc-005",
+    topic: "oncology", subtopic: "utuc",
+    question: "Which factor is most associated with an increased risk of upper tract urothelial carcinoma?",
+    options: [
+      "Lynch syndrome (hereditary non-polyposis colorectal cancer) and aristolochic acid exposure",
+      "Vitamin D deficiency alone",
+      "Excess dietary calcium",
+      "Physical inactivity alone"
+    ],
+    correctIndex: 0,
+    explanation: "UTUC has a recognised association with Lynch syndrome and aristolochic acid nephropathy (e.g. Balkan endemic nephropathy, certain herbal exposures), among other risk factors like smoking."
+  },
+
+  // ---- NON-ONCOLOGY: supplement ----
+  {
+    id: "stones-009",
+    topic: "non-oncology", subtopic: "stones",
+    question: "The most common stone composition overall is:",
+    options: ["Uric acid", "Calcium oxalate", "Cystine", "Struvite"],
+    correctIndex: 1,
+    explanation: "Calcium oxalate stones are the most common stone type overall, followed by calcium phosphate, uric acid, struvite, and cystine stones."
+  },
+  {
+    id: "bph-008",
+    topic: "non-oncology", subtopic: "bph",
+    question: "Struvite (infection) stones are most strongly associated with infection by which type of organism?",
+    options: [
+      "Urease-producing bacteria (e.g. Proteus species)",
+      "Viruses",
+      "Fungi exclusively",
+      "Anaerobes exclusively"
+    ],
+    correctIndex: 0,
+    explanation: "Struvite stones form in the presence of urease-producing bacteria (classically Proteus mirabilis), which alkalinise urine and promote precipitation of magnesium ammonium phosphate crystals."
+  },
+  {
+    id: "female-005",
+    topic: "non-oncology", subtopic: "female-functional",
+    question: "Overactive bladder syndrome is defined primarily by the symptom of:",
+    options: [
+      "Urgency, with or without urgency incontinence, usually with frequency and nocturia, in the absence of infection or other pathology",
+      "Painless continuous leakage from a fistula",
+      "Pure stress incontinence with exertion only",
+      "Complete urinary retention"
+    ],
+    correctIndex: 0,
+    explanation: "Overactive bladder is a symptom-based diagnosis centred on urgency (with/without incontinence), usually with increased frequency and nocturia, once infection and other causes are excluded."
+  },
+
+  // ---- INFECTIONS & OTHER: supplement ----
+  {
+    id: "infect-008",
+    topic: "infections-other", subtopic: "uti-urosepsis",
+    question: "Catheter-associated UTI (CAUTI) risk is best reduced by:",
+    options: [
+      "Prolonging catheter duration to avoid re-insertion trauma",
+      "Minimising catheter duration and using catheters only when clearly indicated, with aseptic insertion/maintenance",
+      "Routine prophylactic antibiotics for all catheterised patients indefinitely",
+      "Daily catheter changes regardless of indication"
+    ],
+    correctIndex: 1,
+    explanation: "The most effective CAUTI prevention strategy is minimising unnecessary catheter use and duration, with proper aseptic technique — not routine antibiotic prophylaxis, which promotes resistance."
+  },
+  {
+    id: "andro-006",
+    topic: "infections-other", subtopic: "andrology",
+    question: "Priapism lasting several hours (ischaemic type) is a urological emergency primarily because of the risk of:",
+    options: [
+      "Spontaneous resolution without consequence",
+      "Corporal smooth muscle ischaemia leading to fibrosis and permanent erectile dysfunction if untreated",
+      "Bladder cancer",
+      "Renal failure"
+    ],
+    correctIndex: 1,
+    explanation: "Ischaemic priapism causes progressive corporal tissue hypoxia; prolonged episodes risk irreversible smooth muscle damage/fibrosis and permanent erectile dysfunction, warranting urgent decompression (aspiration/irrigation, alpha-agonist injection)."
+  },
+  {
+    id: "paeds-006",
+    topic: "infections-other", subtopic: "paediatric",
+    question: "Posterior urethral valves are a cause of:",
+    options: [
+      "Congenital bladder outlet obstruction in male infants, potentially causing hydronephrosis and renal impairment",
+      "A benign finding with no clinical significance",
+      "A disease exclusive to female infants",
+      "Adult-onset urinary retention only"
+    ],
+    correctIndex: 0,
+    explanation: "Posterior urethral valves are the most common cause of congenital bladder outlet obstruction in male infants and can lead to bilateral hydronephrosis, bladder dysfunction, and renal impairment if not identified and treated early."
   }
 ];
 
