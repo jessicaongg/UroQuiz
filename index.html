@@ -68,18 +68,36 @@ const STORAGE_KEY = "uroquiz-progress-v1";
 function loadProgress() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return { topicStats: {}, missedIds: [] };
+    if (!raw) return { topicStats: {}, missedIds: [], inProgressSession: null };
     const data = JSON.parse(raw);
     if (!data.topicStats) data.topicStats = {};
     if (!data.missedIds) data.missedIds = [];
+    if (data.inProgressSession === undefined) data.inProgressSession = null;
     return data;
   } catch (e) {
-    return { topicStats: {}, missedIds: [] };
+    return { topicStats: {}, missedIds: [], inProgressSession: null };
   }
 }
 
 function saveProgress(progress) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+}
+
+function saveInProgressSession() {
+  const progress = loadProgress();
+  progress.inProgressSession = {
+    mode: state.mode,
+    sessionQuestions: state.sessionQuestions,
+    currentIndex: state.currentIndex,
+    answers: state.answers
+  };
+  saveProgress(progress);
+}
+
+function clearInProgressSession() {
+  const progress = loadProgress();
+  progress.inProgressSession = null;
+  saveProgress(progress);
 }
 
 const QUESTIONS = [
