@@ -1574,6 +1574,8 @@ function renderQuiz() {
     if (state.mode === "study" && alreadyAnswered) {
       if (idx === q.correctIndex) label.classList.add("correct");
       else if (idx === existingAnswer.chosenIndex) label.classList.add("incorrect");
+    } else if (state.mode === "exam" && alreadyAnswered && idx === existingAnswer.chosenIndex) {
+      label.classList.add("selected");
     }
 
     label.addEventListener("click", () => {
