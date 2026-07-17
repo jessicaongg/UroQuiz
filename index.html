@@ -1442,9 +1442,10 @@ function renderHome() {
   const allCheckbox = document.createElement("input");
   allCheckbox.type = "checkbox";
   allCheckbox.id = "topic-all";
+  allCheckbox.checked = state.selectedTopics.length === 0;
   allCheckbox.addEventListener("change", () => {
     if (allCheckbox.checked) {
-      state.selectedTopics = getTopics();
+      state.selectedTopics = [];
       render();
     }
   });
