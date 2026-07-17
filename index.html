@@ -1598,7 +1598,8 @@ function renderQuiz() {
 
   container.appendChild(card);
 
-  const navRow = document.createElement("div");
+  const navTopRow = document.createElement("div");
+  navTopRow.className = "nav-row-split";
 
   if (state.currentIndex > 0) {
     const prevBtn = document.createElement("button");
@@ -1608,7 +1609,9 @@ function renderQuiz() {
       state.currentIndex--;
       render();
     });
-    navRow.appendChild(prevBtn);
+    navTopRow.appendChild(prevBtn);
+  } else {
+    navTopRow.appendChild(document.createElement("div"));
   }
 
   // Study mode requires answering before advancing (pedagogical gate, unchanged
@@ -1616,7 +1619,6 @@ function renderQuiz() {
   const canAdvance = state.mode === "exam" || alreadyAnswered;
   if (canAdvance) {
     const nextBtn = document.createElement("button");
-    nextBtn.style.marginLeft = "0.5rem";
     nextBtn.textContent = isLastQuestion ? "Finish" : "Next Question";
     nextBtn.addEventListener("click", () => {
       if (isLastQuestion) {
@@ -1626,21 +1628,25 @@ function renderQuiz() {
       }
       render();
     });
-    navRow.appendChild(nextBtn);
+    navTopRow.appendChild(nextBtn);
+  } else {
+    navTopRow.appendChild(document.createElement("div"));
   }
 
+  container.appendChild(navTopRow);
+
+  const homeRow = document.createElement("div");
+  homeRow.className = "center-row";
   const homeBtn = document.createElement("button");
   homeBtn.className = "secondary";
   homeBtn.textContent = "Home";
-  homeBtn.style.marginLeft = "0.5rem";
   homeBtn.addEventListener("click", () => {
     saveInProgressSession();
     state.screen = "home";
     render();
   });
-  navRow.appendChild(homeBtn);
-
-  container.appendChild(navRow);
+  homeRow.appendChild(homeBtn);
+  container.appendChild(homeRow);
   return container;
 }
 
