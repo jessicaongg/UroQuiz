@@ -77,7 +77,14 @@ function loadProgress() {
     if (!data.topicStats) data.topicStats = {};
     if (!data.missedIds) data.missedIds = [];
     if (data.inProgressSession === undefined) data.inProgressSession = null;
-    if (!data.attemptedIds) data.attemptedIds = [];
+    if (data.attemptedIds === undefined) {
+      // Pre-existing installs (before per-question coverage tracking was added) only
+      // have aggregate topicStats, not individual question ids. Approximate coverage
+      // with placeholder ids so readiness doesn't wrongly drop to "0 seen" on upgrade.
+      const legacyAttempted = Object.values(data.topicStats).reduce((sum, s) => sum + s.attempted, 0);
+      const legacyCount = Math.min(legacyAttempted, QUESTIONS.length);
+      data.attemptedIds = Array.from({ length: legacyCount }, (_, i) => `legacy-${i}`);
+    }
     return data;
   } catch (e) {
     return { topicStats: {}, missedIds: [], inProgressSession: null, attemptedIds: [] };
@@ -1442,6 +1449,7 @@ function renderHome() {
     checkbox.addEventListener("change", () => {
       if (checkbox.checked) state.selectedTopics.push(topic);
       else state.selectedTopics = state.selectedTopics.filter(t => t !== topic);
+      render();
     });
     const label = document.createElement("label");
     label.htmlFor = checkbox.id;
