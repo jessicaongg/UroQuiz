@@ -1406,30 +1406,6 @@ function renderHome() {
   container.appendChild(readinessCard);
 
   const progress = loadProgress();
-  if (progress.inProgressSession) {
-    const resumeBtn = document.createElement("button");
-    resumeBtn.textContent = "Resume Quiz";
-    resumeBtn.addEventListener("click", () => {
-      const session = progress.inProgressSession;
-      state.mode = session.mode;
-      state.sessionQuestions = session.sessionQuestions;
-      state.currentIndex = session.currentIndex;
-      state.answers = session.answers;
-      state.screen = "quiz";
-      render();
-    });
-    container.appendChild(resumeBtn);
-
-    const restartBtn = document.createElement("button");
-    restartBtn.className = "secondary";
-    restartBtn.textContent = "Restart";
-    restartBtn.style.marginLeft = "0.5rem";
-    restartBtn.addEventListener("click", () => {
-      clearInProgressSession();
-      render();
-    });
-    container.appendChild(restartBtn);
-  }
 
   const topicCard = document.createElement("div");
   topicCard.className = "card";
@@ -1500,17 +1476,46 @@ function renderHome() {
   });
   container.appendChild(modeCard);
 
-  const startBtn = document.createElement("button");
-  startBtn.textContent = "Start Quiz";
-  startBtn.addEventListener("click", startQuiz);
-  container.appendChild(startBtn);
+  const actionRow = document.createElement("div");
+  if (progress.inProgressSession) {
+    const resumeBtn = document.createElement("button");
+    resumeBtn.textContent = "Resume Quiz";
+    resumeBtn.addEventListener("click", () => {
+      const session = progress.inProgressSession;
+      state.mode = session.mode;
+      state.sessionQuestions = session.sessionQuestions;
+      state.currentIndex = session.currentIndex;
+      state.answers = session.answers;
+      state.screen = "quiz";
+      render();
+    });
+    actionRow.appendChild(resumeBtn);
 
+    const restartBtn = document.createElement("button");
+    restartBtn.className = "secondary";
+    restartBtn.textContent = "Restart";
+    restartBtn.style.marginLeft = "0.5rem";
+    restartBtn.addEventListener("click", () => {
+      clearInProgressSession();
+      render();
+    });
+    actionRow.appendChild(restartBtn);
+  } else {
+    const startBtn = document.createElement("button");
+    startBtn.textContent = "Start Quiz";
+    startBtn.addEventListener("click", startQuiz);
+    actionRow.appendChild(startBtn);
+  }
+  container.appendChild(actionRow);
+
+  const statsRow = document.createElement("div");
+  statsRow.className = "center-row";
   const statsBtn = document.createElement("button");
   statsBtn.className = "secondary";
   statsBtn.textContent = "View Stats";
-  statsBtn.style.marginLeft = "0.5rem";
   statsBtn.addEventListener("click", () => { state.screen = "stats"; render(); });
-  container.appendChild(statsBtn);
+  statsRow.appendChild(statsBtn);
+  container.appendChild(statsRow);
 
   return container;
 }
