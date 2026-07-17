@@ -69,14 +69,15 @@ const STORAGE_KEY = "uroquiz-progress-v1";
 function loadProgress() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return { topicStats: {}, missedIds: [], inProgressSession: null };
+    if (!raw) return { topicStats: {}, missedIds: [], inProgressSession: null, attemptedIds: [] };
     const data = JSON.parse(raw);
     if (!data.topicStats) data.topicStats = {};
     if (!data.missedIds) data.missedIds = [];
     if (data.inProgressSession === undefined) data.inProgressSession = null;
+    if (!data.attemptedIds) data.attemptedIds = [];
     return data;
   } catch (e) {
-    return { topicStats: {}, missedIds: [], inProgressSession: null };
+    return { topicStats: {}, missedIds: [], inProgressSession: null, attemptedIds: [] };
   }
 }
 
@@ -1392,8 +1393,10 @@ function renderHome() {
   const readinessCard = document.createElement("div");
   readinessCard.className = "card";
   if (readinessAttempted > 0) {
-    const pct = Math.round((readinessCorrect / readinessAttempted) * 100);
-    readinessCard.textContent = `Exam Readiness: ${pct}%`;
+    const accuracyPct = Math.round((readinessCorrect / readinessAttempted) * 100);
+    const coveragePct = Math.round((readinessProgress.attemptedIds.length / QUESTIONS.length) * 100);
+    const readinessPct = Math.round((accuracyPct + coveragePct) / 2);
+    readinessCard.textContent = `Exam Readiness: ${readinessPct}% (${readinessCorrect}/${readinessAttempted} correct, ${readinessProgress.attemptedIds.length}/${QUESTIONS.length} questions seen)`;
   } else {
     readinessCard.textContent = "Exam Readiness: Not enough data yet";
   }
@@ -1659,6 +1662,10 @@ function saveSessionToStorage() {
     if (answer.correct) missedSet.delete(answer.questionId);
     else missedSet.add(answer.questionId);
     progress.missedIds = [...missedSet];
+
+    const attemptedSet = new Set(progress.attemptedIds);
+    attemptedSet.add(answer.questionId);
+    progress.attemptedIds = [...attemptedSet];
   });
 
   saveProgress(progress);
