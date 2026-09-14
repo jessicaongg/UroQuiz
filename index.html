@@ -433,13 +433,13 @@ const QUESTIONS = [
     topic: "infections-other", subtopic: "uti-urosepsis",
     question: "Recurrent uncomplicated UTIs in women may be offered which non-antibiotic preventive strategy per EAU guidelines?",
     options: [
-      "Cranberry products / vaginal oestrogen in postmenopausal women as adjuncts",
-      "Prophylactic nephrectomy",
-      "Permanent catheterisation",
-      "Routine prophylactic chemotherapy"
+      "Cranberry products / vaginal oestrogen in postmenopausal women as adjuncts, alongside behavioural measures",
+      "Long-term high-dose antibiotic prophylaxis as the preferred first-line option, before trying any non-antibiotic measure",
+      "D-mannose and probiotics, which have equivalent guideline-level evidence to antibiotic prophylaxis",
+      "Referral for prophylactic bilateral nephrectomy"
     ],
     correctIndex: 0,
-    explanation: "Non-antibiotic measures such as vaginal oestrogen in postmenopausal women, and cranberry products, are reasonable adjuncts/options for recurrent UTI prevention alongside behavioural measures."
+    explanation: "Non-antibiotic measures (vaginal oestrogen in postmenopausal women, cranberry products, behavioural changes) are reasonable first options before antibiotic prophylaxis, which is reserved for when these measures are insufficient — D-mannose/probiotics have weaker evidence than implied, and nephrectomy has no role in recurrent uncomplicated UTI."
   },
   // ---- INFECTIONS & OTHER: trauma / reconstruction ----
   {
@@ -1098,13 +1098,13 @@ const QUESTIONS = [
     topic: "infections-other", subtopic: "trauma-reconstruction",
     question: "Traumatic bladder rupture is classified as intraperitoneal or extraperitoneal; intraperitoneal rupture typically requires:",
     options: [
-      "Conservative catheter drainage alone in nearly all cases",
+      "Conservative catheter drainage alone, since intraperitoneal rupture reliably heals non-operatively like most extraperitoneal ruptures",
       "Surgical repair, since intraperitoneal rupture does not reliably heal with catheter drainage alone",
-      "No treatment, as it always heals spontaneously",
-      "Radiotherapy"
+      "Immediate cystectomy regardless of injury extent",
+      "Ureteric stenting alone, without addressing the bladder injury itself"
     ],
     correctIndex: 1,
-    explanation: "Intraperitoneal bladder rupture generally requires surgical repair, whereas most extraperitoneal ruptures can be managed conservatively with catheter drainage alone."
+    explanation: "Intraperitoneal bladder rupture generally requires surgical repair — unlike most extraperitoneal ruptures, which often heal with catheter drainage alone — because urine leaking into the peritoneal cavity causes chemical peritonitis and does not reliably seal spontaneously; cystectomy and ureteric stenting alone are not appropriate for a rupture requiring closure."
   },
 
   // ---- INFECTIONS & OTHER: andrology / male infertility (expansion) ----
@@ -1180,13 +1180,13 @@ const QUESTIONS = [
     topic: "infections-other", subtopic: "paediatric",
     question: "First febrile UTI in an infant typically prompts consideration of which imaging to assess for structural abnormality?",
     options: [
-      "Renal and bladder ultrasound as an initial, non-invasive first step",
-      "Immediate invasive cystoscopy in every infant",
-      "No imaging is ever indicated in infants",
-      "PET-CT scan"
+      "Renal and bladder ultrasound as an initial, non-invasive first step, with VCUG reserved for those with abnormal ultrasound findings or other risk factors for VUR",
+      "Immediate voiding cystourethrogram (VCUG) in every infant regardless of ultrasound findings",
+      "No imaging is indicated after a first febrile UTI in infants",
+      "PET-CT scan as first-line"
     ],
     correctIndex: 0,
-    explanation: "Renal and bladder ultrasound is the typical first-line, non-invasive imaging after a febrile UTI in infants to screen for structural abnormalities such as hydronephrosis, with further imaging (e.g. VCUG) guided by findings/risk factors."
+    explanation: "Renal and bladder ultrasound is the typical first-line, non-invasive imaging after a febrile UTI in infants; VCUG is reserved for infants with abnormal ultrasound findings or other risk factors suggesting VUR, rather than performed routinely in every infant regardless of findings."
   },
 
   // ---- INFECTIONS & OTHER: transplantation (expansion) ----
@@ -1208,13 +1208,13 @@ const QUESTIONS = [
     topic: "infections-other", subtopic: "transplantation",
     question: "Immunosuppression after renal transplantation increases the recipient's long-term risk of which urological condition?",
     options: [
-      "Reduced risk of all cancers compared to the general population",
-      "Increased risk of certain malignancies (e.g. skin cancers, and some urological cancers) due to chronic immunosuppression",
-      "No increased infection risk at all",
-      "Immediate rejection is guaranteed regardless of therapy"
+      "Reduced risk of all cancers compared to the general population, since immunosuppression protects the graft and the patient equally",
+      "Increased risk of certain malignancies (e.g. skin cancers, and some urological cancers) due to chronic immunosuppression, alongside increased opportunistic infection risk",
+      "Immunosuppression has no effect on cancer or infection risk",
+      "Immediate graft rejection despite adequate immunosuppression, expected in nearly all patients"
     ],
     correctIndex: 1,
-    explanation: "Chronic immunosuppression after transplantation increases long-term risk of malignancy (including some urological cancers) and opportunistic infections, requiring ongoing surveillance."
+    explanation: "Chronic immunosuppression after transplantation increases long-term risk of malignancy (including certain urological cancers) and opportunistic infections, requiring ongoing surveillance — it does not reduce cancer risk, and adequate immunosuppression is intended to prevent (not guarantee) rejection."
   },
   // ---- ONCOLOGY: supplement ----
   {
@@ -2290,6 +2290,458 @@ const QUESTIONS = [
     ],
     correctIndex: 1,
     explanation: "Mesh exposure after sling surgery typically presents with vaginal discharge, spotting, dyspareunia, or partner-reported discomfort, with mesh visible or palpable on speculum examination — it is often symptomatic (not purely an imaging finding) and not typically associated with systemic sepsis or presenting solely as retention."
+  },
+
+  // ---- INFECTIONS & OTHER: UTI / urosepsis / Fournier's (depth pass) ----
+  {
+    id: "infect-009",
+    topic: "infections-other", subtopic: "uti-urosepsis",
+    question: "In a patient with suspected urosepsis, rapid bedside identification of high-risk patients likely to deteriorate is supported by using:",
+    options: [
+      "qSOFA (quick Sequential Organ Failure Assessment) or similar screening tools to flag patients needing escalated care",
+      "Urine dipstick alone, which reliably predicts sepsis severity",
+      "Serum PSA level",
+      "No screening tool is useful; clinical gestalt alone should never be supplemented"
+    ],
+    correctIndex: 0,
+    explanation: "qSOFA and similar rapid bedside screening tools help identify patients with suspected infection at higher risk of poor outcomes, prompting escalated monitoring/care — urine dipstick and PSA have no role in sepsis severity assessment."
+  },
+  {
+    id: "infect-010",
+    topic: "infections-other", subtopic: "uti-urosepsis",
+    question: "Empirical antibiotic choice for suspected urosepsis should be guided primarily by:",
+    options: [
+      "A single fixed regimen used identically worldwide regardless of local data",
+      "Local antimicrobial resistance patterns and patient-specific risk factors (e.g. recent antibiotics, prior resistant organisms, healthcare exposure), then narrowed once culture results are available",
+      "Waiting for full culture and sensitivity results before starting any antibiotic",
+      "Oral antibiotics only, regardless of severity"
+    ],
+    correctIndex: 1,
+    explanation: "Empirical therapy for urosepsis should account for local resistance patterns and individual risk factors for resistant organisms, started promptly (not delayed for culture results) and then de-escalated/narrowed once susceptibilities are known — a single fixed worldwide regimen ignores important local/patient variation."
+  },
+  {
+    id: "infect-011",
+    topic: "infections-other", subtopic: "uti-urosepsis",
+    question: "Xanthogranulomatous pyelonephritis is best described as:",
+    options: [
+      "A mild, self-resolving form of cystitis",
+      "A rare, destructive chronic renal infection (often associated with obstructing staghorn calculi) that can mimic renal malignancy on imaging and often requires nephrectomy",
+      "A viral infection of the renal pelvis",
+      "A normal variant of renal anatomy"
+    ],
+    correctIndex: 1,
+    explanation: "Xanthogranulomatous pyelonephritis is a rare, destructive chronic granulomatous renal infection, often linked to obstructing (frequently staghorn) calculi, that can radiologically mimic renal cell carcinoma — definitive treatment is usually nephrectomy given the extent of renal destruction."
+  },
+  {
+    id: "infect-012",
+    topic: "infections-other", subtopic: "uti-urosepsis",
+    question: "A prostatic abscess complicating acute bacterial prostatitis that fails to improve on antibiotics alone typically requires:",
+    options: [
+      "Continuing the same oral antibiotic regimen unchanged indefinitely",
+      "Drainage (transrectal, transurethral, or transperineal) in addition to antibiotics",
+      "Immediate radical prostatectomy",
+      "No further intervention regardless of clinical course"
+    ],
+    correctIndex: 1,
+    explanation: "A prostatic abscess that doesn't respond to antibiotics alone generally requires drainage (image-guided or transurethral) in addition to continued antibiotic therapy — radical prostatectomy has no role in managing an infective abscess."
+  },
+  {
+    id: "infect-013",
+    topic: "infections-other", subtopic: "uti-urosepsis",
+    question: "Recurrent UTI in a man, unlike in a healthy young woman, should prompt:",
+    options: [
+      "The same reassurance and non-antibiotic-first approach, since male and female recurrent UTI carry identical risk profiles",
+      "Further urological evaluation (e.g. for prostatic disease, stones, or structural abnormality), since UTI in men is generally considered complicated and less common without an underlying cause",
+      "No further workup is ever needed in men",
+      "Assumption of a sexually transmitted infection as the only possible cause"
+    ],
+    correctIndex: 1,
+    explanation: "UTI in men is generally regarded as complicated (given a less common baseline occurrence without an underlying contributing factor) and recurrent episodes warrant evaluation for prostatic disease, stones, or structural/functional abnormalities — unlike the more permissive approach sometimes taken in young, otherwise healthy women with recurrent uncomplicated UTI."
+  },
+  {
+    id: "infect-014",
+    topic: "infections-other", subtopic: "uti-urosepsis",
+    question: "Duration of antibiotic therapy for uncomplicated acute pyelonephritis, per EAU guidance with an appropriate agent, is typically:",
+    options: [
+      "A single antibiotic dose only",
+      "A short course (e.g. around 7-10 days depending on agent), rather than the longer courses historically used",
+      "A minimum of 6 weeks in all cases",
+      "Indefinite antibiotic therapy"
+    ],
+    correctIndex: 1,
+    explanation: "Modern guidance favours shorter antibiotic courses (roughly 7-10 days, agent-dependent) for uncomplicated pyelonephritis compared with older, longer regimens, provided an appropriate, effective agent is used and the patient responds clinically — a single dose is inadequate, and prolonged/indefinite courses are unnecessary and promote resistance."
+  },
+
+  // ---- INFECTIONS & OTHER: trauma / reconstruction (depth pass) ----
+  {
+    id: "trauma-006",
+    topic: "infections-other", subtopic: "trauma-reconstruction",
+    question: "Renal trauma is graded using the AAST (American Association for the Surgery of Trauma) system; a grade V injury is characterised by:",
+    options: [
+      "A small subcapsular haematoma with no active bleeding",
+      "A shattered kidney or renal pedicle avulsion/devascularisation, the most severe grade",
+      "A minor superficial cortical laceration only",
+      "Grade V is a category used only for ureteric injuries, not renal"
+    ],
+    correctIndex: 1,
+    explanation: "AAST grade V renal injury represents the most severe category — a shattered kidney or renal hilar/pedicle avulsion causing devascularisation — often necessitating operative intervention, unlike lower grades which are frequently managed conservatively."
+  },
+  {
+    id: "trauma-007",
+    topic: "infections-other", subtopic: "trauma-reconstruction",
+    question: "Iatrogenic ureteric injury during pelvic surgery is most reliably recognised intraoperatively by:",
+    options: [
+      "Waiting for the patient to develop flank pain postoperatively before considering the diagnosis",
+      "Techniques such as intraoperative ureteric stenting/indigo carmine or methylene blue instillation, or direct visualisation, to confirm ureteric integrity during the case",
+      "Iatrogenic ureteric injury cannot be identified intraoperatively under any circumstances",
+      "Routine postoperative renal ultrasound performed the following week"
+    ],
+    correctIndex: 1,
+    explanation: "Intraoperative recognition of ureteric injury relies on direct visualisation, ureteric catheterisation/stenting, or intravenous dye techniques (e.g. indigo carmine, methylene blue) to confirm ureteric integrity during the procedure — waiting for delayed postoperative symptoms or imaging risks a missed injury and worse outcomes."
+  },
+  {
+    id: "trauma-008",
+    topic: "infections-other", subtopic: "trauma-reconstruction",
+    question: "Penile fracture (rupture of the tunica albuginea during erection) classically presents with:",
+    options: [
+      "A painless, gradually enlarging penile mass",
+      "A sudden cracking/popping sound, immediate pain, detumescence, and penile swelling/bruising (haematoma), often during intercourse",
+      "Isolated testicular pain with no penile findings",
+      "Gradual onset over several days with no acute event"
+    ],
+    correctIndex: 1,
+    explanation: "Penile fracture presents acutely — a cracking sound, sudden pain, immediate detumescence, and penile swelling/bruising from the tunical tear and haematoma — typically during vigorous intercourse or trauma, and is generally managed with prompt surgical exploration and repair."
+  },
+  {
+    id: "trauma-009",
+    topic: "infections-other", subtopic: "trauma-reconstruction",
+    question: "Blunt testicular trauma with clinical suspicion of testicular rupture should prompt:",
+    options: [
+      "Conservative management with ice and analgesia regardless of ultrasound findings",
+      "Urgent scrotal ultrasound, and surgical exploration/repair if rupture is confirmed or strongly suspected, to maximise testicular salvage",
+      "Immediate orchiectomy without imaging in every case of scrotal trauma",
+      "No imaging or intervention is required unless pain persists beyond a week"
+    ],
+    correctIndex: 1,
+    explanation: "Suspected testicular rupture after blunt trauma warrants urgent scrotal ultrasound, and surgical exploration with repair (not routine orchiectomy) when rupture is confirmed or strongly suspected, since early surgical repair improves testicular salvage rates compared with delayed or conservative management."
+  },
+  {
+    id: "trauma-010",
+    topic: "infections-other", subtopic: "trauma-reconstruction",
+    question: "In a haemodynamically unstable patient with a pelvic fracture and suspected associated urological injury, the immediate management priority is:",
+    options: [
+      "Definitive urethral/bladder repair before any haemorrhage control measures",
+      "Haemorrhage control and resuscitation first (following trauma priorities), with definitive urological reconstruction generally deferred",
+      "Urological injury always takes priority over haemodynamic instability",
+      "Immediate discharge planning, since pelvic fractures rarely cause haemodynamic instability"
+    ],
+    correctIndex: 1,
+    explanation: "In an unstable trauma patient, haemorrhage control and resuscitation take priority per standard trauma sequencing — associated urological injuries (e.g. urethral, bladder) are typically managed with temporising measures (e.g. suprapubic catheter) with definitive reconstruction deferred until the patient is stabilised."
+  },
+  {
+    id: "trauma-011",
+    topic: "infections-other", subtopic: "trauma-reconstruction",
+    question: "A 'damage control' approach to a severely injured, unstable trauma patient with a renal injury favours:",
+    options: [
+      "Definitive reconstructive renal surgery regardless of physiological status",
+      "Rapid, abbreviated intervention (e.g. packing, temporary control of bleeding) to control life-threatening haemorrhage, deferring definitive repair until the patient is physiologically stabilised",
+      "No renal intervention at all regardless of bleeding severity",
+      "Immediate bilateral nephrectomy as a routine damage control step"
+    ],
+    correctIndex: 1,
+    explanation: "Damage control surgery prioritises rapid control of life-threatening haemorrhage (e.g. packing, temporary measures) over definitive reconstruction in physiologically unstable patients, with definitive repair deferred until resuscitation and stabilisation — routine bilateral nephrectomy is not a standard damage control step."
+  },
+  {
+    id: "trauma-012",
+    topic: "infections-other", subtopic: "trauma-reconstruction",
+    question: "A delayed complication that can develop weeks after high-grade renal trauma, sometimes presenting with flank pain, fever, or a palpable mass, is:",
+    options: [
+      "Urinoma (urine collection from a persistent leak) or a delayed arteriovenous fistula/pseudoaneurysm, both of which may require delayed intervention",
+      "These are never seen after renal trauma once the patient is discharged well",
+      "Only bladder cancer can present this way after trauma",
+      "Testicular torsion is the typical delayed complication of renal trauma"
+    ],
+    correctIndex: 0,
+    explanation: "Delayed complications after high-grade renal trauma include urinoma (from a persistent urine leak) and vascular complications such as arteriovenous fistula or pseudoaneurysm, which can present weeks later and may require delayed drainage or angioembolisation — these are recognised, not exotic or absent, complications, and are unrelated to bladder cancer or testicular torsion."
+  },
+
+  // ---- INFECTIONS & OTHER: andrology / male infertility (depth pass) ----
+  {
+    id: "andro-007",
+    topic: "infections-other", subtopic: "andrology",
+    question: "Surgical varicocele repair in an infertile man with an abnormal semen analysis is most strongly supported when the varicocele is:",
+    options: [
+      "Subclinical (detectable only by imaging, not on examination)",
+      "Clinically palpable on examination and associated with an abnormal semen analysis and otherwise unexplained infertility",
+      "Repair is never indicated in fertility contexts regardless of findings",
+      "Only indicated for cosmetic reasons, never for fertility"
+    ],
+    correctIndex: 1,
+    explanation: "Varicocele repair for infertility is most strongly supported when the varicocele is clinically palpable (not merely subclinical/imaging-detected) and associated with abnormal semen parameters in a couple with otherwise unexplained infertility — subclinical varicocele repair has not shown clear fertility benefit."
+  },
+  {
+    id: "andro-008",
+    topic: "infections-other", subtopic: "andrology",
+    question: "The diagnosis of testosterone deficiency (hypogonadism) requires:",
+    options: [
+      "A single low testosterone level alone, regardless of symptoms or repeat testing",
+      "Consistent symptoms/signs of hypogonadism plus biochemical confirmation with repeated low morning testosterone measurements",
+      "Testosterone levels are not useful in diagnosing hypogonadism",
+      "Diagnosis based on age alone, without any testosterone testing"
+    ],
+    correctIndex: 1,
+    explanation: "Hypogonadism diagnosis requires both compatible clinical symptoms/signs and biochemical confirmation with repeated (typically morning) low testosterone measurements — a single value without symptoms, or symptoms without biochemical confirmation, is insufficient for diagnosis."
+  },
+  {
+    id: "andro-009",
+    topic: "infections-other", subtopic: "andrology",
+    question: "Distinguishing ischaemic from non-ischaemic (high-flow) priapism is clinically important because:",
+    options: [
+      "Both types are managed identically as emergencies with immediate aspiration",
+      "Ischaemic priapism is a compartment-syndrome-like emergency requiring urgent decompression, whereas non-ischaemic priapism is not typically an emergency and often can be observed or managed differently",
+      "Non-ischaemic priapism is more dangerous and requires more urgent treatment than ischaemic priapism",
+      "The distinction has no bearing on management"
+    ],
+    correctIndex: 1,
+    explanation: "Ischaemic priapism causes compartment-syndrome-like corporal ischaemia and is a true emergency requiring urgent decompression to prevent permanent damage, whereas non-ischaemic (arterial, high-flow) priapism is not typically ischaemic or emergent and can often be observed or managed with less urgent measures (e.g. selective arterial embolisation if treatment is needed) — the distinction (often via cavernosal blood gas analysis) is clinically essential, not irrelevant."
+  },
+  {
+    id: "andro-010",
+    topic: "infections-other", subtopic: "andrology",
+    question: "Non-surgical treatment options for Peyronie's disease in the active (inflammatory) phase may include:",
+    options: [
+      "Immediate surgical correction is always preferred in the active phase over any non-surgical option",
+      "Intralesional injection therapies (e.g. collagenase) or oral/topical agents, with surgery generally deferred until the disease is stable (typically 12+ months, non-progressive)",
+      "There are no treatment options in the active phase; nothing can be offered until surgery is performed",
+      "Radiotherapy is the standard first-line treatment for Peyronie's disease"
+    ],
+    correctIndex: 1,
+    explanation: "In the active phase of Peyronie's disease, non-surgical options (e.g. intralesional injections, oral/topical therapies) may be offered, while surgical correction is generally deferred until the disease is stable/non-progressive (often assessed after roughly 12 months) — radiotherapy is not a standard treatment, and surgery is not preferred during the active phase."
+  },
+  {
+    id: "andro-011",
+    topic: "infections-other", subtopic: "andrology",
+    question: "Klinefelter syndrome (47,XXY) in the context of male infertility is characteristically associated with:",
+    options: [
+      "Normal testicular size with normal sperm production",
+      "Small, firm testes and azoospermia/severe oligospermia due to primary testicular failure, often with elevated gonadotropins",
+      "Exclusively normal fertility with no endocrine abnormality",
+      "A condition that only affects females"
+    ],
+    correctIndex: 1,
+    explanation: "Klinefelter syndrome typically causes small, firm testes with primary testicular failure, resulting in azoospermia or severe oligospermia and elevated gonadotropins (hypergonadotropic hypogonadism) — though some men with Klinefelter can still have sperm retrieved via surgical techniques (e.g. micro-TESE) for assisted reproduction."
+  },
+  {
+    id: "andro-012",
+    topic: "infections-other", subtopic: "andrology",
+    question: "Retrograde ejaculation (semen entering the bladder rather than exiting the urethra) is a recognised complication of:",
+    options: [
+      "Surgery or medications affecting bladder neck function (e.g. TURP, alpha-blockers), or autonomic neuropathy (e.g. diabetes)",
+      "It only occurs spontaneously with no identifiable cause, ever",
+      "It is exclusively a psychological condition unrelated to any physical cause",
+      "It is caused only by testicular torsion"
+    ],
+    correctIndex: 0,
+    explanation: "Retrograde ejaculation commonly follows bladder-neck-affecting surgery (e.g. TURP) or bladder-neck-relaxing medications (alpha-blockers), or results from autonomic neuropathy (e.g. diabetic neuropathy) affecting bladder neck closure during ejaculation — it is a recognised physical, not purely psychological, phenomenon with identifiable causes."
+  },
+  {
+    id: "andro-013",
+    topic: "infections-other", subtopic: "andrology",
+    question: "Pre-procedure counselling for vasectomy should include the point that:",
+    options: [
+      "It provides immediate sterility from the moment of the procedure",
+      "Sterility is not immediate — semen analysis confirmation of azoospermia is needed before relying on it as sole contraception, and it should be considered a permanent procedure",
+      "It is easily and reliably reversible in nearly all patients with full fertility restoration guaranteed",
+      "No follow-up or confirmation testing is required after the procedure"
+    ],
+    correctIndex: 1,
+    explanation: "Vasectomy does not confer immediate sterility — residual sperm remain temporarily, so semen analysis confirming azoospermia is required before abandoning other contraception — and while reversal is technically possible, it should be counselled as a permanent procedure since reversal success is not guaranteed and declines with time since the original procedure."
+  },
+
+  // ---- INFECTIONS & OTHER: paediatric urology (depth pass) ----
+  {
+    id: "paeds-007",
+    topic: "infections-other", subtopic: "paediatric",
+    question: "Physiological phimosis in a young boy (non-retractable foreskin without ballooning, infection, or scarring) is generally managed by:",
+    options: [
+      "Immediate circumcision in all cases regardless of age or symptoms",
+      "Reassurance and observation, since physiological phimosis commonly resolves with age without intervention",
+      "Forceful retraction by the parent to accelerate resolution",
+      "Topical steroid cream is never used for phimosis"
+    ],
+    correctIndex: 1,
+    explanation: "Physiological (developmental) phimosis in young boys typically resolves with time and does not require surgery; forceful retraction risks pain and scarring, while topical corticosteroid cream is actually a recognised first-line option for symptomatic or persistent cases before considering circumcision, which is reserved for pathological phimosis or failed conservative measures."
+  },
+  {
+    id: "paeds-008",
+    topic: "infections-other", subtopic: "paediatric",
+    question: "Imaging (e.g. ultrasound) has a limited role in localising a non-palpable undescended testis primarily because:",
+    options: [
+      "Ultrasound is highly accurate and reliably excludes intra-abdominal testes, making further workup unnecessary",
+      "Imaging often cannot reliably localise or exclude an intra-abdominal testis, so a non-palpable testis is generally managed with diagnostic laparoscopy rather than relying on imaging findings",
+      "Imaging is contraindicated in children under any circumstances",
+      "MRI is mandatory before any imaging-based decision can be made in every case"
+    ],
+    correctIndex: 1,
+    explanation: "Imaging (ultrasound, and even MRI) has limited sensitivity/specificity for localising or excluding an intra-abdominal testis, so a non-palpable testis is generally managed surgically with diagnostic laparoscopy (which can both find and treat the testis) rather than relying on imaging to guide the decision."
+  },
+  {
+    id: "paeds-009",
+    topic: "infections-other", subtopic: "paediatric",
+    question: "First-line management of primary monosymptomatic nocturnal enuresis in an otherwise healthy child (after addressing simple behavioural factors) is typically:",
+    options: [
+      "Immediate referral for urodynamic studies in every child before any other intervention",
+      "An enuresis alarm or desmopressin, depending on family preference and circumstances, after simple measures (fluid timing, toileting habits) have been addressed",
+      "Surgical bladder augmentation",
+      "No treatment is ever offered before adolescence regardless of impact on the child/family"
+    ],
+    correctIndex: 1,
+    explanation: "After addressing simple behavioural measures, first-line options for monosymptomatic nocturnal enuresis are an enuresis alarm or desmopressin, chosen based on family circumstances and preference — invasive workup (urodynamics) or surgery is not first-line for straightforward monosymptomatic enuresis, and treatment can reasonably be offered before adolescence when it affects the child/family."
+  },
+  {
+    id: "paeds-010",
+    topic: "infections-other", subtopic: "paediatric",
+    question: "Continuous antibiotic prophylaxis for children with vesicoureteral reflux (VUR) is:",
+    options: [
+      "Recommended for all grades of VUR in all children without exception",
+      "Not universally applied — it is more selectively used based on VUR grade, history of febrile UTIs, and other risk factors, reflecting evolving evidence on its benefit-risk balance",
+      "Never used under any circumstances in modern paediatric urology",
+      "Only used in children who have never had a UTI"
+    ],
+    correctIndex: 1,
+    explanation: "Continuous antibiotic prophylaxis in VUR is used more selectively than in the past, guided by reflux grade, history of febrile UTIs, bladder/bowel dysfunction, and other risk factors — reflecting evidence that its benefit is not uniform across all VUR severity, rather than being applied universally or never used at all."
+  },
+  {
+    id: "paeds-011",
+    topic: "infections-other", subtopic: "paediatric",
+    question: "Surgical repair of hypospadias is generally recommended within a certain age window primarily to:",
+    options: [
+      "It is preferably performed in infancy/early childhood (commonly cited around 6-18 months), balancing tissue handling, anaesthetic considerations, and psychological factors around genital surgery timing",
+      "Age has no bearing on optimal timing; it can be performed at any age with identical outcomes",
+      "It should always be delayed until after puberty regardless of severity",
+      "It must be performed within the first week of life in every case"
+    ],
+    correctIndex: 0,
+    explanation: "Hypospadias repair is generally recommended in infancy/early childhood (often cited around 6-18 months) — balancing favourable tissue characteristics, anaesthetic risk, and minimising the child's psychological awareness of genital surgery — rather than being performed either immediately at birth or deferred until after puberty."
+  },
+  {
+    id: "paeds-012",
+    topic: "infections-other", subtopic: "paediatric",
+    question: "A newborn with ambiguous genitalia should prompt which immediate multidisciplinary priority, alongside careful examination?",
+    options: [
+      "Immediate sex assignment and surgery within the first 48 hours regardless of further workup",
+      "Urgent evaluation for a potentially life-threatening underlying cause (e.g. congenital adrenal hyperplasia with salt-wasting) alongside genetic/endocrine workup, before any decisions on gender assignment or surgery",
+      "No workup is needed; the family should simply choose a sex assignment based on preference alone",
+      "Assignment can be safely delayed indefinitely with no urgency to any aspect of the evaluation"
+    ],
+    correctIndex: 1,
+    explanation: "Ambiguous genitalia in a newborn requires urgent evaluation for potentially life-threatening causes (notably salt-wasting congenital adrenal hyperplasia) alongside genetic and endocrine workup by a multidisciplinary team — immediate surgery/sex assignment without this workup, or an unstructured family-only decision, is not appropriate, though genital surgery decisions themselves are not made emergently."
+  },
+  {
+    id: "paeds-013",
+    topic: "infections-other", subtopic: "paediatric",
+    question: "In a child with posterior urethral valves diagnosed postnatally, initial management typically includes:",
+    options: [
+      "Immediate open reconstructive surgery within the first days of life in every case",
+      "Bladder catheterisation for drainage and metabolic/renal function stabilisation, followed by valve ablation once the child is stable",
+      "No intervention until the child reaches school age",
+      "Immediate bilateral nephrectomy"
+    ],
+    correctIndex: 1,
+    explanation: "Initial management of posterior urethral valves focuses on bladder drainage (catheterisation) and stabilising renal/metabolic status, with definitive valve ablation performed once the infant is stable — immediate major reconstructive surgery or nephrectomy is not the standard initial approach, and delaying all intervention to school age risks ongoing renal damage."
+  },
+
+  // ---- INFECTIONS & OTHER: transplantation (depth pass) ----
+  {
+    id: "transplant-004",
+    topic: "infections-other", subtopic: "transplantation",
+    question: "Compared with deceased donor kidneys, living donor kidney transplants generally offer:",
+    options: [
+      "Worse graft survival due to smaller donor pool selection",
+      "Generally superior graft survival and function, related to factors such as shorter/absent cold ischaemia time and better donor selection/optimisation",
+      "Identical outcomes in all respects, with no meaningful advantage",
+      "Living donation is only performed for non-renal organs, never kidneys"
+    ],
+    correctIndex: 1,
+    explanation: "Living donor kidney transplants generally show superior graft survival and function compared with deceased donor transplants, related to factors like minimal/absent cold ischaemia time, better donor optimisation, and often better HLA matching in related donors."
+  },
+  {
+    id: "transplant-005",
+    topic: "infections-other", subtopic: "transplantation",
+    question: "Standard maintenance immunosuppression after renal transplantation typically combines:",
+    options: [
+      "A single immunosuppressive agent alone, since combination therapy is never used",
+      "A calcineurin inhibitor (e.g. tacrolimus), an antiproliferative agent (e.g. mycophenolate), with or without corticosteroids — a multidrug approach targeting different immune pathways",
+      "Antibiotics alone, with no immunosuppressive drugs required",
+      "Chemotherapy agents identical to cancer treatment regimens"
+    ],
+    correctIndex: 1,
+    explanation: "Standard maintenance immunosuppression uses a combination approach — typically a calcineurin inhibitor plus an antiproliferative agent, often with corticosteroids — targeting different points in the immune response to reduce rejection risk while managing toxicity, rather than relying on a single agent."
+  },
+  {
+    id: "transplant-006",
+    topic: "infections-other", subtopic: "transplantation",
+    question: "Acute rejection after renal transplantation is classically suggested by:",
+    options: [
+      "A gradual, asymptomatic decline in function over several years with no other findings",
+      "A relatively acute rise in serum creatinine, sometimes with fever, graft tenderness, or reduced urine output, prompting further workup (e.g. biopsy)",
+      "Acute rejection always presents identically to chronic graft failure with no distinguishing features",
+      "Acute rejection cannot be diagnosed by any clinical or laboratory means"
+    ],
+    correctIndex: 1,
+    explanation: "Acute rejection classically presents with a relatively acute rise in creatinine, sometimes accompanied by fever, graft tenderness, or reduced urine output, prompting further evaluation (often graft biopsy) to confirm the diagnosis and guide treatment — this differs from the gradual, often asymptomatic decline seen in chronic allograft dysfunction."
+  },
+  {
+    id: "transplant-007",
+    topic: "infections-other", subtopic: "transplantation",
+    question: "BK virus (polyomavirus) nephropathy in a renal transplant recipient is primarily managed by:",
+    options: [
+      "Antiviral chemotherapy identical to that used for cytomegalovirus",
+      "Judicious reduction of immunosuppression to allow immune control of the virus, since specific effective antiviral therapy is limited",
+      "Increasing immunosuppression further to prevent any rejection risk regardless of BK status",
+      "Immediate graft nephrectomy in all cases of BK viraemia"
+    ],
+    correctIndex: 1,
+    explanation: "BK virus nephropathy is primarily managed by carefully reducing immunosuppression to allow the immune system to control viral replication, since dedicated effective antiviral therapy is limited — increasing immunosuppression would worsen viral replication, and nephrectomy is not the default management for BK viraemia/nephropathy."
+  },
+  {
+    id: "transplant-008",
+    topic: "infections-other", subtopic: "transplantation",
+    question: "Evaluation of a potential living kidney donor includes assessment for contraindications; which finding would most likely exclude donation?",
+    options: [
+      "Excellent, symmetric renal function on split renal function testing with normal anatomy",
+      "Significant, uncontrolled comorbidity (e.g. poorly controlled diabetes, significant proteinuria, or a substantially reduced GFR) that raises long-term risk to the donor's own renal health",
+      "Blood type compatibility with the recipient",
+      "Being a first-degree relative of the recipient"
+    ],
+    correctIndex: 1,
+    explanation: "Significant uncontrolled donor comorbidity that raises the donor's own long-term renal risk (e.g. poorly controlled diabetes, significant proteinuria, substantially reduced GFR) is a contraindication to living donation, prioritising donor safety — normal function/anatomy, blood group compatibility, and being a relative are favourable or neutral factors, not exclusions."
+  },
+  {
+    id: "transplant-009",
+    topic: "infections-other", subtopic: "transplantation",
+    question: "Delayed graft function (need for dialysis in the first week post-transplant) is more commonly associated with:",
+    options: [
+      "Living donor transplants with minimal cold ischaemia time",
+      "Deceased donor transplants, particularly with prolonged cold ischaemia time or donor factors (e.g. donation after circulatory death)",
+      "Delayed graft function occurs equally regardless of donor type or ischaemia time",
+      "It is exclusively caused by surgical technical error"
+    ],
+    correctIndex: 1,
+    explanation: "Delayed graft function is more commonly seen with deceased donor transplants, particularly with longer cold ischaemia times or certain donor types (e.g. donation after circulatory death), reflecting greater ischaemia-reperfusion injury — living donor transplants with minimal cold ischaemia have a lower incidence, and technical error is only one of several possible contributors, not the exclusive cause."
+  },
+  {
+    id: "transplant-010",
+    topic: "infections-other", subtopic: "transplantation",
+    question: "Post-transplant lymphoproliferative disease (PTLD) is most strongly associated with which infection in the context of chronic immunosuppression?",
+    options: [
+      "Epstein-Barr virus (EBV)-driven lymphoproliferation, particularly in EBV-mismatched or high-risk recipients",
+      "Influenza virus",
+      "Hepatitis A virus",
+      "BK virus is the primary driver of PTLD, not EBV"
+    ],
+    correctIndex: 0,
+    explanation: "PTLD is most strongly associated with EBV-driven lymphoproliferation under chronic immunosuppression, with risk particularly elevated in EBV-seronegative recipients who acquire primary infection post-transplant (e.g. from an EBV-seropositive donor) — BK virus is associated with nephropathy, not PTLD, and influenza/hepatitis A have no such association."
   }
 ];
 
