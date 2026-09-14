@@ -72,7 +72,7 @@ const STORAGE_KEY = "uroquiz-progress-v1";
 function loadProgress() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return { topicStats: {}, missedIds: [], inProgressSession: null, attemptedIds: [] };
+    if (!raw) return { topicStats: {}, missedIds: [], inProgressSession: null, attemptedIds: [], lastSeenAt: {} };
     const data = JSON.parse(raw);
     if (!data.topicStats) data.topicStats = {};
     if (!data.missedIds) data.missedIds = [];
@@ -85,9 +85,15 @@ function loadProgress() {
       const legacyCount = Math.min(legacyAttempted, QUESTIONS.length);
       data.attemptedIds = Array.from({ length: legacyCount }, (_, i) => `legacy-${i}`);
     }
+    if (data.lastSeenAt === undefined) {
+      // Pre-rotation installs have no exposure history. Default to "never seen" for
+      // every question rather than guessing, so the first post-upgrade session draws
+      // from the full pool (least-surprising: nothing wrongly excluded as "recent").
+      data.lastSeenAt = {};
+    }
     return data;
   } catch (e) {
-    return { topicStats: {}, missedIds: [], inProgressSession: null, attemptedIds: [] };
+    return { topicStats: {}, missedIds: [], inProgressSession: null, attemptedIds: [], lastSeenAt: {} };
   }
 }
 
@@ -1546,10 +1552,19 @@ function shuffleQuestionOptions(question) {
   };
 }
 
+const SESSION_SIZE = 20;
+
 function startQuiz() {
   const topics = state.selectedTopics.length ? state.selectedTopics : getTopics();
   const pool = QUESTIONS.filter(q => topics.includes(q.topic));
-  state.sessionQuestions = shuffle(pool.map(shuffleQuestionOptions));
+  const progress = loadProgress();
+  const byRecency = pool.slice().sort((a, b) => {
+    const aSeen = progress.lastSeenAt[a.id] ?? -Infinity;
+    const bSeen = progress.lastSeenAt[b.id] ?? -Infinity;
+    return aSeen - bSeen;
+  });
+  const batch = byRecency.slice(0, SESSION_SIZE);
+  state.sessionQuestions = shuffle(batch.map(shuffleQuestionOptions));
   state.currentIndex = 0;
   state.answers = [];
   state.screen = "quiz";
@@ -1691,6 +1706,8 @@ function saveSessionToStorage() {
     const attemptedSet = new Set(progress.attemptedIds);
     attemptedSet.add(answer.questionId);
     progress.attemptedIds = [...attemptedSet];
+
+    progress.lastSeenAt[answer.questionId] = Date.now();
   });
 
   saveProgress(progress);
