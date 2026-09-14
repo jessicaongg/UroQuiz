@@ -785,10 +785,10 @@ const QUESTIONS = [
     topic: "non-oncology", subtopic: "stones",
     question: "Metabolic evaluation (e.g. 24-hour urine studies) after a stone episode is particularly recommended for:",
     options: [
-      "All patients regardless of risk, and never for high-risk formers",
-      "High-risk stone formers (e.g. recurrent stones, family history, single-kidney, specific stone types)",
-      "Never indicated in urolithiasis",
-      "Only patients over 80 years old"
+      "All patients regardless of stone-recurrence risk, since risk stratification adds no value",
+      "High-risk stone formers (e.g. recurrent stones, family history, single kidney, specific stone types)",
+      "Only first-time, low-risk stone formers",
+      "Never indicated in urolithiasis"
     ],
     correctIndex: 1,
     explanation: "EAU guidelines recommend metabolic workup particularly in high-risk stone formers to identify correctable causes and guide preventive strategies (dietary, medical)."
@@ -856,12 +856,12 @@ const QUESTIONS = [
     question: "PDE5 inhibitors (e.g. tadalafil) have an established role in male LUTS management particularly when a patient also has:",
     options: [
       "Erectile dysfunction alongside LUTS",
-      "Acute bacterial prostatitis",
-      "Bladder cancer",
-      "Renal colic"
+      "Concurrent nitrate therapy for angina, since PDE5 inhibitors and nitrates combine safely",
+      "Acute urinary retention, as first-line monotherapy",
+      "A contraindication to alpha-blockers, requiring PDE5 inhibitor monotherapy as a substitute"
     ],
     correctIndex: 0,
-    explanation: "Tadalafil is approved for LUTS and is particularly useful in men who also have coexisting erectile dysfunction, treating both conditions with one agent."
+    explanation: "Tadalafil is approved for LUTS and is particularly useful in men who also have coexisting erectile dysfunction, treating both conditions with one agent — critically, PDE5 inhibitors are contraindicated with nitrate therapy (not an indication), are not used for acute retention, and are not a direct substitute when alpha-blockers are contraindicated."
   },
   {
     id: "bph-007",
@@ -884,12 +884,12 @@ const QUESTIONS = [
     question: "Mid-urethral sling surgery for stress urinary incontinence is generally considered after:",
     options: [
       "First-line conservative measures (pelvic floor training, lifestyle changes) have failed or been declined",
-      "As the mandatory first treatment before any conservative therapy",
-      "Only in men",
-      "Only when the patient also has bladder cancer"
+      "As the mandatory first-line treatment before any conservative therapy is attempted",
+      "Only after a trial of antimuscarinic medication, which is first-line for stress incontinence",
+      "Only in patients who have completed childbearing, regardless of symptom severity or prior conservative therapy"
     ],
     correctIndex: 0,
-    explanation: "Surgical options such as mid-urethral slings are considered after conservative management has been tried and failed or is not desired by the patient, consistent with a stepwise treatment approach."
+    explanation: "Surgical options such as mid-urethral slings are considered after conservative management has been tried and failed or is not desired, consistent with a stepwise approach — antimuscarinics target urgency, not stress, incontinence, so that is not the correct stepwise pathway here; completed childbearing is a shared-decision consideration, not an absolute prerequisite."
   },
   {
     id: "incontinence-004",
@@ -1267,8 +1267,8 @@ const QUESTIONS = [
     explanation: "Calcium oxalate stones are the most common stone type overall, followed by calcium phosphate, uric acid, struvite, and cystine stones."
   },
   {
-    id: "bph-008",
-    topic: "non-oncology", subtopic: "bph",
+    id: "stones-010",
+    topic: "non-oncology", subtopic: "stones",
     question: "Struvite (infection) stones are most strongly associated with infection by which type of organism?",
     options: [
       "Urease-producing bacteria (e.g. Proteus species)",
@@ -1851,6 +1851,445 @@ const QUESTIONS = [
     ],
     correctIndex: 0,
     explanation: "Local and regional recurrence risk after penile cancer treatment is highest in the first 1-2 years, particularly following organ-preserving approaches (local excision, radiotherapy) — follow-up is therefore most intensive early on, monitoring both local/regional sites (not only distant metastasis) and de-escalating over time if the patient remains disease-free."
+  },
+
+  // ---- NON-ONCOLOGY: urolithiasis (depth pass) ----
+  {
+    id: "stones-011",
+    topic: "non-oncology", subtopic: "stones",
+    question: "For a 12mm mid-ureteric stone in a patient wishing definitive treatment, EAU guidelines regard which as the preferred first-line active treatment, given ureteroscopy's higher single-procedure stone-free rate at this size and location?",
+    options: [
+      "Shock wave lithotripsy (SWL), given its non-invasive nature regardless of stone-free rate",
+      "Ureteroscopy with laser lithotripsy",
+      "Percutaneous nephrolithotomy (PCNL) as first-line regardless of stone size",
+      "Open ureterolithotomy as first-line"
+    ],
+    correctIndex: 1,
+    explanation: "For mid-to-distal ureteric stones around this size, ureteroscopy generally offers a higher single-procedure stone-free rate than SWL and is preferred when definitive treatment is planned; PCNL and open surgery are reserved for larger/complex stone burdens or failed less-invasive approaches, not routine ureteric stones."
+  },
+  {
+    id: "stones-012",
+    topic: "non-oncology", subtopic: "stones",
+    question: "Routine ureteric stent placement after uncomplicated ureteroscopy for a small, non-impacted stone is:",
+    options: [
+      "Always mandatory regardless of case complexity",
+      "Not universally required; it can be omitted in selected uncomplicated, low-risk cases, weighed against stent-related morbidity (e.g. dysuria, flank pain)",
+      "Never used under any circumstances after ureteroscopy",
+      "Only used to treat pre-existing renal cancer"
+    ],
+    correctIndex: 1,
+    explanation: "Stenting after ureteroscopy is not universally mandatory — in selected uncomplicated cases (small stone burden, no significant ureteric trauma, good access), it can reasonably be omitted, balancing recurrence/obstruction risk against stent-related morbidity, which is a genuine and common patient experience."
+  },
+  {
+    id: "stones-013",
+    topic: "non-oncology", subtopic: "stones",
+    question: "Cystine stones, arising from an inherited defect in renal tubular amino acid transport, are notable for:",
+    options: [
+      "Being highly responsive to urinary alkalinisation alone, requiring no other intervention",
+      "A tendency to recur despite treatment, often requiring high fluid intake, urinary alkalinisation, and sometimes cystine-binding agents to reduce recurrence",
+      "Never requiring surgical intervention even when large",
+      "Occurring exclusively in elderly patients"
+    ],
+    correctIndex: 1,
+    explanation: "Cystinuria causes recurrent, often large and bilateral stones due to a genetic cystine transport defect; management combines high fluid intake, urinary alkalinisation, dietary sodium/protein moderation, and sometimes cystine-binding thiol drugs, but stones often still recur and surgery is frequently needed given persistent stone burden — alkalinisation alone is not curative."
+  },
+  {
+    id: "stones-014",
+    topic: "non-oncology", subtopic: "stones",
+    question: "In a pregnant patient with a symptomatic, obstructing ureteric stone who fails conservative management, which imaging/intervention consideration is most relevant?",
+    options: [
+      "CT-KUB remains first-line imaging in pregnancy given its higher accuracy",
+      "Ultrasound (and MRI without contrast if needed) is preferred initial imaging to avoid ionising radiation, and temporising drainage (stent/nephrostomy) is often favoured over definitive stone treatment during pregnancy",
+      "No imaging or intervention should be performed at any point during pregnancy regardless of severity",
+      "Definitive ureteroscopic stone treatment is absolutely contraindicated at every stage of pregnancy"
+    ],
+    correctIndex: 1,
+    explanation: "In pregnancy, ultrasound (with non-contrast MRI as an adjunct if needed) is preferred over CT to avoid ionising radiation exposure; for obstruction requiring intervention, temporising drainage (ureteric stent or nephrostomy) is often favoured, with definitive stone treatment deferred, though ureteroscopy can be performed by experienced surgeons in select cases rather than being absolutely contraindicated."
+  },
+  {
+    id: "stones-015",
+    topic: "non-oncology", subtopic: "stones",
+    question: "First-line metabolic screening after a first calcium stone episode in a high-risk patient should include assessment for which correctable endocrine cause?",
+    options: [
+      "Primary hyperparathyroidism, via serum calcium (and PTH if calcium is elevated)",
+      "Hypothyroidism, via TSH in all stone formers regardless of calcium level",
+      "Adrenal insufficiency, via a short synacthen test in all patients",
+      "Metabolic screening never includes endocrine causes for calcium stones"
+    ],
+    correctIndex: 0,
+    explanation: "Primary hyperparathyroidism is an important correctable cause of recurrent calcium stones — serum calcium is a key part of metabolic screening, with PTH assessed if calcium is elevated; hypothyroidism and adrenal insufficiency are not standard components of calcium stone metabolic workup."
+  },
+
+  // ---- NON-ONCOLOGY: BPH / male LUTS (depth pass) ----
+  {
+    id: "bph-008",
+    topic: "non-oncology", subtopic: "bph",
+    question: "Adding an antimuscarinic or beta-3 agonist to alpha-blocker therapy in male LUTS is most appropriate when:",
+    options: [
+      "The patient has predominant storage symptoms (urgency, frequency) persisting despite alpha-blocker monotherapy, without a significantly elevated post-void residual",
+      "The patient has a large post-void residual or a history of urinary retention, regardless of symptom type",
+      "It should never be combined with an alpha-blocker under any circumstances",
+      "It replaces the need for an alpha-blocker entirely in all patients"
+    ],
+    correctIndex: 0,
+    explanation: "Combination therapy targeting persistent storage symptoms is appropriate when voiding-phase (alpha-blocker) therapy alone is insufficient, provided there isn't a significant post-void residual/retention risk — antimuscarinics/beta-3 agonists in the context of a large PVR risk precipitating retention, so that scenario needs caution rather than routine addition."
+  },
+  {
+    id: "bph-009",
+    topic: "non-oncology", subtopic: "bph",
+    question: "Minimally invasive surgical therapies for BPH (e.g. prostatic urethral lift, water vapour thermal therapy) are generally positioned as options for:",
+    options: [
+      "Only the largest prostates (>100mL), replacing PCNL-scale surgery",
+      "Men with moderate LUTS who wish to avoid or defer more invasive surgery and preserve ejaculatory function, typically in appropriately sized glands",
+      "First-line treatment before any medical therapy is trialled in all patients",
+      "Exclusively for men in acute urinary retention as an emergency measure"
+    ],
+    correctIndex: 1,
+    explanation: "Minimally invasive therapies offer an intermediate option for men with bothersome moderate LUTS who want to avoid the morbidity of more invasive surgery and often better preserve ejaculatory function, generally in appropriately sized prostates rather than very large glands — they aren't first-line before medical therapy nor an emergency retention treatment."
+  },
+  {
+    id: "bph-010",
+    topic: "non-oncology", subtopic: "bph",
+    question: "A trial without catheter (TWOC) after an episode of acute urinary retention is generally more likely to succeed when:",
+    options: [
+      "The retention volume was very large and retention occurred spontaneously without a precipitating factor",
+      "An alpha-blocker is given before catheter removal and the episode had an identifiable precipitating factor (e.g. constipation, UTI, medication) now resolved",
+      "TWOC should never be attempted after a first episode of retention regardless of circumstances",
+      "TWOC success is unrelated to alpha-blocker use or precipitating factors"
+    ],
+    correctIndex: 1,
+    explanation: "TWOC success rates are improved by giving an alpha-blocker before catheter removal and are more likely when retention had a reversible precipitating factor that has since resolved — large-volume, spontaneous (unprovoked) retention is actually associated with a lower TWOC success rate, favouring earlier definitive treatment discussion."
+  },
+  {
+    id: "bph-011",
+    topic: "non-oncology", subtopic: "bph",
+    question: "In a man taking a 5-alpha reductase inhibitor for LUTS, interpretation of a follow-up PSA value should account for the fact that 5-ARIs typically:",
+    options: [
+      "Have no effect on PSA and require no adjustment",
+      "Roughly halve serum PSA after 6-12 months of use, so the measured value should be doubled (or compared against an ARI-adjusted reference range) when assessing for prostate cancer risk",
+      "Substantially increase PSA, requiring downward adjustment",
+      "Make PSA testing entirely uninterpretable and unusable during treatment"
+    ],
+    correctIndex: 1,
+    explanation: "5-ARIs suppress PSA by roughly 50% after about 6-12 months of therapy; clinicians should double the measured PSA (or use an ARI-adjusted threshold) before applying standard risk thresholds, rather than either ignoring the effect or abandoning PSA testing altogether."
+  },
+  {
+    id: "bph-012",
+    topic: "non-oncology", subtopic: "bph",
+    question: "Nocturia in an older male LUTS patient that persists despite optimised BPH-directed therapy should prompt consideration of:",
+    options: [
+      "Assuming it is exclusively due to prostatic obstruction and escalating BPH surgery regardless of other findings",
+      "Nocturnal polyuria and other non-prostatic contributors (e.g. fluid intake timing, sleep disorders, heart failure), which are common and not addressed by prostate-directed treatment alone",
+      "Nocturia is never influenced by factors outside the prostate",
+      "Immediate antimuscarinic therapy without any further assessment, regardless of underlying cause"
+    ],
+    correctIndex: 1,
+    explanation: "Persistent nocturia despite adequate BPH treatment should prompt evaluation for nocturnal polyuria and other non-prostatic causes (fluid/sleep habits, cardiac/renal/endocrine contributors) — these are common and won't respond to further prostate-directed escalation, so assuming a purely prostatic cause risks inappropriate treatment."
+  },
+  {
+    id: "bph-013",
+    topic: "non-oncology", subtopic: "bph",
+    question: "Assessment of prostate volume (e.g. via transrectal ultrasound) in men with LUTS is clinically useful primarily because it:",
+    options: [
+      "Has no bearing on treatment choice",
+      "Helps guide treatment selection — e.g. favouring 5-ARI/combination therapy or particular surgical techniques in larger glands, and informing which minimally invasive options are appropriate by size",
+      "Is used only to diagnose prostate cancer, with no role in BPH/LUTS management",
+      "Is required before starting any alpha-blocker regardless of other findings"
+    ],
+    correctIndex: 1,
+    explanation: "Prostate volume assessment informs BPH treatment selection — larger glands favour 5-ARI-containing regimens or particular surgical approaches (e.g. certain minimally invasive options have gland-size limits), whereas alpha-blocker therapy can typically be started without first requiring volume measurement."
+  },
+  {
+    id: "bph-014",
+    topic: "non-oncology", subtopic: "bph",
+    question: "A man on antimuscarinic therapy for LUTS-associated storage symptoms develops a rising post-void residual and reduced flow. The most appropriate response is:",
+    options: [
+      "Continue antimuscarinic therapy unchanged, since PVR is irrelevant to antimuscarinic safety",
+      "Reassess for evolving bladder outlet obstruction/impaired contractility and reconsider continuing antimuscarinic therapy given the risk of worsening retention",
+      "Increase the antimuscarinic dose to further improve storage symptoms",
+      "Add a second antimuscarinic agent from a different class"
+    ],
+    correctIndex: 1,
+    explanation: "A rising PVR and reduced flow in a patient on antimuscarinic therapy raises concern for worsening bladder outlet obstruction or impaired detrusor contractility, and continued/escalated antimuscarinic treatment risks precipitating urinary retention — this warrants reassessment rather than simply increasing or adding storage-directed medication."
+  },
+
+  // ---- NON-ONCOLOGY: incontinence (depth pass) ----
+  {
+    id: "incontinence-007",
+    topic: "non-oncology", subtopic: "incontinence",
+    question: "Urodynamic studies before surgery for stress urinary incontinence are most useful for:",
+    options: [
+      "Confirming the clinical diagnosis is never useful and adds no information before surgery",
+      "Clarifying diagnosis in complex or equivocal presentations (e.g. mixed symptoms, prior failed surgery, voiding dysfunction) to guide the surgical plan and counsel on outcomes",
+      "They are mandatory in every single case of straightforward, uncomplicated stress incontinence regardless of presentation",
+      "Assessing bladder cancer risk"
+    ],
+    correctIndex: 1,
+    explanation: "Urodynamics adds most value in complex/equivocal cases (mixed incontinence, prior failed surgery, suspected voiding dysfunction) to clarify the underlying mechanism and guide surgical decision-making — routine urodynamics before surgery in straightforward, uncomplicated cases has not been shown to change outcomes and is not mandatory in every case."
+  },
+  {
+    id: "incontinence-008",
+    topic: "non-oncology", subtopic: "incontinence",
+    question: "Overflow incontinence is best understood as incontinence resulting from:",
+    options: [
+      "Weakness of the urethral sphincter with exertion",
+      "Chronic urinary retention with bladder overdistension, leading to involuntary leakage once bladder capacity is exceeded",
+      "Detrusor overactivity with urgency",
+      "A vesicovaginal fistula"
+    ],
+    correctIndex: 1,
+    explanation: "Overflow incontinence results from chronic retention and bladder overdistension, with leakage occurring passively once intravesical pressure exceeds outlet resistance — distinct from stress (sphincter weakness with exertion), urgency (detrusor overactivity), or fistula-related continuous leakage."
+  },
+  {
+    id: "incontinence-009",
+    topic: "non-oncology", subtopic: "incontinence",
+    question: "An artificial urinary sphincter for post-prostatectomy stress incontinence is generally considered when:",
+    options: [
+      "Incontinence is mild and likely to improve with further pelvic floor training",
+      "Incontinence is moderate-to-severe and persistent beyond an initial observation/conservative period, particularly when a male sling is unlikely to be sufficient",
+      "It is always the first-line option immediately after prostatectomy, before any conservative therapy",
+      "It is used exclusively for female stress incontinence"
+    ],
+    correctIndex: 1,
+    explanation: "Artificial urinary sphincter is generally reserved for moderate-to-severe post-prostatectomy incontinence persisting after an adequate conservative/observation period (allowing for natural recovery), particularly when severity or sphincter deficiency makes a male sling less likely to succeed — it is a male-specific device and not typically first-line immediately post-surgery."
+  },
+  {
+    id: "incontinence-010",
+    topic: "non-oncology", subtopic: "incontinence",
+    question: "Pad testing in the assessment of urinary incontinence is used primarily to:",
+    options: [
+      "Diagnose the specific type of incontinence (stress vs urgency) definitively",
+      "Provide an objective, quantitative measure of urine loss severity, complementing (not replacing) history and clinical assessment of incontinence type",
+      "Replace the need for any further history-taking",
+      "Diagnose bladder cancer"
+    ],
+    correctIndex: 1,
+    explanation: "Pad testing quantifies the amount of urine loss objectively, which is useful for baseline severity and monitoring treatment response, but it does not by itself distinguish the underlying type/cause of incontinence — that relies on history, examination, and where needed, urodynamics."
+  },
+  {
+    id: "incontinence-011",
+    topic: "non-oncology", subtopic: "incontinence",
+    question: "Persistent nocturnal enuresis (bedwetting) newly presenting in an adult warrants evaluation for:",
+    options: [
+      "It is always a purely psychological issue in adults and needs no organic workup",
+      "Underlying causes such as nocturnal polyuria, overactive bladder, obstructive sleep apnoea, or neurological disease, since new-onset adult enuresis is not a normal variant",
+      "No further evaluation is needed since enuresis in adults is expected and benign",
+      "It is exclusively due to excessive fluid intake and needs no further assessment"
+    ],
+    correctIndex: 1,
+    explanation: "New-onset nocturnal enuresis in an adult is not a normal/expected finding and warrants evaluation for underlying contributors — nocturnal polyuria, overactive bladder, obstructive sleep apnoea, or neurological disease — rather than being attributed reflexively to psychological causes or simple overhydration."
+  },
+  {
+    id: "incontinence-012",
+    topic: "non-oncology", subtopic: "incontinence",
+    question: "Supervised pelvic floor muscle training improves stress urinary incontinence primarily through the mechanism of:",
+    options: [
+      "Reducing detrusor overactivity directly",
+      "Strengthening and improving coordination/timing of the pelvic floor musculature to increase urethral support and closure pressure during exertion",
+      "Dissolving urethral scar tissue",
+      "Increasing bladder capacity directly"
+    ],
+    correctIndex: 1,
+    explanation: "Pelvic floor muscle training improves stress incontinence by strengthening the pelvic floor and improving its timing/coordination during rises in abdominal pressure, enhancing urethral support and closure — it doesn't act on detrusor overactivity (relevant to urgency incontinence) or bladder capacity directly."
+  },
+  {
+    id: "incontinence-013",
+    topic: "non-oncology", subtopic: "incontinence",
+    question: "Reducing caffeine intake is a commonly recommended lifestyle modification for which type of urinary symptom?",
+    options: [
+      "It has no evidence base and should not be recommended for any urinary symptom",
+      "Urgency and frequency symptoms (overactive bladder), given caffeine's diuretic and bladder-irritant effects",
+      "It is specifically curative for stress incontinence",
+      "It is only relevant to prevention of urinary tract stones, not incontinence"
+    ],
+    correctIndex: 1,
+    explanation: "Caffeine reduction is a reasonable conservative lifestyle measure for urgency/frequency symptoms and overactive bladder, given its mild diuretic and possible bladder-irritant effects — it is not a treatment specifically for stress incontinence, though evidence for benefit is modest rather than absent."
+  },
+
+  // ---- NON-ONCOLOGY: neuro-urology (depth pass) ----
+  {
+    id: "neuro-006",
+    topic: "non-oncology", subtopic: "neuro-urology",
+    question: "A patient with a spinal cord injury above T6 undergoing catheterisation develops sudden severe headache, hypertension, and bradycardia. This presentation is most consistent with:",
+    options: [
+      "A simple vasovagal reaction requiring no urgent action",
+      "Autonomic dysreflexia, a urological/neurological emergency requiring prompt identification and removal of the triggering stimulus (e.g. bladder distension) and blood pressure management",
+      "Normal expected response to catheterisation in this population",
+      "An allergic reaction to the catheter material"
+    ],
+    correctIndex: 1,
+    explanation: "Autonomic dysreflexia is a potentially life-threatening emergency in patients with spinal cord lesions above T6, triggered by a noxious stimulus below the injury level (classically bladder or bowel distension) — it requires prompt removal of the trigger, patient positioning, and blood pressure control, not simple reassurance."
+  },
+  {
+    id: "neuro-007",
+    topic: "non-oncology", subtopic: "neuro-urology",
+    question: "Bladder augmentation surgery in neurogenic bladder is generally reserved for:",
+    options: [
+      "First-line management before any trial of antimuscarinics or intradetrusor botulinum toxin",
+      "Refractory cases with persistently high storage pressures/low capacity despite optimised medical therapy and botulinum toxin, where upper tract protection or continence cannot otherwise be achieved",
+      "Mild neurogenic detrusor overactivity easily controlled with antimuscarinics",
+      "It is never appropriate in neurogenic bladder regardless of severity"
+    ],
+    correctIndex: 1,
+    explanation: "Bladder augmentation is a more invasive, later-line option reserved for refractory high-pressure/low-capacity bladders where medical therapy and botulinum toxin have failed to achieve safe storage pressures or adequate continence — it is not first-line, given its own significant morbidity (mucus production, metabolic effects, malignancy risk surveillance)."
+  },
+  {
+    id: "neuro-008",
+    topic: "non-oncology", subtopic: "neuro-urology",
+    question: "In a newly spinal cord-injured patient, the recommended timing for baseline and subsequent surveillance urodynamics is generally:",
+    options: [
+      "Never required; clinical symptoms alone are sufficient to guide management",
+      "A baseline study once the patient is stable (e.g. after spinal shock resolves), with periodic surveillance thereafter given the risk of evolving, often asymptomatic, high-pressure patterns",
+      "A single study performed only if the patient later develops symptoms",
+      "Annual renal ultrasound alone is an adequate substitute for urodynamic surveillance"
+    ],
+    correctIndex: 1,
+    explanation: "Baseline urodynamics once the patient is stabilised (post-spinal-shock), with periodic ongoing surveillance, is recommended because dangerous high-pressure storage/voiding patterns can develop and progress without corresponding symptoms — relying on symptoms alone, or imaging alone, risks missing silent upper tract-threatening changes."
+  },
+  {
+    id: "neuro-009",
+    topic: "non-oncology", subtopic: "neuro-urology",
+    question: "Intradetrusor botulinum toxin injection for neurogenic detrusor overactivity carries a notable risk that patients should be counselled about before treatment:",
+    options: [
+      "It has no notable risks and requires no specific counselling",
+      "The possible need to (re)start clean intermittent catheterisation if bladder emptying becomes impaired post-injection",
+      "It permanently cures neurogenic detrusor overactivity after a single injection",
+      "It is only administered orally, with no procedural risk"
+    ],
+    correctIndex: 1,
+    explanation: "Botulinum toxin injection can impair detrusor contractility, so patients need counselling about the possible need for (new or increased) clean intermittent catheterisation afterward — its effect is temporary (typically necessitating repeat injections, not a permanent cure), and it is administered via cystoscopic injection, not orally."
+  },
+  {
+    id: "neuro-010",
+    topic: "non-oncology", subtopic: "neuro-urology",
+    question: "Long-term indwelling urethral catheterisation in neurogenic bladder management is generally considered:",
+    options: [
+      "The preferred first-line bladder emptying method given its convenience",
+      "A less-preferred long-term option compared with clean intermittent catheterisation where feasible, given higher associated risks (infection, stones, urethral erosion, and a long-term bladder cancer association)",
+      "Free of any long-term complications",
+      "The only option in neurogenic bladder patients"
+    ],
+    correctIndex: 1,
+    explanation: "Clean intermittent catheterisation is generally preferred over long-term indwelling catheterisation where feasible, since indwelling catheters carry higher risks of infection, stone formation, urethral erosion, and a recognised long-term association with bladder cancer — indwelling catheterisation is reserved for patients unable to perform or tolerate CIC or other alternatives."
+  },
+  {
+    id: "neuro-011",
+    topic: "non-oncology", subtopic: "neuro-urology",
+    question: "Sacral neuromodulation has an established role in functional lower urinary tract dysfunction primarily for:",
+    options: [
+      "Refractory idiopathic overactive bladder/non-obstructive urinary retention in patients without a severe neurological lesion causing complete loss of sacral reflex pathways",
+      "First-line treatment of all neurogenic bladder regardless of lesion level or completeness",
+      "Treatment of urinary tract stones",
+      "It has no established role in lower urinary tract dysfunction"
+    ],
+    correctIndex: 0,
+    explanation: "Sacral neuromodulation is established for refractory idiopathic overactive bladder and non-obstructive retention, and can be considered in select functional/incomplete neurological conditions with intact sacral reflex pathways — it is not first-line for neurogenic bladder broadly, and is generally unsuitable where the sacral reflex arc is completely disrupted (e.g. complete cauda equina lesions)."
+  },
+  {
+    id: "neuro-012",
+    topic: "non-oncology", subtopic: "neuro-urology",
+    question: "In spina bifida patients with neurogenic bladder, lifelong urological follow-up is recommended primarily because:",
+    options: [
+      "The bladder/renal risk resolves completely by adulthood and follow-up can stop after childhood",
+      "Bladder dynamics and renal risk can evolve over a lifetime (e.g. with growth, tethered cord, ageing), so ongoing surveillance remains important into adulthood",
+      "Only bowel, not bladder, follow-up is needed in adulthood",
+      "Follow-up is only needed if the patient becomes symptomatic"
+    ],
+    correctIndex: 1,
+    explanation: "Spina bifida-related neurogenic bladder dysfunction can change over a patient's lifetime (e.g. tethered cord, ageing detrusor/sphincter function), so lifelong urological surveillance — not just through childhood, and not only if symptomatic — is recommended to protect renal function and manage evolving bladder dynamics."
+  },
+
+  // ---- NON-ONCOLOGY: female / functional urology (depth pass) ----
+  {
+    id: "female-006",
+    topic: "non-oncology", subtopic: "female-functional",
+    question: "A urethral diverticulum in a woman classically presents with which triad of symptoms?",
+    options: [
+      "Dysuria, dyspareunia, and post-void dribbling (the classic '3 Ds')",
+      "Fever, flank pain, and haematuria",
+      "Painless continuous leakage from the vagina",
+      "Acute urinary retention alone"
+    ],
+    correctIndex: 0,
+    explanation: "Urethral diverticulum classically presents with the '3 Ds' — dysuria, dyspareunia, and post-void dribbling — reflecting urine pooling in the diverticulum and its intermittent release; this differs from the flank pain/fever of pyelonephritis or the continuous leakage of a fistula."
+  },
+  {
+    id: "female-007",
+    topic: "non-oncology", subtopic: "female-functional",
+    question: "Bladder pain syndrome/interstitial cystitis is best characterised as:",
+    options: [
+      "A bacterial infection that always shows positive urine cultures",
+      "A chronic condition of bladder/pelvic pain associated with urinary symptoms (urgency, frequency), typically with negative urine cultures and diagnosis of exclusion after ruling out other causes",
+      "Exclusively a psychiatric diagnosis with no physical basis",
+      "A malignant condition requiring cystectomy in all cases"
+    ],
+    correctIndex: 1,
+    explanation: "Bladder pain syndrome/interstitial cystitis is a chronic pain condition with bladder-associated symptoms, typically with negative cultures, diagnosed after excluding infection, malignancy, and other identifiable causes — it is not simply an infection, a purely psychiatric diagnosis, nor a condition requiring cystectomy as routine management."
+  },
+  {
+    id: "female-008",
+    topic: "non-oncology", subtopic: "female-functional",
+    question: "Vaginal (topical) oestrogen and prophylactic antibiotics are both options considered for recurrent UTI prevention in postmenopausal women; the choice between them is generally guided by:",
+    options: [
+      "Antibiotics are always preferred regardless of menopausal status or atrophy",
+      "Addressing urogenital atrophy with topical oestrogen first where relevant, given a favourable side-effect/resistance profile, reserving antibiotic prophylaxis for cases where non-antibiotic measures are insufficient",
+      "Oestrogen is only used for contraception and has no role in UTI prevention",
+      "Antibiotic prophylaxis has no role in recurrent UTI prevention"
+    ],
+    correctIndex: 1,
+    explanation: "In postmenopausal women with urogenital atrophy, topical oestrogen is often tried given its favourable safety/resistance profile, with antibiotic prophylaxis reserved for cases where non-antibiotic measures (oestrogen, behavioural changes, non-antibiotic prophylaxis such as methenamine) are insufficient — this stepwise approach helps limit antibiotic resistance."
+  },
+  {
+    id: "female-009",
+    topic: "non-oncology", subtopic: "female-functional",
+    question: "In pelvic organ prolapse surgery, transvaginal synthetic mesh use has become more restricted in many settings primarily due to:",
+    options: [
+      "Mesh has been shown to have no complications compared with native tissue repair",
+      "Recognised complications such as mesh exposure/erosion, chronic pain, and dyspareunia, leading to more selective/restricted use with enhanced informed consent",
+      "Mesh is now mandatory for all prolapse repairs regardless of risk profile",
+      "Native tissue repair has been abandoned entirely in favour of mesh"
+    ],
+    correctIndex: 1,
+    explanation: "Concerns about mesh-related complications (exposure/erosion, chronic pain, dyspareunia) have led to substantially more restricted/selective use of transvaginal synthetic mesh in prolapse surgery in many jurisdictions, with enhanced informed consent requirements — native tissue repair remains a mainstay option, not an abandoned approach."
+  },
+  {
+    id: "female-010",
+    topic: "non-oncology", subtopic: "female-functional",
+    question: "New-onset voiding dysfunction (e.g. incomplete emptying, slow stream) after prolapse or incontinence surgery should prompt consideration of:",
+    options: [
+      "It is an expected, permanent outcome of all pelvic floor surgery requiring no further evaluation",
+      "Possible outlet obstruction from the repair/sling, warranting assessment (e.g. post-void residual, examination) and possible intervention (e.g. sling loosening/release) if significant",
+      "It should always be attributed to a urinary tract infection without further workup",
+      "No action is needed unless the patient develops complete retention"
+    ],
+    correctIndex: 1,
+    explanation: "New voiding difficulty after prolapse or incontinence surgery raises concern for iatrogenic outlet obstruction from the repair or sling, and should be assessed (post-void residual, examination) with consideration of intervention such as sling loosening if significant obstruction is confirmed — it is not simply expected/permanent, nor should it be assumed to be infection without assessment."
+  },
+  {
+    id: "female-011",
+    topic: "non-oncology", subtopic: "female-functional",
+    question: "Urethral bulking agent injection for stress urinary incontinence is generally positioned as:",
+    options: [
+      "A first-line, definitive, permanent cure superior to all other options",
+      "A minimally invasive option with generally lower and less durable efficacy than sling surgery, often considered in women wanting a lower-morbidity procedure or who are not candidates for more invasive surgery",
+      "Only used for urgency incontinence, not stress incontinence",
+      "Equivalent in durability to an artificial urinary sphincter"
+    ],
+    correctIndex: 1,
+    explanation: "Urethral bulking agents offer a minimally invasive option for stress incontinence, but generally have lower and less durable efficacy compared with sling surgery, positioning them for women seeking a lower-morbidity procedure, those unfit for more invasive surgery, or as a bridge option — not as a superior first-line permanent cure."
+  },
+  {
+    id: "female-012",
+    topic: "non-oncology", subtopic: "female-functional",
+    question: "Mesh exposure (vaginal extrusion) following a mid-urethral sling procedure typically presents with:",
+    options: [
+      "No symptoms at all in any patient, detected only on routine imaging",
+      "Vaginal discharge, spotting, dyspareunia, or partner discomfort, with mesh visible or palpable on examination",
+      "Acute urinary retention as the only possible presentation",
+      "Fever and systemic sepsis in nearly all cases"
+    ],
+    correctIndex: 1,
+    explanation: "Mesh exposure after sling surgery typically presents with vaginal discharge, spotting, dyspareunia, or partner-reported discomfort, with mesh visible or palpable on speculum examination — it is often symptomatic (not purely an imaging finding) and not typically associated with systemic sepsis or presenting solely as retention."
   }
 ];
 
