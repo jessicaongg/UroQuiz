@@ -123,36 +123,41 @@ const QUESTIONS = [
   {
     id: "onco-prostate-001",
     topic: "oncology", subtopic: "prostate",
-    question: "According to EAU risk stratification for localised prostate cancer, which combination defines 'low risk' disease?",
+    question: "A 58-year-old man has PSA 8 ng/mL, biopsy ISUP grade 1 (Gleason 3+3), and clinical stage cT1c. Per EAU risk stratification, this is:",
     options: [
-      "PSA <10 ng/mL AND ISUP grade 1 AND cT1-T2a",
-      "PSA <20 ng/mL AND ISUP grade 2 AND cT2b",
-      "PSA <10 ng/mL AND ISUP grade 3 AND cT1c",
-      "PSA >20 ng/mL AND ISUP grade 1 AND cT2a"
+      "Low risk",
+      "Intermediate risk (favourable)",
+      "Intermediate risk (unfavourable)",
+      "High risk"
     ],
     correctIndex: 0,
-    explanation: "EAU low-risk localised prostate cancer requires all three: PSA <10 ng/mL, ISUP grade 1 (Gleason ≤6), and clinical stage T1-T2a. Any higher value on one axis moves it to intermediate or high risk."
+    explanation: "Low risk requires ALL of PSA <10 ng/mL, ISUP grade 1, and cT1-T2a; any single higher value (e.g. ISUP ≥2, PSA ≥10, or ≥cT2b) moves the patient to intermediate risk, and a high-risk feature (PSA >20, ISUP grade 4-5, or ≥cT3) moves it to high risk."
   },
   {
     id: "onco-prostate-002",
     topic: "oncology", subtopic: "prostate",
-    question: "Active surveillance is most appropriate for which prostate cancer risk group per EAU guidelines?",
-    options: ["High risk", "Low risk", "Metastatic", "Locally advanced (T3-T4)"],
+    question: "Active surveillance is most appropriate as a primary management strategy for which prostate cancer risk group per EAU guidelines?",
+    options: [
+      "Favourable intermediate-risk disease in all patients regardless of preference",
+      "Low-risk disease (and select favourable intermediate-risk patients after shared decision-making)",
+      "Unfavourable intermediate-risk disease",
+      "High-risk localised disease with a long life expectancy"
+    ],
     correctIndex: 1,
-    explanation: "Active surveillance is the preferred management option for low-risk localised prostate cancer to avoid overtreatment of indolent disease."
+    explanation: "Active surveillance is the preferred strategy for low-risk disease; it can also be offered to selected favourable intermediate-risk patients after informed discussion, but is not a default recommendation for that group, and is not appropriate for unfavourable intermediate- or high-risk disease."
   },
   {
     id: "onco-prostate-003",
     topic: "oncology", subtopic: "prostate",
-    question: "In multiparametric MRI reporting for prostate cancer, a PI-RADS score of 4 or 5 indicates:",
+    question: "On multiparametric MRI, a PI-RADS score of 3 in a biopsy-naive patient with an otherwise low pre-test probability of cancer is best interpreted as:",
     options: [
-      "No clinically significant cancer likely",
-      "Clinically significant cancer is highly likely, biopsy recommended",
-      "Indeterminate, repeat MRI in 6 months",
-      "Only relevant for post-treatment surveillance"
+      "Clinically significant cancer is highly likely; biopsy is mandatory regardless of other factors",
+      "Equivocal for clinically significant cancer; the biopsy decision should incorporate PSA density and other clinical risk factors rather than PI-RADS alone",
+      "Definitively benign; no further workup needed",
+      "Only relevant for post-treatment surveillance, not initial diagnosis"
     ],
     correctIndex: 1,
-    explanation: "PI-RADS 4-5 indicates high probability of clinically significant prostate cancer and should prompt targeted biopsy."
+    explanation: "PI-RADS 3 is indeterminate — unlike PI-RADS 4-5 (high probability, biopsy generally recommended) or PI-RADS 1-2 (low probability), a PI-RADS 3 lesion needs additional risk factors such as PSA density to guide the biopsy decision."
   },
   // ---- ONCOLOGY: bladder ----
   {
@@ -160,119 +165,119 @@ const QUESTIONS = [
     topic: "oncology", subtopic: "bladder",
     question: "For high-risk non-muscle-invasive bladder cancer (NMIBC), what is the recommended intravesical therapy per EAU guidelines?",
     options: [
-      "Intravesical chemotherapy single instillation only",
+      "BCG induction only, with no maintenance phase",
       "BCG induction plus maintenance for 1-3 years",
-      "Immediate radical cystectomy in all cases",
-      "Surveillance only, no adjuvant therapy"
+      "Mitomycin C maintenance instillations for 1 year, reserving BCG for recurrence",
+      "BCG induction plus maintenance for 1-3 years, but only after a normal cystoscopy at 3 months"
     ],
     correctIndex: 1,
-    explanation: "High-risk NMIBC is treated with BCG induction (6 weekly instillations) followed by a maintenance schedule, typically for 1-3 years depending on risk substratification."
+    explanation: "High-risk NMIBC requires BCG induction (6 weekly instillations) followed by a maintenance schedule, typically 1-3 years depending on risk substratification — induction alone undertreats, and chemotherapy maintenance is inferior to BCG for high-risk disease. Maintenance is not gated on an interim cystoscopy; it proceeds per schedule alongside surveillance cystoscopy, not as a prerequisite."
   },
   {
     id: "onco-bladder-002",
     topic: "oncology", subtopic: "bladder",
-    question: "Which T stage defines muscle-invasive bladder cancer (MIBC)?",
-    options: ["Ta", "T1", "T2 or higher", "Tis (carcinoma in situ)"],
+    question: "A TURBT specimen shows tumour invading the muscularis propria. This is staged as:",
+    options: ["Ta", "T1", "T2 or higher (muscle-invasive)", "Tis (carcinoma in situ)"],
     correctIndex: 2,
-    explanation: "MIBC is defined as tumour invasion into or beyond the muscularis propria, i.e. ≥T2. Ta, T1, and Tis are all non-muscle-invasive."
+    explanation: "Invasion into or beyond the muscularis propria defines ≥T2 (muscle-invasive) disease. Ta is non-invasive papillary, T1 invades lamina propria only, and Tis is flat carcinoma in situ — all non-muscle-invasive."
   },
   {
     id: "onco-bladder-003",
     topic: "oncology", subtopic: "bladder",
-    question: "The standard treatment for MIBC in a fit patient without metastases is:",
+    question: "A fit 65-year-old with cT2N0M0 urothelial carcinoma of the bladder and no contraindication to cisplatin is planned for radical cystectomy. What should precede surgery?",
     options: [
-      "Radical cystectomy with pelvic lymph node dissection, ideally after neoadjuvant chemotherapy",
-      "BCG maintenance therapy",
-      "Transurethral resection alone",
-      "Active surveillance"
+      "Neoadjuvant cisplatin-based chemotherapy",
+      "Neoadjuvant single-agent carboplatin (cisplatin reserved for recurrence)",
+      "Adjuvant chemotherapy only, given after surgery instead",
+      "No systemic therapy is needed since the patient is cisplatin-eligible and surgery alone is curative"
     ],
     correctIndex: 0,
-    explanation: "Radical cystectomy with lymphadenectomy (preceded by cisplatin-based neoadjuvant chemotherapy in eligible patients) is standard of care for localised MIBC."
+    explanation: "Cisplatin-eligible MIBC patients should receive neoadjuvant cisplatin-based combination chemotherapy before radical cystectomy with pelvic lymphadenectomy — carboplatin is inferior and reserved for cisplatin-ineligible patients, and neoadjuvant (not solely adjuvant) therapy has the stronger survival evidence."
   },
   // ---- ONCOLOGY: renal cell carcinoma ----
   {
     id: "onco-rcc-001",
     topic: "oncology", subtopic: "rcc",
-    question: "For a small renal mass (<4 cm, T1a) in a patient with normal renal function, EAU guidelines favour:",
+    question: "A 55-year-old with normal renal function is found to have an incidental 3 cm enhancing renal mass (cT1a), technically resectable by either approach. EAU guidelines favour:",
     options: [
-      "Radical nephrectomy as first-line",
-      "Partial nephrectomy (nephron-sparing surgery) where technically feasible",
-      "Systemic therapy without surgery",
-      "Radiotherapy alone"
+      "Radical nephrectomy, since oncological outcomes are superior to partial nephrectomy",
+      "Partial nephrectomy (nephron-sparing surgery) where technically feasible, given equivalent oncological outcomes and better preservation of renal function",
+      "Active surveillance as the preferred first-line option for all fit patients",
+      "Percutaneous ablation as the preferred first-line option over surgery in fit patients"
     ],
     correctIndex: 1,
-    explanation: "Partial nephrectomy is preferred for T1a renal masses to preserve renal function, with oncological outcomes equivalent to radical nephrectomy."
+    explanation: "For T1a masses in patients fit for surgery, partial nephrectomy is preferred where feasible — oncological outcomes are equivalent to radical nephrectomy, with better preservation of renal function. Active surveillance and ablation are reserved for patients unfit for or declining surgery, not first-line in fit patients."
   },
   {
     id: "onco-rcc-002",
     topic: "oncology", subtopic: "rcc",
-    question: "Which is the most common histological subtype of renal cell carcinoma?",
-    options: ["Papillary RCC", "Chromophobe RCC", "Clear cell RCC", "Collecting duct RCC"],
+    question: "A 60-year-old undergoes partial nephrectomy for a renal mass. Histology shows cells with clear cytoplasm arranged in an alveolar pattern with a rich vascular network. This is most consistent with:",
+    options: ["Papillary RCC", "Chromophobe RCC", "Clear cell RCC", "Collecting duct (Bellini duct) RCC"],
     correctIndex: 2,
-    explanation: "Clear cell RCC accounts for roughly 70-80% of RCC cases and is the most common subtype."
+    explanation: "Clear cell RCC — the most common subtype (~70-80% of cases) — classically shows clear cytoplasm in an alveolar/nested pattern with prominent vascularity. Papillary and chromophobe RCC have distinct histological patterns and generally better prognosis; collecting duct RCC is rare and aggressive."
   },
   // ---- ONCOLOGY: upper tract urothelial cancer ----
   {
     id: "onco-utuc-001",
     topic: "oncology", subtopic: "utuc",
-    question: "The standard surgical treatment for high-risk upper tract urothelial carcinoma (UTUC) is:",
+    question: "A patient has a high-grade UTUC of the renal pelvis with normal contralateral renal function. The standard surgical treatment is:",
     options: [
-      "Radical nephroureterectomy with bladder cuff excision",
-      "Kidney-sparing endoscopic resection",
+      "Radical nephroureterectomy with excision of a bladder cuff",
+      "Nephron-sparing endoscopic resection, preferred first-line here given normal contralateral function",
       "Partial nephrectomy",
-      "Active surveillance"
+      "Simple nephrectomy without ureterectomy or bladder cuff excision"
     ],
     correctIndex: 0,
-    explanation: "Radical nephroureterectomy with excision of the bladder cuff is the standard of care for high-risk UTUC, given the risk of tumour seeding along the ureter."
+    explanation: "Radical nephroureterectomy with bladder cuff excision remains standard for high-risk UTUC regardless of contralateral function, given the risk of tumour seeding along the ureter and the high recurrence risk of kidney-sparing approaches in high-risk disease. Kidney-sparing management is reserved for low-risk disease or imperative indications (solitary kidney, poor renal function, bilateral disease)."
   },
   {
     id: "onco-utuc-002",
     topic: "oncology", subtopic: "utuc",
-    question: "Kidney-sparing management of UTUC is generally considered for:",
+    question: "Kidney-sparing endoscopic management is most appropriate for which UTUC scenario?",
     options: [
-      "Any high-grade tumour regardless of size",
-      "Low-risk, low-grade tumours, especially in a solitary kidney or with imperative indications",
-      "Bilateral high-grade disease only",
-      "Never appropriate in UTUC"
+      "A high-grade, large-volume tumour in a patient with two functioning kidneys",
+      "A low-grade, low-volume tumour, particularly when there is an imperative indication such as a solitary kidney",
+      "Any tumour, since kidney-sparing approaches now match nephroureterectomy outcomes in all risk groups",
+      "Only when the contralateral kidney has already been removed for an unrelated malignancy, regardless of tumour grade"
     ],
     correctIndex: 1,
-    explanation: "Kidney-sparing approaches (endoscopic ablation/resection) are appropriate for low-risk disease, or when preserving renal function is imperative (e.g. solitary kidney, bilateral disease, poor renal function)."
+    explanation: "Kidney-sparing (endoscopic ablation/resection) approaches are reserved for low-risk, low-grade, low-volume disease, or when preserving renal function is imperative (solitary kidney, bilateral disease, chronic kidney disease) — not for high-grade/high-volume disease, which needs radical treatment regardless of imperative circumstances if renal function allows."
   },
   // ---- ONCOLOGY: testicular ----
   {
     id: "onco-testis-001",
     topic: "oncology", subtopic: "testis",
-    question: "The first step in management of a suspicious testicular mass is:",
+    question: "A 28-year-old presents with a firm, painless testicular mass and a moderately elevated AFP. The most appropriate immediate next step is:",
     options: [
-      "Percutaneous biopsy",
+      "Percutaneous core biopsy of the mass to confirm histology before proceeding",
       "Radical inguinal orchiectomy",
-      "Trans-scrotal biopsy",
-      "Empirical chemotherapy"
+      "Trans-scrotal excisional biopsy",
+      "Start empirical chemotherapy based on tumour markers alone"
     ],
     correctIndex: 1,
-    explanation: "Radical inguinal orchiectomy is the standard first step for a suspicious testicular mass — trans-scrotal biopsy risks local seeding and disrupts lymphatic drainage planning."
+    explanation: "Radical inguinal orchiectomy (not a scrotal or percutaneous approach) is the standard first step for a suspicious testicular mass with elevated markers — a scrotal approach risks local tumour seeding and alters inguinal/scrotal lymphatic drainage, complicating future retroperitoneal lymph node dissection planning; markers alone don't substitute for histological confirmation."
   },
   {
     id: "onco-testis-002",
     topic: "oncology", subtopic: "testis",
-    question: "Which tumour marker is characteristically elevated in choriocarcinoma but NOT in pure seminoma?",
-    options: ["AFP", "Beta-hCG", "LDH", "PSA"],
-    correctIndex: 1,
-    explanation: "Beta-hCG can be mildly elevated in seminoma (from syncytiotrophoblastic cells) but marked elevation is characteristic of choriocarcinoma. AFP elevation excludes pure seminoma entirely."
+    question: "Which tumour marker, if significantly elevated, effectively excludes a diagnosis of pure seminoma?",
+    options: ["AFP", "Beta-hCG", "LDH", "PLAP (placental alkaline phosphatase)"],
+    correctIndex: 0,
+    explanation: "AFP elevation excludes pure seminoma — AFP is never produced by seminoma cells, so any AFP elevation indicates a non-seminomatous (or mixed) component. Beta-hCG can be mildly elevated in seminoma (syncytiotrophoblastic giant cells), LDH is a nonspecific marker of tumour burden, and PLAP can also be elevated in seminoma."
   },
   // ---- ONCOLOGY: penile ----
   {
     id: "onco-penile-001",
     topic: "oncology", subtopic: "penile",
-    question: "For a small, organ-confined penile carcinoma, EAU guidelines favour which approach when feasible?",
+    question: "A patient has a small, well-differentiated, organ-confined glans lesion (cT1a) without corpora involvement. EAU guidelines favour:",
     options: [
-      "Total penectomy as first-line for all lesions",
-      "Organ-sparing surgery (e.g. wide local excision, glansectomy) to preserve function",
-      "Radiotherapy is always contraindicated",
-      "Chemotherapy alone without surgery"
+      "Total penectomy as first-line, reserving organ-sparing surgery only for premalignant lesions",
+      "Organ-sparing surgery (e.g. wide local excision, glansectomy, or glans resurfacing) to preserve function, provided negative margins are achievable",
+      "Radiotherapy is contraindicated in all penile cancer regardless of stage",
+      "Primary chemotherapy alone, without surgery, for localised low-grade disease"
     ],
     correctIndex: 1,
-    explanation: "Organ-sparing surgical techniques are preferred when oncologically feasible to preserve sexual and urinary function, reserving penectomy for more extensive disease."
+    explanation: "For small, organ-confined, favourable-risk penile lesions, organ-sparing techniques are preferred when adequate margins are achievable — preserving sexual/urinary function without compromising oncological control; penectomy is reserved for more extensive/higher-risk disease. Radiotherapy is a valid organ-preserving option in select cases, not an absolute contraindication."
   },
 
   // ---- NON-ONCOLOGY: urolithiasis ----
@@ -540,13 +545,13 @@ const QUESTIONS = [
     topic: "oncology", subtopic: "prostate",
     question: "For high-risk localised prostate cancer treated with radiotherapy, EAU guidelines recommend combining radiotherapy with:",
     options: [
-      "No systemic therapy needed",
-      "Long-term androgen deprivation therapy (ADT)",
-      "Short-course antibiotics",
+      "Short-course ADT (4-6 months) alone",
+      "Long-term ADT (2-3 years)",
+      "No systemic therapy; radiotherapy alone is sufficient",
       "Chemotherapy alone without ADT"
     ],
     correctIndex: 1,
-    explanation: "High-risk disease treated with radiotherapy is combined with long-term ADT (typically 2-3 years) to improve oncological outcomes."
+    explanation: "High-risk disease treated with radiotherapy is combined with long-term ADT (typically 2-3 years) to improve oncological outcomes — short-course ADT is used for lower-risk disease treated with radiotherapy, not high-risk."
   },
   {
     id: "onco-prostate-006",
@@ -564,15 +569,15 @@ const QUESTIONS = [
   {
     id: "onco-prostate-007",
     topic: "oncology", subtopic: "prostate",
-    question: "In metastatic hormone-sensitive prostate cancer (mHSPC), current EAU guidance favours ADT combined with:",
+    question: "A 62-year-old presents with newly diagnosed prostate cancer and 3 bone metastases (low-volume mHSPC). In addition to ADT, EAU guidelines support which additional treatment shown to improve outcomes in this specific low-volume subgroup?",
     options: [
-      "ADT alone is always sufficient, no combination needed",
-      "Doublet or triplet therapy (e.g. ADT plus an androgen receptor pathway inhibitor, with or without chemotherapy) based on disease volume/risk",
-      "Radiotherapy to the prostate is never indicated in mHSPC",
-      "Antibiotics as first-line systemic therapy"
+      "An androgen receptor pathway inhibitor only; radiotherapy to the prostate is never beneficial regardless of volume",
+      "ADT plus an androgen receptor pathway inhibitor, with radiotherapy to the primary prostate tumour also supported in low-volume disease",
+      "ADT alone; combination therapy is reserved for high-volume disease only",
+      "Docetaxel chemotherapy alone without ADT"
     ],
     correctIndex: 1,
-    explanation: "mHSPC is treated with ADT combined with an androgen receptor pathway inhibitor and/or docetaxel chemotherapy (combination/triplet approaches), improving survival over ADT alone."
+    explanation: "In low-volume mHSPC, adding radiotherapy to the primary tumour (alongside ADT +/- an androgen receptor pathway inhibitor) improves survival, per trial evidence incorporated into EAU guidance — a benefit not seen in high-volume disease. ADT alone, or chemotherapy without ADT, undertreats this group."
   },
 
   // ---- ONCOLOGY: bladder (expansion) ----
@@ -607,26 +612,26 @@ const QUESTIONS = [
     topic: "oncology", subtopic: "bladder",
     question: "In a patient with BCG-unresponsive high-risk NMIBC who is unfit for or declines radical cystectomy, EAU guidelines note which option may be considered?",
     options: [
-      "Repeat the same failed BCG regimen indefinitely with no changes",
-      "Bladder-sparing alternatives such as intravesical chemotherapy combinations or novel agents where available, with close surveillance",
-      "No further treatment is possible",
-      "Immediate systemic chemotherapy without local treatment"
+      "Continue standard maintenance BCG unchanged, since BCG-unresponsive status does not require any change in approach",
+      "Bladder-sparing alternatives such as intravesical chemotherapy combinations or novel intravesical/systemic agents where available, with close surveillance",
+      "Immediate systemic chemotherapy without any further local bladder-directed treatment",
+      "Radical cystectomy is mandatory in all cases regardless of fitness or preference"
     ],
     correctIndex: 1,
-    explanation: "BCG-unresponsive disease should ideally proceed to radical cystectomy, but bladder-sparing options (alternative intravesical agents, clinical trials) can be considered when surgery is not feasible or declined, with close monitoring."
+    explanation: "BCG-unresponsive disease should ideally proceed to radical cystectomy, but bladder-sparing options (alternative intravesical agents, novel agents, clinical trials) can be considered when surgery is not feasible or declined, with close monitoring — continuing unchanged maintenance BCG is not appropriate once disease is classified as BCG-unresponsive."
   },
   {
     id: "onco-bladder-007",
     topic: "oncology", subtopic: "bladder",
     question: "For metastatic urothelial carcinoma, first-line systemic therapy per current guidance often includes:",
     options: [
-      "Platinum-based chemotherapy and/or immune checkpoint inhibitors, depending on eligibility and biomarkers",
-      "Antibiotics as definitive treatment",
-      "Active surveillance only",
-      "BCG intravesical therapy"
+      "Platinum-based chemotherapy and/or immune checkpoint inhibitors, depending on cisplatin eligibility and biomarker status",
+      "Intravesical BCG induction and maintenance, as used in NMIBC",
+      "Active surveillance with repeat imaging every 6 months",
+      "Radical cystectomy with lymphadenectomy as monotherapy without systemic treatment"
     ],
     correctIndex: 0,
-    explanation: "Metastatic urothelial carcinoma is treated with systemic therapy — platinum-based chemotherapy and/or immune checkpoint inhibitors/antibody-drug conjugates depending on cisplatin eligibility and biomarker status — not local intravesical therapy."
+    explanation: "Metastatic urothelial carcinoma is treated with systemic therapy — platinum-based chemotherapy and/or immune checkpoint inhibitors/antibody-drug conjugates depending on cisplatin eligibility and biomarker status — not local intravesical therapy, surveillance, or surgery alone."
   },
 
   // ---- ONCOLOGY: renal cell carcinoma (expansion) ----
@@ -646,15 +651,15 @@ const QUESTIONS = [
   {
     id: "onco-rcc-004",
     topic: "oncology", subtopic: "rcc",
-    question: "For metastatic clear cell RCC in a patient with favourable/intermediate risk, first-line systemic therapy typically involves:",
+    question: "A patient with metastatic clear cell RCC and IMDC poor-risk disease is being considered for first-line systemic therapy. Compared to favourable-risk disease, poor-risk IMDC status most influences the choice toward:",
     options: [
-      "Combination immune checkpoint inhibitor and/or tyrosine kinase inhibitor regimens",
-      "Intravesical BCG",
-      "Radical cystectomy",
-      "Antibiotics"
+      "Single-agent VEGF-TKI therapy alone, avoiding immunotherapy combinations",
+      "Immune checkpoint inhibitor-based combination therapy (e.g. ipilimumab-nivolumab or IO-TKI), which shows the greatest benefit in intermediate/poor-risk disease",
+      "Active surveillance until symptomatic progression",
+      "Cytoreductive nephrectomy alone without any systemic therapy"
     ],
-    correctIndex: 0,
-    explanation: "First-line metastatic clear cell RCC treatment uses combination regimens (immunotherapy-immunotherapy or immunotherapy-TKI combinations) based on IMDC risk stratification."
+    correctIndex: 1,
+    explanation: "IMDC intermediate/poor-risk metastatic ccRCC derives the greatest benefit from immune checkpoint inhibitor-based combinations (dual IO or IO-TKI); single-agent TKI is more often considered in select favourable-risk patients. Surveillance and surgery alone are inappropriate as sole management for metastatic, systemic-therapy-eligible disease."
   },
   {
     id: "onco-rcc-005",
@@ -674,15 +679,15 @@ const QUESTIONS = [
   {
     id: "onco-utuc-003",
     topic: "oncology", subtopic: "utuc",
-    question: "Diagnostic ureteroscopy with biopsy for suspected UTUC carries a risk of:",
+    question: "In a patient with a high-risk UTUC feature on imaging (e.g. high-grade cytology, large size, infiltrative appearance) who is a good surgical candidate, EAU guidelines regarding diagnostic ureteroscopy with biopsy suggest:",
     options: [
-      "No risks at all",
-      "Potential intravesical tumour seeding/recurrence, which is a recognised consideration when planning management",
-      "Guaranteed cure",
-      "Immediate need for dialysis"
+      "It should always be performed regardless of imaging findings, since histological confirmation is mandatory before any treatment",
+      "It may reasonably be omitted when imaging and cytology already indicate high-risk disease, given ureteroscopy's seeding/recurrence risk and limited added value in that scenario",
+      "It carries no procedural risk and should replace cross-sectional imaging in diagnostic workup",
+      "It is required only in patients under age 40"
     ],
     correctIndex: 1,
-    explanation: "Ureteroscopic manipulation of UTUC carries a theoretical/recognised risk of intravesical seeding, which is factored into decisions about diagnostic workup versus proceeding to nephroureterectomy in high-risk disease."
+    explanation: "When non-invasive findings (imaging, urine cytology) already indicate high-risk disease, definitive ureteroscopic biopsy may reasonably be omitted before proceeding directly to radical nephroureterectomy — partly reflecting the recognised seeding/recurrence risk of ureteroscopic manipulation. Ureteroscopy remains important when risk stratification is otherwise uncertain, particularly when kidney-sparing management is being considered."
   },
   {
     id: "onco-utuc-004",
@@ -717,28 +722,28 @@ const QUESTIONS = [
     topic: "oncology", subtopic: "testis",
     question: "Retroperitoneal lymph node dissection (RPLND) or chemotherapy is considered standard management for which testicular cancer scenario?",
     options: [
-      "Stage I seminoma only",
+      "Stage I seminoma with no evidence of nodal disease",
       "Non-seminomatous germ cell tumour with retroperitoneal nodal metastases",
-      "Benign testicular cysts",
-      "Isolated epididymal cysts"
+      "Stage I non-seminomatous germ cell tumour under active surveillance with no risk factors",
+      "Seminoma with retroperitoneal nodes <2cm, generally managed with radiotherapy or single-agent chemotherapy instead of RPLND"
     ],
     correctIndex: 1,
-    explanation: "RPLND or chemotherapy are standard options for non-seminomatous germ cell tumours with nodal spread, reflecting the different management pathways for seminoma vs non-seminoma."
+    explanation: "RPLND or chemotherapy are standard for NSGCT with retroperitoneal nodal metastases. Stage I disease without nodal spread doesn't require RPLND/chemo upfront, and nodal seminoma is generally managed with radiotherapy or chemotherapy rather than RPLND, reflecting the different management pathways between histological subtypes and stages."
   },
 
   // ---- ONCOLOGY: penile (expansion) ----
   {
     id: "onco-penile-002",
     topic: "oncology", subtopic: "penile",
-    question: "Management of regional lymph nodes in penile cancer is guided primarily by:",
+    question: "A patient with a cT2 penile squamous cell carcinoma and clinically impalpable inguinal lymph nodes is being risk-stratified for occult nodal metastases. Management of the regional nodes is guided primarily by:",
     options: [
-      "PSA level",
-      "Primary tumour stage/grade and palpable node status, often using dynamic sentinel node biopsy in impalpable nodes",
-      "Patient age only",
-      "Lymph nodes are never assessed in penile cancer"
+      "Serum tumour markers (AFP/beta-hCG), analogous to testicular cancer staging",
+      "Primary tumour stage/grade and palpable node status, often using dynamic sentinel node biopsy or risk-adapted inguinal lymphadenectomy in impalpable nodes at intermediate/high risk",
+      "Patient age alone, with surveillance preferred in all patients under 60",
+      "Imaging alone; impalpable nodes never require any invasive staging procedure"
     ],
     correctIndex: 1,
-    explanation: "Inguinal lymph node management is risk-stratified by primary tumour characteristics; dynamic sentinel node biopsy is used in clinically node-negative patients at risk of occult metastases."
+    explanation: "Penile cancer has no equivalent serum tumour marker (unlike testicular cancer); nodal management is risk-stratified by primary tumour T-stage/grade and clinical node status, using invasive staging (dynamic sentinel node biopsy or modified inguinal lymphadenectomy) in impalpable nodes at intermediate-to-high risk, since imaging alone is insufficiently sensitive for micrometastases."
   },
   {
     id: "onco-penile-003",
@@ -1215,15 +1220,15 @@ const QUESTIONS = [
   {
     id: "onco-prostate-008",
     topic: "oncology", subtopic: "prostate",
-    question: "Which imaging is recommended for initial staging of newly diagnosed high-risk prostate cancer to assess for nodal/bone metastases?",
+    question: "A 68-year-old with newly diagnosed high-risk prostate cancer (PSA 35 ng/mL, ISUP grade 4) is being staged. EAU guidelines recommend which imaging to assess for nodal/bone metastases?",
     options: [
-      "Cross-sectional imaging (CT/MRI) of the pelvis/abdomen and a bone scan (or PSMA-PET where available)",
-      "Plain X-ray of the pelvis only",
-      "No imaging is needed for high-risk disease",
-      "Renal ultrasound only"
+      "Cross-sectional imaging (CT/MRI) of the pelvis/abdomen and a bone scan, or PSMA-PET/CT where available and appropriate",
+      "Bone scan alone; cross-sectional imaging is not required in high-risk disease",
+      "MRI prostate alone; systemic staging imaging is only needed if the patient becomes symptomatic",
+      "PSMA-PET/CT is mandatory for every high-risk patient with no acceptable conventional-imaging alternative"
     ],
     correctIndex: 0,
-    explanation: "High-risk localised prostate cancer warrants staging imaging (cross-sectional imaging plus bone scan, or PSMA-PET/CT where available) to exclude nodal or bone metastases before definitive treatment planning."
+    explanation: "High-risk localised prostate cancer warrants staging imaging — conventional cross-sectional imaging plus bone scan, or PSMA-PET/CT where available — to exclude nodal or bone metastases before definitive treatment planning; PSMA-PET/CT is an appropriate alternative/adjunct, not the only acceptable modality, and staging should not wait for symptoms."
   },
   {
     id: "onco-rcc-006",
@@ -1327,6 +1332,525 @@ const QUESTIONS = [
     ],
     correctIndex: 0,
     explanation: "Posterior urethral valves are the most common cause of congenital bladder outlet obstruction in male infants and can lead to bilateral hydronephrosis, bladder dysfunction, and renal impairment if not identified and treated early."
+  },
+
+  // ---- ONCOLOGY: prostate (depth pass) ----
+  {
+    id: "onco-prostate-009",
+    topic: "oncology", subtopic: "prostate",
+    question: "In non-metastatic castration-resistant prostate cancer (nmCRPC) with a rapid PSA doubling time (<10 months), EAU guidelines support adding which class of agent to ongoing ADT?",
+    options: [
+      "A second-generation androgen receptor pathway inhibitor (e.g. apalutamide, enzalutamide, darolutamide)",
+      "Docetaxel chemotherapy as first-line",
+      "No additional therapy; continue ADT monitoring alone regardless of PSA doubling time",
+      "Immediate switch to first-generation antiandrogen (e.g. bicalutamide) monotherapy"
+    ],
+    correctIndex: 0,
+    explanation: "In nmCRPC with high-risk features (PSA doubling time <10 months), adding a second-generation androgen receptor pathway inhibitor to ADT delays metastasis and improves survival; chemotherapy is not standard first-line in the non-metastatic setting, and first-generation antiandrogens are an older, less effective strategy."
+  },
+  {
+    id: "onco-prostate-010",
+    topic: "oncology", subtopic: "prostate",
+    question: "Germline genetic testing (e.g. BRCA1/2) is recommended by EAU guidelines in which prostate cancer scenario?",
+    options: [
+      "All men at first PSA screening regardless of family history or stage",
+      "Men with metastatic prostate cancer, especially with a relevant family history, to guide both treatment (e.g. PARP inhibitor eligibility) and familial counselling",
+      "Only in men under 40 with localised low-risk disease",
+      "Germline testing has no role in prostate cancer management"
+    ],
+    correctIndex: 1,
+    explanation: "Germline testing is recommended in metastatic prostate cancer (particularly with a suggestive family/personal history), since pathogenic variants (e.g. BRCA2) have both therapeutic implications (PARP inhibitor eligibility) and implications for family members — it is not a universal screening test at first PSA."
+  },
+  {
+    id: "onco-prostate-011",
+    topic: "oncology", subtopic: "prostate",
+    question: "Watchful waiting differs from active surveillance in prostate cancer primarily in that watchful waiting:",
+    options: [
+      "Uses identical monitoring protocols (PSA, MRI, repeat biopsy) but in older patients",
+      "Is a symptom-driven, palliative-intent approach for patients with limited life expectancy, without curative-intent monitoring or treatment triggers",
+      "Is only used in high-risk disease",
+      "Requires more frequent biopsies than active surveillance"
+    ],
+    correctIndex: 1,
+    explanation: "Watchful waiting is a less intensive, symptom-triggered approach aimed at deferring treatment until symptomatic progression in patients with limited life expectancy or significant comorbidity, without curative intent — unlike active surveillance, which uses structured monitoring (PSA, MRI, biopsy) with curative-intent treatment triggers in patients with longer life expectancy."
+  },
+  {
+    id: "onco-prostate-012",
+    topic: "oncology", subtopic: "prostate",
+    question: "Focal therapy (e.g. HIFU, cryotherapy) for localised prostate cancer is currently regarded by EAU guidelines as:",
+    options: [
+      "Standard first-line therapy equivalent to radical prostatectomy for all risk groups",
+      "An investigational/developing option, best offered within clinical trials or registries in carefully selected unifocal, intermediate-risk disease",
+      "Contraindicated in all circumstances",
+      "The preferred option specifically for high-risk, multifocal disease"
+    ],
+    correctIndex: 1,
+    explanation: "Focal therapy remains an evolving option without the long-term comparative outcome data of radical prostatectomy or radiotherapy — EAU guidance frames it as investigational, best restricted to trials/registries in carefully selected unifocal disease, not multifocal or high-risk disease, and not yet a standard first-line option."
+  },
+  {
+    id: "onco-prostate-013",
+    topic: "oncology", subtopic: "prostate",
+    question: "A patient develops biochemical recurrence 3 years after radical prostatectomy, with a PSA doubling time of 4 months and no visible disease on conventional imaging. The most appropriate next step per EAU guidance is:",
+    options: [
+      "Immediate systemic ADT without further imaging, since biochemical recurrence alone confirms metastatic disease",
+      "PSMA-PET/CT (where available) to localise recurrence and guide salvage therapy, given the short doubling time suggesting a higher risk of occult metastases",
+      "Repeat prostatectomy at the same site",
+      "No further workup or treatment until PSA exceeds 20 ng/mL"
+    ],
+    correctIndex: 1,
+    explanation: "A short PSA doubling time after prostatectomy raises concern for occult metastatic disease; PSMA-PET/CT offers higher sensitivity than conventional imaging to localise recurrence and guide whether salvage radiotherapy or systemic therapy is more appropriate — starting ADT or waiting for a much higher PSA without further localisation workup is not the guideline-directed approach."
+  },
+  {
+    id: "onco-prostate-014",
+    topic: "oncology", subtopic: "prostate",
+    question: "In men on long-term ADT for prostate cancer, EAU guidelines recommend monitoring for which metabolic/skeletal complication?",
+    options: [
+      "Bone mineral density loss and increased fracture risk, warranting baseline and periodic DEXA scanning with consideration of bone-protective therapy",
+      "ADT has no long-term metabolic effects requiring monitoring",
+      "Only renal function needs monitoring during ADT",
+      "Monitoring is only required if the patient develops symptoms of fracture"
+    ],
+    correctIndex: 0,
+    explanation: "ADT causes hypogonadism-related bone loss, increasing fracture risk, along with metabolic syndrome and cardiovascular risk — guidelines recommend baseline/periodic bone density assessment and consideration of bone-protective agents proactively, not only after a fracture occurs."
+  },
+
+  // ---- ONCOLOGY: bladder (depth pass) ----
+  {
+    id: "onco-bladder-008",
+    topic: "oncology", subtopic: "bladder",
+    question: "A patient with cT2N0M0 MIBC is medically unfit for cisplatin-based chemotherapy and radical cystectomy but has good performance status otherwise. A bladder-preserving alternative EAU guidelines describe is:",
+    options: [
+      "Trimodal therapy — maximal TURBT followed by concurrent chemoradiotherapy — as an alternative for selected patients",
+      "BCG maintenance therapy alone, as used in NMIBC",
+      "No treatment options exist for cisplatin-ineligible, surgery-unfit patients",
+      "Single-agent oral antibiotics with active surveillance"
+    ],
+    correctIndex: 0,
+    explanation: "Trimodal bladder-preserving therapy (maximal TURBT plus concurrent chemoradiotherapy) is a recognised alternative to radical cystectomy in selected patients, including those unfit for surgery, with outcomes approaching cystectomy in appropriately selected cases — BCG is for NMIBC, not muscle-invasive disease."
+  },
+  {
+    id: "onco-bladder-009",
+    topic: "oncology", subtopic: "bladder",
+    question: "Concurrent carcinoma in situ (CIS) alongside a high-risk Ta/T1 tumour has which implication for NMIBC risk stratification and management?",
+    options: [
+      "It is disregarded once the papillary tumour is fully resected",
+      "It independently upgrades the disease to high risk and typically still warrants BCG induction plus maintenance",
+      "It downgrades risk since CIS is a low-grade lesion",
+      "It mandates immediate radical cystectomy regardless of response to intravesical therapy"
+    ],
+    correctIndex: 1,
+    explanation: "Concurrent CIS is an adverse risk factor in EORTC/EAU risk stratification and, alongside papillary tumour features, typically places disease in the high-risk category warranting BCG induction and maintenance — it is not disregarded after resection, and immediate cystectomy is not mandated before a trial of intravesical therapy in most cases (reserved for BCG-unresponsive disease)."
+  },
+  {
+    id: "onco-bladder-010",
+    topic: "oncology", subtopic: "bladder",
+    question: "After nephroureterectomy for a prior UTUC, surveillance for bladder cancer recurrence is recommended because:",
+    options: [
+      "Bladder recurrence risk after UTUC treatment is negligible and does not require cystoscopic follow-up",
+      "Patients with a history of UTUC have an elevated risk of subsequent bladder tumours and require ongoing cystoscopic surveillance",
+      "Surveillance is only needed if the original UTUC was low-grade",
+      "CT urography alone is sufficient without cystoscopy"
+    ],
+    correctIndex: 1,
+    explanation: "Patients with UTUC have a substantially elevated risk of subsequent bladder urothelial recurrence (reflecting field change across the urothelium) and require regular cystoscopic surveillance in addition to upper tract imaging — cystoscopy detects bladder-specific recurrences that CT urography can miss."
+  },
+  {
+    id: "onco-bladder-011",
+    topic: "oncology", subtopic: "bladder",
+    question: "Surveillance cystoscopy intervals after treatment for high-risk NMIBC are typically:",
+    options: [
+      "Every 3 months for the first 2 years, then gradually lengthening if disease-free, continuing long-term",
+      "A single cystoscopy at 5 years is sufficient regardless of interim recurrence risk",
+      "Cystoscopy can be stopped entirely once BCG maintenance is completed",
+      "Annual cystoscopy only, starting from diagnosis"
+    ],
+    correctIndex: 0,
+    explanation: "High-risk NMIBC surveillance follows a risk-adapted schedule — frequent cystoscopy (e.g. every 3 months) in the first 1-2 years when recurrence risk is highest, lengthening the interval over time if the patient remains disease-free, continuing long-term given the persistent risk of recurrence/progression."
+  },
+  {
+    id: "onco-bladder-012",
+    topic: "oncology", subtopic: "bladder",
+    question: "The extent of lymph node dissection at radical cystectomy recommended by EAU guidelines is:",
+    options: [
+      "No formal lymphadenectomy is required if imaging shows no enlarged nodes",
+      "An extended lymphadenectomy template (including common iliac nodes), since this improves staging accuracy and may improve oncological outcomes compared to a limited template",
+      "A limited obturator-only dissection, since extended templates add morbidity without benefit",
+      "Lymphadenectomy is only performed if positive nodes are found intraoperatively on frozen section"
+    ],
+    correctIndex: 1,
+    explanation: "An extended lymphadenectomy template (beyond the obturator fossa, including common iliac nodes) is recommended at radical cystectomy — it improves staging accuracy (detecting occult nodal disease that imaging misses) and is associated with improved oncological outcomes compared to a limited dissection."
+  },
+  {
+    id: "onco-bladder-013",
+    topic: "oncology", subtopic: "bladder",
+    question: "A 68-year-old smoker presents with painless gross haematuria. Initial guideline-directed workup should include:",
+    options: [
+      "Urine cytology alone; cystoscopy can be deferred unless cytology is positive",
+      "Cystoscopy and upper tract imaging (CT urography), given the malignancy risk in this risk profile, regardless of an initial negative urinalysis for infection",
+      "A course of empirical antibiotics first, with further workup only if haematuria persists after treatment",
+      "Renal ultrasound alone is sufficient to exclude malignancy in this age group"
+    ],
+    correctIndex: 1,
+    explanation: "Visible haematuria in an older smoker warrants prompt cystoscopy plus upper tract imaging (CT urography) to exclude urothelial malignancy — cytology alone has limited sensitivity (especially for low-grade tumours) and cannot substitute for cystoscopy, and empirical antibiotic trials or ultrasound alone risk delaying cancer diagnosis in a high-risk patient."
+  },
+
+  // ---- ONCOLOGY: renal cell carcinoma (depth pass) ----
+  {
+    id: "onco-rcc-007",
+    topic: "oncology", subtopic: "rcc",
+    question: "A 32-year-old with bilateral multifocal renal masses, retinal angiomas, and a family history of similar tumours most likely has an underlying diagnosis of:",
+    options: [
+      "Sporadic clear cell RCC; the family history is coincidental",
+      "Von Hippel-Lindau (VHL) disease, warranting genetic counselling/testing and a nephron-sparing management strategy given the risk of future tumours",
+      "Birt-Hogg-Dubé syndrome, which characteristically causes bilateral clear cell tumours",
+      "No genetic workup is indicated regardless of the presentation"
+    ],
+    correctIndex: 1,
+    explanation: "Bilateral/multifocal RCC at a young age with retinal angiomas and family history is classic for VHL disease — genetic counselling/testing is warranted, and nephron-sparing surgical strategies are prioritised given the lifetime risk of multiple recurrent tumours. Birt-Hogg-Dubé is more associated with chromophobe/oncocytic hybrid tumours, not the classic VHL clear-cell/retinal phenotype."
+  },
+  {
+    id: "onco-rcc-008",
+    topic: "oncology", subtopic: "rcc",
+    question: "Adjuvant systemic therapy after nephrectomy for high-risk, non-metastatic clear cell RCC is:",
+    options: [
+      "Never indicated; observation is the only recommended approach post-nephrectomy regardless of risk",
+      "An option in selected high-risk patients (e.g. adjuvant immunotherapy), reflecting evidence of improved disease-free survival in this subgroup, though guidance continues to evolve",
+      "Mandatory in all patients regardless of pathological risk",
+      "Only chemotherapy-based, since immunotherapy has no adjuvant role in RCC"
+    ],
+    correctIndex: 1,
+    explanation: "Adjuvant systemic therapy (e.g. immune checkpoint inhibition) is now an option for selected high-risk resected clear cell RCC patients based on disease-free survival benefit in trial data, though it is not mandatory for all patients and patient selection continues to be refined — chemotherapy is not the relevant adjuvant modality in RCC."
+  },
+  {
+    id: "onco-rcc-009",
+    topic: "oncology", subtopic: "rcc",
+    question: "Percutaneous renal mass biopsy prior to intervention is most useful for:",
+    options: [
+      "It is never useful since imaging alone is always diagnostic of malignancy",
+      "Confirming histology before ablative therapy or active surveillance, and in cases where imaging is indeterminate for malignancy versus a benign lesion (e.g. oncocytoma)",
+      "Replacing the need for any postoperative pathology after surgical resection",
+      "Only indicated in metastatic disease, never in localised masses"
+    ],
+    correctIndex: 1,
+    explanation: "Renal mass biopsy is valuable before ablative therapy or when pursuing surveillance (to confirm malignancy and grade), and in cases with indeterminate imaging (e.g. distinguishing RCC from a benign oncocytoma) — it does not replace definitive surgical pathology when proceeding straight to resection in a clearly suspicious mass, but is far from 'never useful.'"
+  },
+  {
+    id: "onco-rcc-010",
+    topic: "oncology", subtopic: "rcc",
+    question: "Compared with clear cell RCC, papillary RCC (type 1) characteristically:",
+    options: [
+      "Has a worse prognosis stage-for-stage",
+      "Tends to have a more indolent course, particularly type 1, though papillary tumours overall are a heterogeneous group",
+      "Never metastasises",
+      "Is exclusively a paediatric tumour"
+    ],
+    correctIndex: 1,
+    explanation: "Papillary RCC, particularly type 1, generally behaves less aggressively than clear cell RCC, though papillary RCC is a heterogeneous category (type 2 can behave more aggressively) — it certainly can metastasise and occurs predominantly in adults, not exclusively children."
+  },
+  {
+    id: "onco-rcc-011",
+    topic: "oncology", subtopic: "rcc",
+    question: "Surveillance imaging after partial nephrectomy for a pT1 clear cell RCC is recommended primarily to detect:",
+    options: [
+      "Local recurrence and metastatic disease, following a risk-stratified schedule even though absolute recurrence risk is low for pT1 disease",
+      "No surveillance is required after clear surgical margins in pT1 disease",
+      "Surveillance is only for symptomatic patients",
+      "A single scan at 10 years is sufficient regardless of stage"
+    ],
+    correctIndex: 0,
+    explanation: "Even lower-risk pT1 RCC after nephron-sparing surgery warrants risk-stratified surveillance imaging (typically less intensive than for higher-stage disease) to detect local recurrence or metastasis, since recurrence — while less common — is not eliminated by clear margins alone."
+  },
+  {
+    id: "onco-rcc-012",
+    topic: "oncology", subtopic: "rcc",
+    question: "Adrenal-sparing (adrenal-preserving) radical nephrectomy is appropriate when:",
+    options: [
+      "Preoperative imaging shows no radiographic evidence of adrenal invasion or a directly adjacent large upper-pole tumour, since ipsilateral adrenalectomy is not routinely required in this setting",
+      "Ipsilateral adrenalectomy should always be performed regardless of imaging findings",
+      "Adrenal-sparing approaches are never oncologically appropriate",
+      "It applies only to left-sided tumours, never right-sided"
+    ],
+    correctIndex: 0,
+    explanation: "Routine ipsilateral adrenalectomy is no longer standard during radical nephrectomy when preoperative imaging shows no evidence of adrenal involvement and the tumour is not a large upper-pole mass directly abutting the adrenal — adrenal-sparing surgery avoids unnecessary morbidity without compromising oncological outcomes in this setting, and laterality itself is not the deciding factor."
+  },
+
+  // ---- ONCOLOGY: upper tract urothelial cancer (depth pass) ----
+  {
+    id: "onco-utuc-006",
+    topic: "oncology", subtopic: "utuc",
+    question: "Risk stratification of UTUC into 'low-risk' versus 'high-risk' (guiding kidney-sparing vs radical treatment) incorporates all of the following EXCEPT:",
+    options: [
+      "Tumour grade (cytology/biopsy)",
+      "Tumour size and multifocality",
+      "Serum PSA level",
+      "Hydronephrosis on imaging"
+    ],
+    correctIndex: 2,
+    explanation: "UTUC risk stratification uses grade, size, multifocality, and imaging findings (hydronephrosis), among others — PSA is a prostate-specific marker with no role in UTUC risk assessment."
+  },
+  {
+    id: "onco-utuc-007",
+    topic: "oncology", subtopic: "utuc",
+    question: "Adjuvant systemic chemotherapy after radical nephroureterectomy for UTUC is supported by EAU guidelines for:",
+    options: [
+      "All patients regardless of pathological stage, to reduce any recurrence risk",
+      "Patients with pT2-T4 and/or node-positive disease, given demonstrated disease-free survival benefit in this population, generally using a cisplatin-based regimen if eligible",
+      "Only patients with pTa/T1 disease",
+      "Adjuvant chemotherapy has no evidence base in UTUC and is not recommended"
+    ],
+    correctIndex: 1,
+    explanation: "Adjuvant platinum-based chemotherapy (cisplatin-based if eligible) improves disease-free survival in pT2-T4 and/or node-positive UTUC after nephroureterectomy — it is not indicated for low-stage pTa/T1 disease, where the risk-benefit is unfavourable."
+  },
+  {
+    id: "onco-utuc-008",
+    topic: "oncology", subtopic: "utuc",
+    question: "Segmental ureterectomy (rather than radical nephroureterectomy) may be considered for UTUC when:",
+    options: [
+      "The tumour is high-grade and located in the renal pelvis",
+      "The tumour is low-grade, distal ureteric, and amenable to complete resection with adequate margins while preserving the remaining urinary tract",
+      "It should replace nephroureterectomy in all high-risk UTUC to reduce morbidity",
+      "It is never oncologically appropriate regardless of tumour characteristics"
+    ],
+    correctIndex: 1,
+    explanation: "Segmental (distal) ureterectomy is a kidney-sparing option for select low-risk, distal ureteric tumours where complete resection with clear margins is achievable — it is not appropriate for high-grade/high-risk disease or proximal (renal pelvis) tumours, where radical nephroureterectomy remains standard."
+  },
+  {
+    id: "onco-utuc-009",
+    topic: "oncology", subtopic: "utuc",
+    question: "After kidney-sparing endoscopic management of UTUC, adjuvant topical instillation therapy (e.g. mitomycin C via nephrostomy tube or retrograde catheter) is used to:",
+    options: [
+      "Cure metastatic disease",
+      "Reduce local recurrence risk in the treated upper tract, analogous in principle to intravesical therapy for bladder NMIBC",
+      "Replace the need for any endoscopic surveillance afterward",
+      "It has no evidence supporting its use and is not part of guideline-directed care"
+    ],
+    correctIndex: 1,
+    explanation: "Topical upper-tract instillation therapy after kidney-sparing UTUC management aims to reduce local recurrence, conceptually paralleling intravesical therapy in bladder NMIBC — it doesn't treat metastatic disease and does not replace the need for close endoscopic surveillance given the substantial recurrence risk of kidney-sparing approaches."
+  },
+  {
+    id: "onco-utuc-010",
+    topic: "oncology", subtopic: "utuc",
+    question: "Surveillance after kidney-sparing management of UTUC is generally more intensive than after radical nephroureterectomy because:",
+    options: [
+      "Kidney-sparing management carries a higher risk of local recurrence in the preserved upper tract, requiring closer endoscopic and imaging follow-up",
+      "Kidney-sparing management has a lower recurrence risk, so surveillance can actually be less intensive",
+      "There is no difference in surveillance intensity between the two approaches",
+      "Surveillance is only needed after radical nephroureterectomy, not after kidney-sparing treatment"
+    ],
+    correctIndex: 0,
+    explanation: "Because the at-risk urothelium (renal pelvis/ureter) is left in place, kidney-sparing management of UTUC carries a meaningfully higher local recurrence risk than radical nephroureterectomy, requiring more intensive endoscopic and upper-tract imaging surveillance."
+  },
+  {
+    id: "onco-utuc-011",
+    topic: "oncology", subtopic: "utuc",
+    question: "The rationale for routinely excising a cuff of bladder alongside the distal ureter during nephroureterectomy is to:",
+    options: [
+      "Improve cosmetic outcomes only, with no oncological rationale",
+      "Remove the intramural ureter and ureteric orifice, a site at high risk of harbouring tumour or seeding, reducing the risk of local/bladder recurrence at that site",
+      "It is no longer performed in modern practice regardless of tumour location",
+      "Bladder cuff excision is only relevant for renal pelvis tumours, not ureteric tumours"
+    ],
+    correctIndex: 1,
+    explanation: "Excising a cuff of bladder with the distal/intramural ureter and orifice removes tissue at particular risk of harbouring tumour cells (given the pattern of urothelial tumour spread), reducing local and subsequent bladder recurrence risk at that site — this remains standard regardless of whether the primary tumour is in the renal pelvis or ureter."
+  },
+  {
+    id: "onco-utuc-012",
+    topic: "oncology", subtopic: "utuc",
+    question: "Positive urine cytology with a normal-appearing upper tract on CT urography and normal cystoscopy should prompt consideration of:",
+    options: [
+      "No further workup; positive cytology without a visible lesion can be disregarded",
+      "Further evaluation for an occult upper tract source (e.g. ureteroscopy with selective cytology/biopsy), since a normal CT urography does not fully exclude a small or flat UTUC lesion",
+      "Immediate bilateral nephroureterectomy without further localisation",
+      "Repeat cystoscopy only, since the bladder is the only realistic source of positive cytology"
+    ],
+    correctIndex: 1,
+    explanation: "Positive cytology with a normal cystoscopy and negative CT urography should prompt further upper-tract evaluation (e.g. ureteroscopy with selective washings/biopsy), since CT urography can miss small, flat, or carcinoma-in-situ upper tract lesions — it should not be disregarded, nor should it trigger irreversible bilateral surgery without first localising and confirming disease."
+  },
+
+  // ---- ONCOLOGY: testicular (depth pass) ----
+  {
+    id: "onco-testis-005",
+    topic: "oncology", subtopic: "testis",
+    question: "After orchiectomy for a germ cell tumour, persistently elevated AFP and beta-hCG beyond their expected half-lives (AFP ~5-7 days, beta-hCG ~24-36 hours) most likely indicates:",
+    options: [
+      "Normal postoperative marker clearance; no concern",
+      "Residual disease (occult metastasis), warranting further staging workup",
+      "A laboratory error that should simply be repeated once with no further action regardless of result",
+      "Markers are irrelevant to post-orchiectomy monitoring"
+    ],
+    correctIndex: 1,
+    explanation: "Tumour markers should decline according to their expected half-lives after complete tumour removal; failure to normalise appropriately suggests residual/metastatic disease and warrants further staging (imaging) rather than being dismissed as normal or a lab artefact."
+  },
+  {
+    id: "onco-testis-006",
+    topic: "oncology", subtopic: "testis",
+    question: "Active surveillance for clinical stage I non-seminomatous germ cell tumour (NSGCT) after orchiectomy is most appropriate when:",
+    options: [
+      "Lymphovascular invasion is present in the primary tumour, regardless of other factors",
+      "There is no lymphovascular invasion and the patient is able to comply with an intensive follow-up protocol",
+      "Surveillance is never appropriate for NSGCT, unlike seminoma",
+      "The patient has a high-volume embryonal carcinoma component with vascular invasion"
+    ],
+    correctIndex: 1,
+    explanation: "Surveillance for stage I NSGCT is most appropriate in the absence of adverse risk factors (particularly lymphovascular invasion) and when the patient can adhere to an intensive monitoring schedule (markers, imaging) — lymphovascular invasion substantially raises occult metastasis risk and typically shifts management toward adjuvant chemotherapy or RPLND."
+  },
+  {
+    id: "onco-testis-007",
+    topic: "oncology", subtopic: "testis",
+    question: "Following orchiectomy for a germ cell tumour, a biopsy of the contralateral testis may be considered in patients at elevated risk of testicular intraepithelial neoplasia (TIN/GCNIS), primarily to:",
+    options: [
+      "Confirm the diagnosis of the primary tumour, which is otherwise uncertain",
+      "Detect precursor disease (TIN/GCNIS) in the contralateral testis, which carries a risk of a second primary germ cell tumour, particularly in higher-risk patients (e.g. testicular atrophy, cryptorchidism history)",
+      "It is routinely performed in all patients regardless of risk factors",
+      "To assess fertility potential only, with no oncological relevance"
+    ],
+    correctIndex: 1,
+    explanation: "Contralateral biopsy is considered in patients with risk factors for a second primary (e.g. testicular atrophy, history of cryptorchidism, young age) to detect TIN/GCNIS, a precursor lesion — it isn't performed routinely in all patients, nor is its purpose fertility assessment or confirming the already-resected primary tumour's diagnosis."
+  },
+  {
+    id: "onco-testis-008",
+    topic: "oncology", subtopic: "testis",
+    question: "Fertility preservation counselling (e.g. sperm banking) in testicular cancer patients should occur:",
+    options: [
+      "Only after completion of chemotherapy, since pretreatment counselling doesn't affect outcomes",
+      "Ideally before orchiectomy or any gonadotoxic treatment (chemotherapy/radiotherapy), given the fertility risk from treatment and potential baseline subfertility",
+      "It is not relevant in testicular cancer since fertility is never affected",
+      "Only in patients who already have children"
+    ],
+    correctIndex: 1,
+    explanation: "Testicular cancer patients often have baseline subfertility and face further fertility risk from orchiectomy, chemotherapy, or radiotherapy — fertility counselling and sperm banking should be offered proactively before treatment starts, not deferred until afterward."
+  },
+  {
+    id: "onco-testis-009",
+    topic: "oncology", subtopic: "testis",
+    question: "A residual retroperitoneal mass ≥1cm after chemotherapy for advanced NSGCT with normalised tumour markers is managed by:",
+    options: [
+      "Observation alone, since normalised markers exclude any need for further intervention",
+      "Retroperitoneal lymph node dissection (RPLND) to resect the residual mass, which may contain teratoma or viable malignancy despite normal markers",
+      "Repeat chemotherapy automatically, regardless of residual mass size or marker status",
+      "Radiotherapy to the residual mass as standard first-line management"
+    ],
+    correctIndex: 1,
+    explanation: "In NSGCT, a residual mass ≥1cm after chemotherapy — even with normalised markers — can harbour teratoma (which doesn't secrete markers and is chemo-resistant) or viable malignancy, so RPLND is indicated to resect it. This differs from seminoma, where FDG-PET-guided observation is more often used for smaller residual masses."
+  },
+  {
+    id: "onco-testis-010",
+    topic: "oncology", subtopic: "testis",
+    question: "Testicular ultrasound is the first-line imaging investigation for a suspected testicular mass primarily because it:",
+    options: [
+      "Reliably differentiates benign from malignant lesions without any further workup needed",
+      "Is highly sensitive for detecting and characterising an intratesticular mass, guiding the decision for orchiectomy, even though it cannot always reliably distinguish histological subtype",
+      "Requires no clinical correlation with tumour markers",
+      "Has been replaced by CT as the first-line test for a scrotal mass"
+    ],
+    correctIndex: 1,
+    explanation: "Scrotal ultrasound is highly sensitive for detecting and localising an intratesticular mass, guiding further management (orchiectomy) — but it cannot always definitively distinguish benign from malignant or reliably predict exact histology, and it remains the first-line modality (not CT, which is used for staging, not the initial scrotal mass evaluation)."
+  },
+  {
+    id: "onco-testis-011",
+    topic: "oncology", subtopic: "testis",
+    question: "A Leydig cell tumour of the testis differs from a typical germ cell tumour in that it:",
+    options: [
+      "Always requires the same chemotherapy regimens as germ cell tumours",
+      "Is a sex cord-stromal tumour that may cause hormonal effects (e.g. gynaecomastia, precocious puberty) and is generally managed with organ-sparing surgery when benign features predominate, unlike the orchiectomy-first approach for suspected germ cell tumours",
+      "Is universally malignant and always requires radical orchiectomy plus RPLND",
+      "Never requires any imaging or endocrine workup"
+    ],
+    correctIndex: 1,
+    explanation: "Leydig cell tumours are sex cord-stromal (not germ cell) tumours that can secrete steroid hormones causing endocrine manifestations; most are benign, and testis-sparing enucleation may be appropriate in select cases with reassuring features — unlike a suspicious mass presumed to be germ cell in origin, where radical orchiectomy is the default first step."
+  },
+
+  // ---- ONCOLOGY: penile (depth pass) ----
+  {
+    id: "onco-penile-004",
+    topic: "oncology", subtopic: "penile",
+    question: "Penile intraepithelial neoplasia (PeIN), often associated with lichen sclerosus or HPV, is best understood as:",
+    options: [
+      "A benign infectious process requiring only topical antibiotics",
+      "A premalignant lesion that can progress to invasive penile squamous cell carcinoma if untreated, warranting active management and surveillance",
+      "A normal variant needing no follow-up",
+      "Equivalent in prognosis to invasive carcinoma, requiring the same radical surgery"
+    ],
+    correctIndex: 1,
+    explanation: "PeIN is a premalignant precursor lesion (analogous to CIN/VIN) with potential to progress to invasive SCC — it requires active treatment (e.g. topical therapy, laser, or excision depending on extent) and surveillance, but is not itself invasive cancer requiring radical surgery, nor a benign process to ignore."
+  },
+  {
+    id: "onco-penile-005",
+    topic: "oncology", subtopic: "penile",
+    question: "Circumcision status is relevant to penile cancer risk because:",
+    options: [
+      "Circumcision has no established association with penile cancer risk",
+      "Neonatal circumcision is associated with a reduced risk of penile cancer, thought to relate to chronic inflammation/phimosis and HPV exposure associated with an intact foreskin",
+      "Circumcision increases penile cancer risk",
+      "Circumcision is a treatment for established invasive penile cancer"
+    ],
+    correctIndex: 1,
+    explanation: "Neonatal circumcision is associated with reduced penile cancer risk, likely via reduced chronic inflammation, phimosis, and smegma/HPV exposure — circumcision performed later in life has a less clear protective effect, and it is a risk-reduction/preventive factor, not a treatment for established cancer."
+  },
+  {
+    id: "onco-penile-006",
+    topic: "oncology", subtopic: "penile",
+    question: "Primary radiotherapy (external beam or brachytherapy) for penile cancer is:",
+    options: [
+      "Never an appropriate option regardless of stage or patient preference",
+      "An organ-preserving alternative to surgery in select patients with smaller, favourable tumours who wish to avoid surgical excision, accepting a potentially higher local recurrence rate requiring close follow-up",
+      "The universally preferred first-line treatment over surgery for all stages",
+      "Only used after surgical treatment has already failed, never as primary therapy"
+    ],
+    correctIndex: 1,
+    explanation: "Primary radiotherapy is a recognised organ-preserving option for selected patients with smaller, favourable tumours who prioritise organ preservation, with the trade-off of a generally higher local recurrence rate than surgery, necessitating close surveillance — it is an alternative option, not a universal first-line replacement for surgery."
+  },
+  {
+    id: "onco-penile-007",
+    topic: "oncology", subtopic: "penile",
+    question: "Systemic chemotherapy in penile cancer is primarily used for:",
+    options: [
+      "Small, organ-confined, node-negative tumours as an alternative to any local treatment",
+      "Neoadjuvant treatment of bulky/fixed regional lymph node disease, or systemic treatment of metastatic disease",
+      "It has no role at any stage of penile cancer",
+      "Routine adjuvant treatment after surgery for all node-negative patients"
+    ],
+    correctIndex: 1,
+    explanation: "Chemotherapy's main roles in penile cancer are neoadjuvant treatment to downstage bulky/fixed inguinal nodal disease before surgery, and treatment of metastatic disease — it is not used for small node-negative primary tumours instead of local treatment, nor routinely adjuvant in node-negative disease."
+  },
+  {
+    id: "onco-penile-008",
+    topic: "oncology", subtopic: "penile",
+    question: "A key limitation of dynamic sentinel node biopsy (DSNB) in penile cancer staging is:",
+    options: [
+      "It has no false-negative rate and can fully replace any further surveillance",
+      "A false-negative rate exists despite careful technique, so close inguinal surveillance after a negative DSNB remains important",
+      "It can only be performed on patients who have already had a full inguinal lymphadenectomy",
+      "It is used only for distant metastasis detection, not regional nodal staging"
+    ],
+    correctIndex: 1,
+    explanation: "Despite technical refinement, DSNB carries a recognised false-negative rate, meaning a negative result does not eliminate the need for ongoing careful inguinal surveillance — it is a regional nodal staging tool (for clinically node-negative patients), not a distant-metastasis test, and is an alternative to (not dependent on prior) full lymphadenectomy."
+  },
+  {
+    id: "onco-penile-009",
+    topic: "oncology", subtopic: "penile",
+    question: "Inguinal lymphadenectomy for penile cancer carries a notable risk of which complication, which has driven interest in minimally invasive/video-endoscopic techniques?",
+    options: [
+      "It is a low-morbidity procedure with negligible complication rates",
+      "Lymphoedema, wound complications (infection, skin necrosis), and lymphocele, given the extensive dissection required",
+      "Complications are limited to minor bruising only",
+      "Erectile dysfunction is the primary complication of inguinal lymphadenectomy"
+    ],
+    correctIndex: 1,
+    explanation: "Inguinal lymphadenectomy has substantial associated morbidity — lymphoedema, wound breakdown/infection, skin necrosis, and lymphocele — driving interest in minimally invasive/video-endoscopic inguinal lymphadenectomy to reduce wound-related complications while preserving oncological adequacy; erectile dysfunction is not a typical direct complication of this nodal procedure."
+  },
+  {
+    id: "onco-penile-010",
+    topic: "oncology", subtopic: "penile",
+    question: "Follow-up after treatment for penile cancer is risk-adapted and most intensive in the first 2 years because:",
+    options: [
+      "Recurrence risk (local and regional) is highest in this early period, particularly after organ-preserving treatment",
+      "Recurrences essentially never occur after treatment for penile cancer",
+      "Follow-up intensity is unrelated to time since treatment",
+      "Only distant metastases are monitored; local recurrence is not a follow-up concern"
+    ],
+    correctIndex: 0,
+    explanation: "Local and regional recurrence risk after penile cancer treatment is highest in the first 1-2 years, particularly following organ-preserving approaches (local excision, radiotherapy) — follow-up is therefore most intensive early on, monitoring both local/regional sites (not only distant metastasis) and de-escalating over time if the patient remains disease-free."
   }
 ];
 
